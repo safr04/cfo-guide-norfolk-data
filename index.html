@@ -327,6 +327,47 @@ hr.ex-divider { border: none; border-top: 1px solid #c8c0b0; margin: 24px 0; }
 .tab-nav { top: 52px !important; }
 .chapter-nav { top: 52px !important; }
 
+
+/* ── FORCE COMPACT HERO FOR DATA ASSEMBLY AND METHODOLOGIES ── */
+.da-hero,
+.meth-hero {
+  background: #0e1a2b;
+  padding: 20px 32px 16px;
+  min-height: 0 !important;
+  height: auto !important;
+}
+.da-hero .hero-eyebrow,
+.meth-hero .hero-eyebrow {
+  font-size: 10px !important;
+  margin-bottom: 8px !important;
+}
+.da-hero .hero-eyebrow::before,
+.meth-hero .hero-eyebrow::before { display: none !important; }
+.da-hero .hero-heading,
+.meth-hero h1 {
+  font-size: 26px !important;
+  color: #fff !important;
+  margin-bottom: 8px !important;
+  line-height: 1.2 !important;
+}
+.da-hero .hero-sub,
+.meth-hero p {
+  font-size: 13px !important;
+  color: rgba(255,255,255,.6) !important;
+  max-width: 700px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 12px !important;
+}
+.da-hero .hero-meta {
+  gap: 20px !important;
+  margin-bottom: 0 !important;
+}
+.da-hero .meta-item { flex-direction: row; gap: 8px; align-items: center; }
+.da-hero .meta-label { font-size: 10px !important; color: rgba(255,255,255,.4) !important; margin-bottom: 0 !important; }
+.da-hero .meta-value { font-size: 12px !important; color: rgba(255,255,255,.65) !important; }
+/* Prevent landing .hero grid from applying to da-hero */
+.da-hero { display: block !important; grid-template-columns: none !important; }
+
 </style>
 </head>
 <body>
