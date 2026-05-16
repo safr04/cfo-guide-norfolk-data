@@ -3,522 +3,323 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CFO Guide — Land Hazards &amp; Fiscal Planning | Norfolk Test Case</title>
-
-<!-- ── SHARED NAV ── -->
+<title>CFO Guide — Land Hazards & Fiscal Planning | Norfolk Test Case</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Lato+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-.page{display:none;}
-.page.active{display:block;}
+/* ═══════════════════════════════════════════════════
+   UNIFIED STYLESHEET — CFO Guide Norfolk
+   Font: Lato (body) · Lato Mono (data) · Playfair Display (headings)
+   ═══════════════════════════════════════════════════ */
 
-/* Unified nav */
-#main-nav{
-  position:sticky;top:0;z-index:1000;
-  background:#0e1a2b;border-bottom:2px solid #b8962e;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 48px;height:52px;
+/* Reset */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Base */
+html { font-size: 15px; }
+body {
+  font-family: 'Lato', sans-serif;
+  background: #f4f1eb;
+  color: #0e1a2b;
+  line-height: 1.65;
+  overflow-x: hidden;
 }
-.nav-brand{font-family:"Lato Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#b8962e;}
-.nav-links{display:flex;gap:0;}
-.nav-btn{
-  background:none;border:none;cursor:pointer;
-  padding:0 24px;height:52px;
-  font-family:"Lato",sans-serif;font-size:12px;font-weight:700;
-  letter-spacing:.08em;text-transform:uppercase;
-  color:rgba(255,255,255,.5);border-bottom:2px solid transparent;
-  margin-bottom:-2px;transition:all .18s;
+
+/* Typography defaults */
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 400; line-height: 1.15; }
+p { line-height: 1.75; }
+a { color: inherit; }
+
+/* Pages */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ── VARIABLES ── */
+:root {
+  --ink: #0e1a2b; --ink2: #2a3f5f; --paper: #f4f1eb; --paper2: #ece8e0;
+  --gold: #b8962e; --gold2: #d4ae4a; --red: #8b2020; --teal: #1a6b6b;
+  --border: #c8c0b0; --green: #2d6a4f;
+  /* data assembly vars */
+  --navy: #0e1a2b; --navy-mid: #1e2d45; --blue: #3b6fd4;
+  --amber: #b8962e; --cream: #f4f1eb; --cream-mid: #ece8e0;
+  --text: #0e1a2b; --text-mid: #2a3f5f; --text-light: #718096;
 }
-.nav-btn:hover{color:rgba(255,255,255,.85);}
-.nav-btn.active{color:#d4ae4a;border-bottom-color:#b8962e;}
-
-/* Fix sticky sub-navs: data assembly tab-nav and meth chapter-nav */
-.tab-nav{top:52px !important;}
-.chapter-nav{top:52px !important;}
-
-/* Fix data assembly header (was sticky below its own old nav) */
-header{top:52px !important;}
-</style>
-
-<!-- ── LANDING STYLES ── -->
-<style>
-
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --ink:#0e1a2b;--ink2:#2a3f5f;--paper:#f4f1eb;--paper2:#ece8e0;
-  --gold:#b8962e;--gold2:#d4ae4a;--red:#8b2020;--teal:#1a6b6b;
-  --border:#c8c0b0;
-}
-body{font-family:'Lato',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;overflow-x:hidden;}
 
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--ink);border-bottom:2px solid var(--gold);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:52px;}
-.nav-brand{font-family:'Lato Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{font-family:'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s;}
-.nav-links a:hover,.nav-links a.active{color:#fff;}
-.nav-links a.active{color:var(--gold2);}
-
-/* ── HERO ── */
-.hero{display:grid;grid-template-columns:1fr 1fr;position:relative;padding-top:52px;}
-.hero-left{background:var(--ink);padding:80px 64px 80px 80px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
-.hero-left::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;border:1px solid rgba(184,150,46,.15);border-radius:50%;}
-.hero-left::after{content:'';position:absolute;bottom:-50px;right:-50px;width:250px;height:250px;border:1px solid rgba(184,150,46,.1);border-radius:50%;}
-.hero-eyebrow{font-family:'Lato Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:flex;align-items:center;gap:12px;}
-.hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--gold);}
-.hero-heading{font-family:'Playfair Display',serif;font-size:52px;line-height:1.1;color:#fff;font-weight:400;margin-bottom:8px;}
-.hero-heading em{font-style:italic;color:var(--gold2);}
-.hero-sub-heading{font-family:'Playfair Display',serif;font-size:20px;color:rgba(255,255,255,.5);font-style:italic;margin-bottom:36px;}
-.hero-.hero-.hero-body{color:rgba(255,255,255,.65);font-size:15px;line-height:1.8;max-width:480px;margin-bottom:48px;}
-.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;}
-.cta-primary{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--ink);font-family:'Lato',sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:14px 28px;text-decoration:none;transition:all .2s;}
-.cta-primary:hover{background:var(--gold2);}
-.cta-secondary{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.7);font-family:'Lato',sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:14px 28px;text-decoration:none;transition:all .2s;}
-.cta-secondary:hover{border-color:rgba(255,255,255,.6);color:#fff;}
-
-.hero-right{background:var(--paper2);padding:80px 64px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--border);}
-.stat-deck{display:grid;grid-template-columns:1fr 1fr;gap:0;}
-.stat-item{padding:28px 24px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);}
-.stat-item:nth-child(even){border-right:none;}
-.stat-item:nth-last-child(-n+2){border-bottom:none;}
-.stat-num{font-family:'Playfair Display',serif;font-size:36px;color:var(--ink);line-height:1;margin-bottom:6px;}
-.stat-num.red{color:var(--red);}
-.stat-num.teal{color:var(--teal);}
-.stat-num.gold{color:var(--gold);}
-.stat-label{font-family:'Lato Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin-bottom:4px;}
-.stat-desc{font-size:12px;color:#666;line-height:1.4;}
-
-/* ── SECTIONS ── */
-.about{padding:96px 80px;max-width:1200px;margin:0 auto;}
-.section-rule{width:40px;height:2px;background:var(--gold);margin-bottom:24px;}
-.section-eyebrow{font-family:'Lato Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
-.section-heading{font-family:'Playfair Display',serif;font-size:36px;color:var(--ink);font-weight:400;margin-bottom:24px;line-height:1.2;}
-.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;margin-top:64px;}
-.pillar{border-top:2px solid var(--border);padding-top:24px;}
-.pillar-num{font-family:'Lato Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--gold);margin-bottom:12px;}
-.pillar-title{font-family:'Playfair Display',serif;font-size:20px;color:var(--ink);margin-bottom:12px;font-weight:400;}
-.pillar-.ex-section p{font-size:14px;line-height:1.7;color:var(--ink2);}
-
-/* ── STRUCTURE STRIP ── */
-.structure{background:var(--ink);padding:80px;}
-.structure-inner{max-width:1200px;margin:0 auto;}
-.structure-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);margin-top:48px;}
-.structure-cell{background:var(--ink);padding:32px;transition:background .2s;}
-.structure-cell:hover{background:var(--ink2);}
-.cell-label{font-family:'Lato Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
-.cell-title{font-family:'Playfair Display',serif;font-size:18px;color:#fff;font-weight:400;margin-bottom:8px;}
-.cell-.cell-body{font-size:13px;color:rgba(255,255,255,.5);line-height:1.6;}
-.cell-link{display:inline-block;margin-top:16px;font-family:'Lato Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(184,150,46,.3);padding-bottom:2px;transition:border-color .2s;}
-.cell-link:hover{border-color:var(--gold);}
-
-/* ── FINDINGS STRIP ── */
-.findings{padding:80px;}
-.findings-inner{max-width:1200px;margin:0 auto;}
-.findings-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px;}
-.finding-card{border:1px solid var(--border);padding:32px;background:#fff;}
-.finding-chapter{font-family:'Lato Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;}
-.finding-headline{font-family:'Playfair Display',serif;font-size:22px;color:var(--ink);margin-bottom:12px;font-weight:400;line-height:1.3;}
-.finding-.ex-section p{font-size:14px;line-height:1.7;color:var(--ink2);}
-.finding-stat{margin-top:20px;padding-top:20px;border-top:1px solid var(--border);font-family:'Lato Mono',monospace;font-size:11px;color:var(--ink);display:flex;gap:24px;flex-wrap:wrap;}
-.finding-stat span{color:var(--gold);}
-
-/* ── COORDINATION ── */
-.coordination{background:var(--paper2);border-top:1px solid var(--border);padding:80px;}
-.coordination-inner{max-width:1200px;margin:0 auto;}
-.coord-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;border:1px solid var(--border);}
-.coord-cell{padding:28px 24px;border-right:1px solid var(--border);}
-.coord-cell:last-child{border-right:none;}
-.coord-office{font-family:'Lato Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
-.coord-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;}
-.coord-.pillar-body,.coord-body{font-size:13px;color:var(--ink2);line-height:1.6;}
-.coord-tag{display:inline-block;margin-top:12px;font-family:'Lato Mono',monospace;font-size:10px;padding:3px 8px;background:var(--ink);color:var(--gold);letter-spacing:.05em;}
-
-footer{background:var(--ink);padding:32px 80px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.08);}
-.footer-brand{font-family:'Lato Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);}
-.footer-note{font-size:12px;color:rgba(255,255,255,.3);}
-
-</style>
-
-<!-- ── DATA ASSEMBLY STYLES ── -->
-<style>
-
-nav{position:sticky;top:0;z-index:200;background:#0e1a2b;border-bottom:2px solid #b8962e;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:52px;}
-.nav-brand{font-family:"Lato Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#b8962e;}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s;}
-.nav-links a:hover{color:#fff;}
-.nav-links a.active{color:#d4ae4a;}
-
-
-  :root {
-    --navy: #1a2740;
-    --navy-mid: #243352;
-    --blue: #3b6fd4;
-    --blue-light: #5a8de8;
-    --teal: #2a9d8f;
-    --amber: #e9c46a;
-    --red: #e76f51;
-    --cream: #f8f5f0;
-    --cream-mid: #f0ebe3;
-    --text: #1a2740;
-    --text-mid: #4a5568;
-    --text-light: #718096;
-    --border: #ddd6cc;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  .page-data { font-family: "Lato", sans-serif; color: var(--text); line-height: 1.65; font-size: 15px; }
-
-  /* HEADER — lean */
-  header {
-    background: var(--navy);
-    border-bottom: 2px solid var(--amber);
-    position: sticky; top: 0; z-index: 100;
-  }
-  .header-inner {
-    max-width: 1100px; margin: 0 auto;
-    padding: 0 32px;
-    display: flex; align-items: center; justify-content: space-between;
-    height: 48px;
-  }
-  .header-left { display: flex; align-items: center; gap: 10px; }
-  .header-pill {
-    font-family: "Lato Mono", monospace; font-size: 10px;
-    letter-spacing: 0.12em; text-transform: uppercase;
-    background: var(--amber); color: var(--navy);
-    padding: 2px 8px; border-radius: 3px;
-  }
-  .header-title { font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 500; }
-  .header-right { font-family: "Lato Mono", monospace; font-size: 11px; color: rgba(255,255,255,0.4); }
-
-  /* HERO */
-  .hero { background: var(--navy); padding: 28px 32px 24px; }
-  .hero-inner { max-width: 1100px; margin: 0 auto; }
-  .hero-eyebrow {
-    font-family: "Lato Mono", monospace; font-size: 11px;
-    letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--amber); margin-bottom: 14px;
-  }
-  .hero-heading {
-    font-family: "Playfair Display", serif; font-size: 26px;
-    color: #fff; font-weight: 400; line-height: 1.15; margin-bottom: 14px;
-  }
-  .hero-sub { color: rgba(255,255,255,0.6); font-size: 15px; max-width: 660px; line-height: 1.75; margin-bottom: 16px; }
-  .hero-meta { display: flex; gap: 20px; flex-wrap: wrap; }
-  .meta-item { display: flex; flex-direction: column; gap: 2px; }
-  .meta-label { font-family: "Lato Mono", monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
-  .meta-value { font-size: 13px; color: rgba(255,255,255,0.75); font-weight: 500; }
-
-  /* TABS */
-  .tab-nav { background: var(--navy-mid); border-bottom: 1px solid rgba(255,255,255,0.08); position: sticky; top: 52px; z-index: 90; }
-  .tab-nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; display: flex; }
-  .tab-btn {
-    background: none; border: none; cursor: pointer;
-    padding: 16px 24px; font-family: "Lato", sans-serif;
-    font-size: 13px; font-weight: 500;
-    color: rgba(255,255,255,0.45);
-    border-bottom: 2px solid transparent; margin-bottom: -1px;
-    transition: all 0.18s; display: flex; align-items: center; gap: 8px;
-  }
-  .tab-btn:hover { color: rgba(255,255,255,0.75); }
-  .tab-btn.active { color: #fff; border-bottom-color: var(--amber); }
-  .tab-code {
-    font-family: "Lato Mono", monospace; font-size: 10px;
-    background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 3px; color: var(--amber);
-  }
-  .tab-btn.active .tab-code { background: var(--amber); color: var(--navy); }
-
-  main { max-width: 1100px; margin: 0 auto; padding: 44px 32px 80px; }
-  .tab-panel { display: none; }
-  .tab-panel.active { display: block; }
-
-  .section-intro {
-    background: #fff; border: 1px solid var(--border); border-radius: 8px;
-    padding: 24px 28px; margin-bottom: 28px; border-left: 4px solid var(--blue);
-  }
-  .section-intro p { color: var(--text); font-size: 14px; line-height: 1.75; }
-  .section-intro p + p { margin-top: 8px; }
-
-  /* STATS */
-  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 32px; }
-  .stat-card {
-    background: #fff; border: 1px solid var(--border); border-radius: 8px;
-    padding: 18px 20px; position: relative; overflow: hidden;
-  }
-  .stat-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--blue); }
-  .stat-card.amber::before { background: var(--amber); }
-  .stat-card.teal::before { background: var(--teal); }
-  .stat-card.red::before { background: var(--red); }
-  .stat-label { font-family: "Lato Mono", monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 7px; }
-  .stat-value { font-family: "Playfair Display", serif; font-size: 26px; color: var(--navy); line-height: 1; margin-bottom: 3px; }
-  .stat-sub { font-size: 11px; color: var(--text-light); }
-
-  /* ACCORDION */
-  .content-block { background: #fff; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 20px; overflow: hidden; }
-  .block-header {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 22px; border-bottom: 1px solid var(--border);
-    background: #fafaf8; cursor: pointer; user-select: none; gap: 12px;
-  }
-  .block-header:hover { background: var(--cream-mid); }
-  .block-title { font-size: 13px; font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 10px; }
-  .block-tag {
-    font-family: "Lato Mono", monospace; font-size: 10px;
-    padding: 2px 7px; border-radius: 3px; font-weight: 400; letter-spacing: 0.04em;
-  }
-  .tag-step { background: #e8f0fe; color: var(--blue); }
-  .tag-data { background: #e6f7f5; color: var(--teal); }
-  .tag-missing { background: #fef3e8; color: #c05621; }
-  .tag-assume { background: #f0e8fe; color: #6b46c1; }
-  .tag-finding { background: #fff3cd; color: #856404; }
-  .block-chevron { font-size: 16px; color: var(--text-light); transition: transform 0.2s; flex-shrink: 0; }
-  .block-header.open .block-chevron { transform: rotate(180deg); }
-  .block-.block-body { padding: 22px; display: none; }
-  .block-body.open { display: block; }
-
-  /* STEPS */
-  .step-list { list-style: none; }
-  .step-item { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--cream-mid); }
-  .step-item:last-child { border-bottom: none; padding-bottom: 0; }
-  .step-num {
-    width: 26px; height: 26px; border-radius: 50%; background: var(--navy);
-    color: #fff; font-family: "Lato Mono", monospace; font-size: 11px;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;
-  }
-  .step-title { font-weight: 600; font-size: 13px; color: var(--navy); margin-bottom: 3px; }
-  .step-desc { color: var(--text); font-size: 13px; line-height: 1.6; }
-  .step-note {
-    margin-top: 8px; padding: 8px 12px; background: var(--cream);
-    border-left: 3px solid var(--amber); border-radius: 0 4px 4px 0;
-    font-size: 12px; color: var(--text); font-style: italic;
-  }
-
-  /* TABLES */
-  .source-table, .exposure-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .source-table th, .exposure-table th {
-    text-align: left; padding: 9px 13px;
-    background: var(--navy); color: rgba(255,255,255,0.8);
-    font-family: "Lato Mono", monospace; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500;
-  }
-  .exposure-table th { text-align: right; }
-  .exposure-table th:first-child { text-align: left; }
-  .source-table td, .exposure-table td {
-    padding: 11px 13px; border-bottom: 1px solid var(--cream-mid); vertical-align: top; line-height: 1.5;
-  }
-  .exposure-table td { text-align: right; font-family: "Lato Mono", monospace; font-size: 12px; color: var(--text); }
-  .exposure-table td:first-child { text-align: left; font-family: "Lato", sans-serif; font-size: 13px; color: var(--navy); font-weight: 500; }
-  .source-table tr:last-child td, .exposure-table tr:last-child td { border-bottom: none; }
-  .source-table tr:nth-child(even) td, .exposure-table tr:nth-child(even) td { background: #fafaf8; }
-  .exposure-table tr:last-child td { font-weight: 600; color: var(--navy); background: #f4f1eb; }
-  .source-link { color: var(--blue); text-decoration: none; font-family: "Lato Mono", monospace; font-size: 11px; word-break: break-all; }
-  .source-link:hover { text-decoration: underline; }
-
-  /* ISSUES */
-  .issue-list { list-style: none; }
-  .issue-item { display: flex; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--cream-mid); font-size: 13px; color: var(--text); line-height: 1.6; }
-  .issue-item:last-child { border-bottom: none; }
-  .issue-dot { width: 7px; height: 7px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
-  .dot-missing { background: var(--red); }
-  .dot-assume { background: #9b72cf; }
-  .issue-text strong { color: var(--navy); }
-
-  /* DOWNLOAD */
-  .download-section {
-    background: var(--navy); border-radius: 8px; padding: 24px 28px;
-    margin-top: 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
-  }
-  .download-label { font-family: "Lato Mono", monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); margin-bottom: 4px; }
-  .download-title { font-family: "Playfair Display", serif; font-size: 18px; color: #fff; font-weight: 400; margin-bottom: 4px; }
-  .download-desc { color: rgba(255,255,255,0.5); font-size: 12px; }
-  .download-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-  .download-btn {
-    display: inline-flex; align-items: center; gap: 7px;
-    background: var(--amber); color: var(--navy); border: none;
-    padding: 10px 18px; border-radius: 6px;
-    font-family: "Lato", sans-serif; font-size: 13px; font-weight: 600;
-    cursor: pointer; text-decoration: none; transition: opacity 0.15s; white-space: nowrap;
-  }
-  .download-btn:hover { opacity: 0.88; }
-  .download-btn.secondary {
-    background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.8);
-  }
-  .download-btn.loading { opacity: 0.6; pointer-events: none; }
-  .download-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
-
-  /* MISC */
-  .callout {
-    background: #f0f7ff; border: 1px solid #bee3f8; border-radius: 6px;
-    padding: 13px 16px; font-size: 13px; color: #2c5282; line-height: 1.65; margin-top: 14px;
-  }
-  .callout strong { color: #1a365d; }
-  hr.divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
-  .badge {
-    display: inline-block; padding: 2px 7px; border-radius: 3px;
-    font-family: "Lato Mono", monospace; font-size: 10px; font-weight: 500;
-  }
-  .badge-yes { background: #dcfce7; color: #166534; }
-  .badge-no { background: #fee2e2; color: #991b1b; }
-  .badge-partial { background: #fef3c7; color: #92400e; }
-  .finding-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
-  .finding-cell { background: var(--cream); border: 1px solid var(--border); border-radius: 6px; padding: 14px; }
-  .finding-cell-label { font-family: "Lato Mono", monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); margin-bottom: 5px; }
-  .finding-cell-value { font-family: "Playfair Display", serif; font-size: 20px; color: var(--navy); }
-  .finding-cell-sub { font-size: 11px; color: var(--text-light); margin-top: 2px; }
-
-  @media (max-width: 680px) {
-    .hero-heading { font-size: 28px; }
-    .tab-btn { padding: 12px 14px; font-size: 12px; }
-    .finding-row { grid-template-columns: 1fr; }
-    .download-section { flex-direction: column; }
-    main { padding: 28px 18px 60px; }
-    .hero { padding: 32px 18px 28px; }
-    .header-inner { padding: 0 18px; }
-  }
-
-
-@keyframes spin { to { transform: rotate(360deg); } }
-
-</style>
-
-<!-- ── METHODOLOGY STYLES ── -->
-<style>
-
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --ink:#0e1a2b;--ink2:#2a3f5f;--paper:#f4f1eb;--paper2:#ece8e0;
-  --gold:#b8962e;--gold2:#d4ae4a;--red:#8b2020;--teal:#1a6b6b;
-  --border:#c8c0b0;--green:#2d6a4f;
+#main-nav {
+  position: sticky; top: 0; z-index: 1000;
+  background: #0e1a2b; border-bottom: 2px solid #b8962e;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 52px;
 }
-body{font-family:"Lato",sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;}
+.nav-brand { font-family: 'Lato Mono', monospace; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #b8962e; }
+.nav-links { display: flex; }
+.nav-btn {
+  background: none; border: none; cursor: pointer;
+  padding: 0 24px; height: 52px;
+  font-family: 'Lato', sans-serif; font-size: 12px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: rgba(255,255,255,.5); border-bottom: 2px solid transparent; margin-bottom: -2px;
+  transition: all .18s;
+}
+.nav-btn:hover { color: rgba(255,255,255,.85); }
+.nav-btn.active { color: #d4ae4a; border-bottom-color: #b8962e; }
 
-nav{position:sticky;top:0;z-index:100;background:var(--ink);border-bottom:2px solid var(--gold);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:52px;}
-.nav-brand{font-family:"Lato Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);}
-.nav-links{display:flex;gap:32px;}
-.nav-links a{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s;}
-.nav-links a:hover{color:#fff;}
-.nav-links a.active{color:var(--gold2);}
+/* ── LANDING PAGE ── */
+.hero { display: grid; grid-template-columns: 1fr 1fr; }
+.hero-left { background: #0e1a2b; padding: 72px 64px 72px 80px; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+.hero-left::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; border: 1px solid rgba(184,150,46,.15); border-radius: 50%; }
+.hero-eyebrow { font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: #b8962e; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+.hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: #b8962e; }
+.hero-heading { font-family: 'Playfair Display', serif; font-size: 52px; color: #fff; font-weight: 400; margin-bottom: 8px; }
+.hero-heading em { font-style: italic; color: #d4ae4a; }
+.hero-sub-heading { font-family: 'Playfair Display', serif; font-size: 20px; color: rgba(255,255,255,.5); font-style: italic; margin-bottom: 36px; }
+.hero-body { font-family: 'Lato', sans-serif; color: rgba(255,255,255,.65); font-size: 15px; line-height: 1.8; max-width: 480px; margin-bottom: 48px; }
+.hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+.cta-primary { display: inline-flex; align-items: center; gap: 10px; background: #b8962e; color: #0e1a2b; font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 14px 28px; text-decoration: none; transition: all .2s; }
+.cta-primary:hover { background: #d4ae4a; }
+.cta-secondary { display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(255,255,255,.3); color: rgba(255,255,255,.7); font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 14px 28px; text-decoration: none; transition: all .2s; }
+.cta-secondary:hover { border-color: rgba(255,255,255,.6); color: #fff; }
+.hero-right { background: #ece8e0; padding: 72px 64px; display: flex; flex-direction: column; justify-content: center; border-left: 1px solid #c8c0b0; }
+.stat-deck { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.stat-item { padding: 28px 24px; border-bottom: 1px solid #c8c0b0; border-right: 1px solid #c8c0b0; }
+.stat-item:nth-child(even) { border-right: none; }
+.stat-item:nth-last-child(-n+2) { border-bottom: none; }
+.stat-num { font-family: 'Playfair Display', serif; font-size: 34px; color: #0e1a2b; line-height: 1; margin-bottom: 6px; }
+.stat-num.red { color: #8b2020; }
+.stat-num.teal { color: #1a6b6b; }
+.stat-num.gold { color: #b8962e; }
+.stat-label { font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #2a3f5f; margin-bottom: 4px; }
+.stat-desc { font-family: 'Lato', sans-serif; font-size: 12px; color: #666; line-height: 1.4; }
+.about { padding: 96px 80px; max-width: 1200px; margin: 0 auto; }
+.section-rule { width: 40px; height: 2px; background: #b8962e; margin-bottom: 24px; }
+.section-eyebrow { font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: #b8962e; margin-bottom: 16px; }
+.section-heading { font-family: 'Playfair Display', serif; font-size: 36px; color: #0e1a2b; font-weight: 400; margin-bottom: 24px; line-height: 1.2; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; margin-top: 64px; }
+.pillar { border-top: 2px solid #c8c0b0; padding-top: 24px; }
+.pillar-num { font-family: 'Lato Mono', monospace; font-size: 11px; letter-spacing: .1em; color: #b8962e; margin-bottom: 12px; }
+.pillar-title { font-family: 'Playfair Display', serif; font-size: 20px; color: #0e1a2b; margin-bottom: 12px; font-weight: 400; }
+.pillar-body { font-family: 'Lato', sans-serif; font-size: 14px; line-height: 1.7; color: #2a3f5f; }
+.structure { background: #0e1a2b; padding: 80px; }
+.structure-inner { max-width: 1200px; margin: 0 auto; }
+.structure-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(255,255,255,.08); margin-top: 48px; }
+.structure-cell { background: #0e1a2b; padding: 32px; transition: background .2s; }
+.structure-cell:hover { background: #1e2d45; }
+.cell-label { font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: #b8962e; margin-bottom: 12px; }
+.cell-title { font-family: 'Playfair Display', serif; font-size: 18px; color: #fff; font-weight: 400; margin-bottom: 8px; }
+.cell-body { font-family: 'Lato', sans-serif; font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.6; }
+.cell-link { display: inline-block; margin-top: 16px; font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #b8962e; text-decoration: none; border-bottom: 1px solid rgba(184,150,46,.3); padding-bottom: 2px; transition: border-color .2s; }
+.cell-link:hover { border-color: #b8962e; }
+.findings { padding: 80px; }
+.findings-inner { max-width: 1200px; margin: 0 auto; }
+.findings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; }
+.finding-card { border: 1px solid #c8c0b0; padding: 32px; background: #fff; }
+.finding-chapter { font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #1a6b6b; margin-bottom: 8px; }
+.finding-headline { font-family: 'Playfair Display', serif; font-size: 22px; color: #0e1a2b; margin-bottom: 12px; font-weight: 400; line-height: 1.3; }
+.finding-body { font-family: 'Lato', sans-serif; font-size: 14px; line-height: 1.7; color: #2a3f5f; }
+.finding-stat { margin-top: 20px; padding-top: 20px; border-top: 1px solid #c8c0b0; font-family: 'Lato Mono', monospace; font-size: 11px; color: #0e1a2b; display: flex; gap: 24px; flex-wrap: wrap; }
+.finding-stat span { color: #b8962e; }
+.coordination { background: #ece8e0; border-top: 1px solid #c8c0b0; padding: 80px; }
+.coordination-inner { max-width: 1200px; margin: 0 auto; }
+.coord-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; margin-top: 48px; border: 1px solid #c8c0b0; }
+.coord-cell { padding: 28px 24px; border-right: 1px solid #c8c0b0; }
+.coord-cell:last-child { border-right: none; }
+.coord-office { font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #b8962e; margin-bottom: 10px; }
+.coord-title { font-family: 'Lato', sans-serif; font-size: 15px; font-weight: 700; color: #0e1a2b; margin-bottom: 8px; }
+.coord-body { font-family: 'Lato', sans-serif; font-size: 13px; color: #2a3f5f; line-height: 1.6; }
+.coord-tag { display: inline-block; margin-top: 12px; font-family: 'Lato Mono', monospace; font-size: 10px; padding: 3px 8px; background: #0e1a2b; color: #b8962e; letter-spacing: .05em; }
 
-.page-hero{background:var(--ink);padding: 28px 80px 24px;}
-.hero-eyebrow{font-family:"Lato Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
-.hero-heading{font-family:"Playfair Display",serif;font-size:44px;color:#fff;font-weight:400;margin-bottom:12px;}
-.hero-sub{color:rgba(255,255,255,.6);font-size:15px;max-width:700px;line-height:1.75;}
+/* ── DATA ASSEMBLY ── */
+header { background: #0e1a2b; border-bottom: 2px solid #b8962e; position: sticky; top: 52px; z-index: 100; }
+.header-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 48px; }
+.header-left { display: flex; align-items: center; gap: 10px; }
+.header-pill { font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; background: #b8962e; color: #0e1a2b; padding: 2px 8px; border-radius: 3px; }
+.header-title { font-family: 'Lato', sans-serif; font-size: 14px; color: rgba(255,255,255,.85); font-weight: 500; }
+.header-right { font-family: 'Lato Mono', monospace; font-size: 11px; color: rgba(255,255,255,.4); }
+.hero { background: #0e1a2b; padding: 28px 32px 24px; }
+.hero-inner { max-width: 1100px; margin: 0 auto; }
+.tab-nav { background: #1e2d45; border-bottom: 1px solid rgba(255,255,255,.08); position: sticky; top: 100px; z-index: 90; }
+.tab-nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; display: flex; }
+.tab-btn { background: none; border: none; cursor: pointer; padding: 16px 24px; font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 500; color: rgba(255,255,255,.45); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all .18s; display: flex; align-items: center; gap: 8px; }
+.tab-btn:hover { color: rgba(255,255,255,.75); }
+.tab-btn.active { color: #fff; border-bottom-color: #b8962e; }
+.tab-code { font-family: 'Lato Mono', monospace; font-size: 10px; background: rgba(255,255,255,.1); padding: 2px 6px; border-radius: 3px; color: #b8962e; }
+.tab-btn.active .tab-code { background: #b8962e; color: #0e1a2b; }
+main { max-width: 1100px; margin: 0 auto; padding: 44px 32px 80px; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+.section-intro { background: #fff; border: 1px solid #c8c0b0; border-radius: 8px; padding: 24px 28px; margin-bottom: 28px; border-left: 4px solid #3b6fd4; }
+.section-intro p { font-family: 'Lato', sans-serif; color: #2a3f5f; font-size: 14px; line-height: 1.75; }
+.section-intro p + p { margin-top: 8px; }
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 32px; }
+.stat-card { background: #fff; border: 1px solid #c8c0b0; border-radius: 8px; padding: 18px 20px; position: relative; overflow: hidden; }
+.stat-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: #3b6fd4; }
+.stat-card.amber::before { background: #b8962e; }
+.stat-card.teal::before { background: #1a6b6b; }
+.stat-card.red::before { background: #8b2020; }
+.stat-label { font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #718096; margin-bottom: 7px; }
+.stat-value { font-family: 'Playfair Display', serif; font-size: 26px; color: #0e1a2b; line-height: 1; margin-bottom: 3px; }
+.stat-sub { font-family: 'Lato', sans-serif; font-size: 11px; color: #718096; }
+.content-block { background: #fff; border: 1px solid #c8c0b0; border-radius: 8px; margin-bottom: 20px; overflow: hidden; }
+.block-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 22px; border-bottom: 1px solid #c8c0b0; background: #fafaf8; cursor: pointer; user-select: none; gap: 12px; }
+.block-header:hover { background: #ece8e0; }
+.block-title { font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 600; color: #0e1a2b; display: flex; align-items: center; gap: 10px; }
+.block-tag { font-family: 'Lato Mono', monospace; font-size: 10px; padding: 2px 7px; border-radius: 3px; font-weight: 400; letter-spacing: .04em; }
+.tag-step { background: #e8f0fe; color: #3b6fd4; }
+.tag-data { background: #e6f7f5; color: #1a6b6b; }
+.tag-missing { background: #fef3e8; color: #c05621; }
+.tag-assume { background: #f0e8fe; color: #6b46c1; }
+.tag-finding { background: #fff3cd; color: #856404; }
+.block-chevron { font-size: 16px; color: #718096; transition: transform .2s; flex-shrink: 0; }
+.block-header.open .block-chevron { transform: rotate(180deg); }
+.block-body { padding: 22px; display: none; }
+.block-body.open { display: block; }
+.step-list { list-style: none; }
+.step-item { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid #ece8e0; }
+.step-item:last-child { border-bottom: none; padding-bottom: 0; }
+.step-num { width: 26px; height: 26px; border-radius: 50%; background: #0e1a2b; color: #fff; font-family: 'Lato Mono', monospace; font-size: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.step-title { font-family: 'Lato', sans-serif; font-weight: 600; font-size: 13px; color: #0e1a2b; margin-bottom: 3px; }
+.step-desc { font-family: 'Lato', sans-serif; color: #2a3f5f; font-size: 13px; line-height: 1.6; }
+.step-note { margin-top: 8px; padding: 8px 12px; background: #f4f1eb; border-left: 3px solid #b8962e; border-radius: 0 4px 4px 0; font-family: 'Lato', sans-serif; font-size: 12px; color: #2a3f5f; font-style: italic; }
+.source-table, .exposure-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.source-table th, .exposure-table th { text-align: left; padding: 9px 13px; background: #0e1a2b; color: rgba(255,255,255,.8); font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .06em; text-transform: uppercase; font-weight: 500; }
+.exposure-table th { text-align: right; }
+.exposure-table th:first-child { text-align: left; }
+.source-table td, .exposure-table td { padding: 11px 13px; border-bottom: 1px solid #ece8e0; vertical-align: top; line-height: 1.5; font-family: 'Lato', sans-serif; }
+.exposure-table td { text-align: right; font-family: 'Lato Mono', monospace; font-size: 12px; color: #0e1a2b; }
+.exposure-table td:first-child { text-align: left; font-family: 'Lato', sans-serif; font-size: 13px; color: #0e1a2b; font-weight: 500; }
+.source-table tr:last-child td, .exposure-table tr:last-child td { border-bottom: none; }
+.exposure-table tr:last-child td { font-weight: 600; background: #f4f1eb; }
+.source-link { color: #3b6fd4; text-decoration: none; font-family: 'Lato Mono', monospace; font-size: 11px; word-break: break-all; }
+.source-link:hover { text-decoration: underline; }
+.issue-list { list-style: none; }
+.issue-item { display: flex; gap: 12px; padding: 11px 0; border-bottom: 1px solid #ece8e0; font-family: 'Lato', sans-serif; font-size: 13px; color: #2a3f5f; line-height: 1.6; }
+.issue-item:last-child { border-bottom: none; }
+.issue-dot { width: 7px; height: 7px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+.dot-missing { background: #8b2020; }
+.dot-assume { background: #9b72cf; }
+.download-section { background: #0e1a2b; border-radius: 8px; padding: 24px 28px; margin-top: 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.download-label { font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #b8962e; margin-bottom: 4px; }
+.download-title { font-family: 'Playfair Display', serif; font-size: 18px; color: #fff; font-weight: 400; margin-bottom: 4px; }
+.download-desc { font-family: 'Lato', sans-serif; color: rgba(255,255,255,.5); font-size: 12px; }
+.download-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.download-btn { display: inline-flex; align-items: center; gap: 7px; background: #b8962e; color: #0e1a2b; border: none; padding: 10px 18px; border-radius: 6px; font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; text-decoration: none; transition: opacity .15s; white-space: nowrap; }
+.download-btn:hover { opacity: .88; }
+.download-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+.callout { background: #f0f7ff; border: 1px solid #bee3f8; border-radius: 6px; padding: 13px 16px; font-family: 'Lato', sans-serif; font-size: 13px; color: #2c5282; line-height: 1.65; margin-top: 14px; }
+.callout strong { color: #1a365d; }
+hr.divider { border: none; border-top: 1px solid #c8c0b0; margin: 24px 0; }
+.badge { display: inline-block; padding: 2px 7px; border-radius: 3px; font-family: 'Lato Mono', monospace; font-size: 10px; font-weight: 500; }
+.badge-yes { background: #dcfce7; color: #166534; }
+.badge-no { background: #fee2e2; color: #991b1b; }
+.badge-partial { background: #fef3c7; color: #713f12; }
 
-/* Chapter tabs */
-.chapter-nav{background:var(--ink2);border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:52px;z-index:90;}
-.chapter-tabs{display:flex;max-width:1400px;margin:0 auto;padding:0 48px;}
-.ch-tab{background:none;border:none;cursor:pointer;padding:18px 32px;font-family:"Lato",sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.45);border-bottom:3px solid transparent;margin-bottom:-1px;transition:all .2s;display:flex;align-items:center;gap:10px;}
-.ch-tab:hover{color:rgba(255,255,255,.8);}
-.ch-tab.active{color:#fff;border-bottom-color:var(--gold);}
-.ch-num{font-family:"Lato Mono",monospace;font-size:10px;background:rgba(255,255,255,.1);padding:2px 7px;border-radius:2px;color:var(--gold);}
-.ch-tab.active .ch-num{background:var(--gold);color:var(--ink);}
+/* ── METHODOLOGY ── */
+.page-hero { background: #0e1a2b; padding: 28px 80px 24px; }
+.chapter-nav { background: #1e2d45; border-bottom: 1px solid rgba(255,255,255,.08); position: sticky; top: 52px; z-index: 90; }
+.chapter-tabs { display: flex; max-width: 1400px; margin: 0 auto; padding: 0 48px; }
+.ch-tab { background: none; border: none; cursor: pointer; padding: 18px 32px; font-family: 'Lato', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,.45); border-bottom: 3px solid transparent; margin-bottom: -1px; transition: all .2s; display: flex; align-items: center; gap: 10px; }
+.ch-tab:hover { color: rgba(255,255,255,.8); }
+.ch-tab.active { color: #fff; border-bottom-color: #b8962e; }
+.ch-num { font-family: 'Lato Mono', monospace; font-size: 10px; background: rgba(255,255,255,.1); padding: 2px 7px; border-radius: 2px; color: #b8962e; }
+.ch-tab.active .ch-num { background: #b8962e; color: #0e1a2b; }
+.ch-panel { display: none; }
+.ch-panel.active { display: block; }
+.ch-intro { display: grid; grid-template-columns: 2fr 1fr; gap: 48px; margin-bottom: 56px; padding-bottom: 56px; border-bottom: 1px solid #c8c0b0; }
+.ch-intro-text h2 { font-family: 'Playfair Display', serif; font-size: 32px; color: #0e1a2b; font-weight: 400; margin-bottom: 16px; }
+.ch-intro-text p { font-family: 'Lato', sans-serif; font-size: 14px; line-height: 1.8; color: #2a3f5f; margin-bottom: 12px; }
+.ch-context { background: #0e1a2b; padding: 28px; font-family: 'Lato', sans-serif; color: rgba(255,255,255,.7); font-size: 13px; line-height: 1.7; }
+.ch-context strong { color: #d4ae4a; display: block; font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 8px; }
+.exercise { border: 1px solid #c8c0b0; margin-bottom: 20px; background: #fff; }
+.ex-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 28px; cursor: pointer; background: #fafaf7; border-bottom: 1px solid #c8c0b0; transition: background .15s; }
+.ex-header:hover { background: #ece8e0; }
+.ex-header-left { display: flex; align-items: center; gap: 16px; }
+.ex-badge { font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; padding: 4px 10px; border-radius: 2px; }
+.badge-ch1 { background: #fff3cd; color: #856404; }
+.badge-ch2 { background: #d1e7dd; color: #0a3622; }
+.badge-ch3 { background: #cff4fc; color: #055160; }
+.ex-title { font-family: 'Playfair Display', serif; font-size: 18px; color: #0e1a2b; font-weight: 400; }
+.ex-headline { font-family: 'Lato', sans-serif; font-size: 13px; color: #2a3f5f; margin-top: 3px; }
+.ex-chevron { font-size: 20px; color: #2a3f5f; transition: transform .2s; }
+.ex-header.open .ex-chevron { transform: rotate(180deg); }
+.ex-body { padding: 32px 28px; display: none; }
+.ex-body.open { display: block; }
+.ex-section { margin-bottom: 32px; }
+.ex-section:last-child { margin-bottom: 0; }
+.ex-section-label { font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #b8962e; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.ex-section-label::after { content: ""; flex: 1; height: 1px; background: #c8c0b0; }
+.ex-section p { font-family: 'Lato', sans-serif; font-size: 14px; line-height: 1.75; color: #2a3f5f; margin-bottom: 10px; }
+.ex-section p:last-child { margin-bottom: 0; }
+.result-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+.result-table th { text-align: left; padding: 9px 14px; background: #0e1a2b; color: rgba(255,255,255,.8); font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .06em; text-transform: uppercase; font-weight: 500; }
+.result-table th.num { text-align: right; }
+.result-table td { padding: 10px 14px; border-bottom: 1px solid #f4f1eb; font-family: 'Lato', sans-serif; font-size: 13px; vertical-align: top; line-height: 1.5; color: #0e1a2b; }
+.result-table td.num { text-align: right; font-family: 'Lato Mono', monospace; color: #0e1a2b; }
+.result-table td.highlight { text-align: right; font-family: 'Lato Mono', monospace; color: #0e1a2b; font-weight: 600; }
+.result-table td.teal { text-align: right; font-family: 'Lato Mono', monospace; color: #0e1a2b; font-weight: 600; }
+.result-table td.gold { text-align: right; font-family: 'Lato Mono', monospace; color: #0e1a2b; font-weight: 600; }
+.result-table tr:last-child td { border-bottom: none; font-weight: 700; background: #f4f1eb !important; }
+.result-table tr:nth-child(even) td { background: #fafaf8; }
+.tag-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.tag { font-family: 'Lato Mono', monospace; font-size: 11px; padding: 4px 10px; border-radius: 2px; letter-spacing: .04em; }
+.tag-source { background: #e8f0fe; color: #1a56db; }
+.tag-coord { background: #fef3e8; color: #92400e; }
+.tag-missing { background: #fee2e2; color: #991b1b; }
+.tag-partial { background: #fef9c3; color: #713f12; }
+.callout { background: #f0f7ff; border: 1px solid #bfdbfe; padding: 14px 18px; font-family: 'Lato', sans-serif; font-size: 13px; color: #1e3a5f; line-height: 1.65; margin-top: 12px; border-radius: 2px; }
+.callout strong { color: #1e3a5f; }
+.callout-warn { background: #fff7ed; border-color: #fed7aa; color: #7c2d12; }
+.callout-success { background: #f0fdf4; border-color: #bbf7d0; color: #14532d; }
+.stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin: 16px 0; }
+.stat-box { background: #f4f1eb; border: 1px solid #c8c0b0; padding: 16px 18px; }
+.stat-box-label { font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #2a3f5f; margin-bottom: 6px; }
+.stat-box-value { font-family: 'Playfair Display', serif; font-size: 24px; color: #0e1a2b; }
+.stat-box-value.red { color: #8b2020; }
+.stat-box-value.teal { color: #1a6b6b; }
+.stat-box-value.gold { color: #b8962e; }
+.stat-box-sub { font-family: 'Lato', sans-serif; font-size: 11px; color: #888; margin-top: 3px; }
+.tier-badge { display: inline-block; padding: 2px 8px; font-family: 'Lato Mono', monospace; font-size: 10px; border-radius: 2px; }
+.tier-0 { background: #e5e7eb; color: #374151; }
+.tier-2 { background: #fef3c7; color: #92400e; }
+.tier-3 { background: #fee2e2; color: #991b1b; }
+.flag-ma { background: #d1fae5; color: #064e3b; }
+.flag-ef { background: #dbeafe; color: #1e3a8a; }
+.flag-maef { background: #ede9fe; color: #4c1d95; }
+hr.ex-divider { border: none; border-top: 1px solid #c8c0b0; margin: 24px 0; }
 
-main{max-width:1400px;margin:0 auto;padding:56px 80px 96px;}
-.ch-panel{display:none;}
-.ch-panel.active{display:block;}
+/* ── FOOTER ── */
+.site-footer { background: #0e1a2b; padding: 28px 80px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.08); }
+.footer-brand { font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.4); }
+.footer-note { font-family: 'Lato', sans-serif; font-size: 12px; color: rgba(255,255,255,.3); }
 
-/* Chapter intro */
-.ch-intro{display:grid;grid-template-columns:2fr 1fr;gap:48px;margin-bottom:56px;padding-bottom:56px;border-bottom:1px solid var(--border);}
-.ch-intro-text h2{font-family:"Playfair Display",serif;font-size:32px;color:var(--ink);font-weight:400;margin-bottom:16px;}
-.ch-intro-text p{font-size:14px;line-height:1.8;color:var(--ink2);margin-bottom:12px;}
-.ch-context{background:var(--ink);padding:28px;color:rgba(255,255,255,.7);font-size:13px;line-height:1.7;}
-.ch-context strong{color:var(--gold2);display:block;font-family:"Lato Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;}
-
-/* Exercise accordion */
-.exercise{border:1px solid var(--border);margin-bottom:20px;background:#fff;}
-.ex-header{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;cursor:pointer;background:#fafaf7;border-bottom:1px solid var(--border);transition:background .15s;}
-.ex-header:hover{background:var(--paper2);}
-.ex-header-left{display:flex;align-items:center;gap:16px;}
-.ex-badge{font-family:"Lato Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:2px;}
-.badge-ch1{background:#fff3cd;color:#856404;}
-.badge-ch2{background:#d1e7dd;color:#0a3622;}
-.badge-ch3{background:#cff4fc;color:#055160;}
-.ex-title{font-family:"Playfair Display",serif;font-size:18px;color:var(--ink);font-weight:400;}
-.ex-headline{font-size:13px;color:var(--ink2);margin-top:3px;}
-.ex-chevron{font-size:20px;color:var(--ink2);transition:transform .2s;}
-.ex-header.open .ex-chevron{transform:rotate(180deg);}
-.ex-.ex-body{padding:32px 28px;display:none;}
-.ex-body.open{display:block;}
-
-/* Exercise body sections */
-.ex-section{margin-bottom:32px;}
-.ex-section:last-child{margin-bottom:0;}
-.ex-section-label{font-family:"Lato Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
-.ex-section-label::after{content:"";flex:1;height:1px;background:var(--border);}
-.ex-section p{font-size:14px;line-height:1.75;color:var(--ink2);margin-bottom:10px;}
-.ex-section p:last-child{margin-bottom:0;}
-
-/* Result table */
-.result-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px;}
-.result-table th{text-align:left;padding:9px 14px;background:var(--ink);color:rgba(255,255,255,.8);font-family:"Lato Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;}
-.result-table th.num{text-align:right;}
-.result-table td{padding:10px 14px;border-bottom:1px solid var(--paper2);font-size:13px;vertical-align:top;line-height:1.5;}
-.result-table td.num{text-align:right;font-family:"Lato Mono",monospace;color:var(--ink);}
-.result-table td.highlight{text-align:right;font-family:"Lato Mono",monospace;color:var(--ink);font-weight:600;}
-.result-table td.teal{text-align:right;font-family:"Lato Mono",monospace;color:var(--ink);font-weight:600;}
-.result-table td.gold{text-align:right;font-family:"Lato Mono",monospace;color:var(--ink);font-weight:600;}
-.result-table tr:last-child td{border-bottom:none;font-weight:700;background:#f4f1eb;}
-.result-table tr:nth-child(even) td{background:#fafaf8;}
-.result-table tr:last-child td{background:var(--paper2) !important;}
-
-/* Data / coordination tags */
-.tag-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
-.tag{font-family:"Lato Mono",monospace;font-size:11px;padding:4px 10px;border-radius:2px;letter-spacing:.04em;}
-.tag-source{background:#e8f0fe;color:#1a56db;}
-.tag-coord{background:#fef3e8;color:#92400e;}
-.tag-missing{background:#fee2e2;color:#991b1b;}
-.tag-partial{background:#fef9c3;color:#713f12;}
-
-/* Callout */
-.callout{background:#f0f7ff;border:1px solid #bfdbfe;padding:14px 18px;font-size:13px;color:#1e3a5f;line-height:1.65;margin-top:12px;border-radius:2px;}
-.callout strong{color:#1e3a5f;}
-.callout-warn{background:#fff7ed;border-color:#fed7aa;color:#7c2d12;}
-.callout-success{background:#f0fdf4;border-color:#bbf7d0;color:#14532d;}
-
-/* Stat row */
-.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin:16px 0;}
-.stat-box{background:var(--paper);border:1px solid var(--border);padding:16px 18px;}
-.stat-box-label{font-family:"Lato Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin-bottom:6px;}
-.stat-box-value{font-family:"Playfair Display",serif;font-size:24px;color:var(--ink);}
-.stat-box-value.red{color:var(--red);}
-.stat-box-value.teal{color:var(--teal);}
-.stat-box-value.gold{color:var(--gold);}
-.stat-box-sub{font-size:11px;color:#888;margin-top:3px;}
-
-.dir-arrow{font-size:20px;}
-.arr-down{color:var(--teal);}
-.arr-up{color:var(--red);}
-.arr-flat{color:var(--ink2);}
-
-.tier-badge{display:inline-block;padding:2px 8px;font-family:"Lato Mono",monospace;font-size:10px;border-radius:2px;}
-.tier-0{background:#e5e7eb;color:#374151;}
-.tier-2{background:#fef3c7;color:#92400e;}
-.tier-3{background:#fee2e2;color:#991b1b;}
-.flag-ma{background:#d1fae5;color:#064e3b;}
-.flag-ef{background:#dbeafe;color:#1e3a8a;}
-.flag-maef{background:#ede9fe;color:#4c1d95;}
-
-hr.ex-divider{border:none;border-top:1px solid var(--border);margin:24px 0;}
-
+@media (max-width: 768px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 48px 32px; }
+  .hero-right { padding: 32px; }
+  .hero-heading { font-size: 36px; }
+  .three-col, .findings-grid { grid-template-columns: 1fr; }
+  .coord-grid { grid-template-columns: 1fr 1fr; }
+  .ch-intro { grid-template-columns: 1fr; }
+  .about, .findings, .coordination, .structure { padding: 48px 32px; }
+  .page-hero { padding: 24px 32px 20px; }
+  #main-nav { padding: 0 24px; }
+  .nav-brand { display: none; }
+  main { padding: 28px 24px 60px; }
+}
 </style>
 </head>
 <body>
 
-<!-- ── UNIFIED NAV ── -->
 <nav id="main-nav">
   <div class="nav-brand">CFO Guide — Land Hazards &amp; Fiscal Planning</div>
   <div class="nav-links">
-    <button class="nav-btn active" onclick="showPage('overview')">Overview</button>
-    <button class="nav-btn" onclick="showPage('data')">Data Assembly</button>
-    <button class="nav-btn" onclick="showPage('methods')">Methodologies</button>
+    <button class="nav-btn active" onclick="showPage('overview',this)">Overview</button>
+    <button class="nav-btn" onclick="showPage('data',this)">Data Assembly</button>
+    <button class="nav-btn" onclick="showPage('methods',this)">Methodologies</button>
   </div>
 </nav>
 
-<!-- ══════════════════════════════════════════════
-     PAGE 1: OVERVIEW (LANDING)
-══════════════════════════════════════════════ -->
+<!-- PAGE 1: OVERVIEW -->
 <div id="page-overview" class="page active">
-
-
-
-
 <div class="hero">
   <div class="hero-left">
     <div class="hero-eyebrow">Norfolk, Virginia &nbsp;·&nbsp; Test Case</div>
@@ -712,26 +513,14 @@ hr.ex-divider{border:none;border-top:1px solid var(--border);margin:24px 0;}
     </div>
   </div>
 </div>
-
-
-
-
-<!-- footer -->
-<footer style="background:#0e1a2b;padding:28px 80px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.08);">
-  <div style="font-family:'Lato Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);">CFO Guide &mdash; Land Hazards &amp; Fiscal Planning &nbsp;|&nbsp; Norfolk Test Case &nbsp;|&nbsp; FY2025</div>
-  <div style="font-size:12px;color:rgba(255,255,255,.3);">All data sourced from publicly available records. Figures are analytical estimates, not official city positions.</div>
+<footer class="site-footer">
+  <div class="footer-brand">CFO Guide — Land Hazards &amp; Fiscal Planning &nbsp;·&nbsp; Norfolk Test Case &nbsp;·&nbsp; FY2025</div>
+  <div class="footer-note">All data sourced from publicly available records. Figures are analytical estimates.</div>
 </footer>
 </div>
 
-<!-- ══════════════════════════════════════════════
-     PAGE 2: DATA ASSEMBLY
-══════════════════════════════════════════════ -->
+<!-- PAGE 2: DATA ASSEMBLY -->
 <div id="page-data" class="page">
-
-
-
-
-
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Part 2</div>
@@ -794,12 +583,12 @@ hr.ex-divider{border:none;border-top:1px solid var(--border);margin:24px 0;}
     </div>
     <div class="block-body open">
       <table class="exposure-table">
-        <thead><tr><th>Hazard zone</th><th class="num">Parcels</th><th>Assessed value</th><th>Share of taxable AV</th><th>Implied annual levy</th></tr></thead>
+        <thead><tr><th>Hazard zone</th><th>Parcels</th><th>Assessed value</th><th>Share of taxable AV</th><th>Implied annual levy</th></tr></thead>
         <tbody>
-          <tr><td>100-year SFHA (AE + A)</td><td class="num">10,206</td><td>$9.13B</td><td class="num">28.2%</td><td>$112M</td></tr>
-          <tr><td>500-year zone (0.2% annual chance)</td><td class="num">15,456</td><td>$10.90B</td><td class="num">33.7%</td><td>$134M</td></tr>
-          <tr><td>VE zone (coastal high hazard)</td><td class="num">208</td><td>$2.40B</td><td class="num">7.5%</td><td>$30M</td></tr>
-          <tr><td>Any flood zone (unduplicated)</td><td class="num">20,539</td><td>$13.70B</td><td class="num">42.3%</td><td>$168M</td></tr>
+          <tr><td>100-year SFHA (AE + A)</td><td>10,206</td><td>$9.13B</td><td>28.2%</td><td>$112M</td></tr>
+          <tr><td>500-year zone (0.2% annual chance)</td><td>15,456</td><td>$10.90B</td><td>33.7%</td><td>$134M</td></tr>
+          <tr><td>VE zone (coastal high hazard)</td><td>208</td><td>$2.40B</td><td>7.5%</td><td>$30M</td></tr>
+          <tr><td>Any flood zone (unduplicated)</td><td>20,539</td><td>$13.70B</td><td>42.3%</td><td>$168M</td></tr>
         </tbody>
       </table>
       <div class="callout"><strong>Note on levy figures.</strong> The levy shown here is estimated from assessed value at the effective rate of $1.23 per $100. Norfolk's actual FY25 real estate levy was $328M, implying a taxable base of $26.7B. The gap of approximately $5.7B reflects partial exemptions (homestead, senior, veteran) not visible in the public dataset. The geographic distribution of exposure is reliable; the aggregate levy figures overstate actual collections by approximately 21%.</div>
@@ -808,11 +597,11 @@ hr.ex-divider{border:none;border-top:1px solid var(--border);margin:24px 0;}
       <table class="exposure-table">
         <thead><tr><th>Property type</th><th>Parcels in SFHA</th><th>Assessed value</th><th>Share of SFHA AV</th></tr></thead>
         <tbody>
-          <tr><td>Single Family &ndash; Detached</td><td class="num">7,156</td><td>$3.27B</td><td class="num">35.8%</td></tr>
-          <tr><td>Industrial</td><td class="num">181</td><td>$2.25B</td><td class="num">24.6%</td></tr>
-          <tr><td>Apartment</td><td class="num">196</td><td>$2.11B</td><td class="num">23.1%</td></tr>
-          <tr><td>Commercial</td><td class="num">540</td><td>$0.95B</td><td class="num">10.4%</td></tr>
-          <tr><td>Other</td><td class="num">2,133</td><td>$0.55B</td><td class="num">6.1%</td></tr>
+          <tr><td>Single Family &ndash; Detached</td><td>7,156</td><td>$3.27B</td><td>35.8%</td></tr>
+          <tr><td>Industrial</td><td>181</td><td>$2.25B</td><td>24.6%</td></tr>
+          <tr><td>Apartment</td><td>196</td><td>$2.11B</td><td>23.1%</td></tr>
+          <tr><td>Commercial</td><td>540</td><td>$0.95B</td><td>10.4%</td></tr>
+          <tr><td>Other</td><td>2,133</td><td>$0.55B</td><td>6.1%</td></tr>
         </tbody>
       </table>
     </div>
@@ -919,7 +708,7 @@ hr.ex-divider{border:none;border-top:1px solid var(--border);margin:24px 0;}
       </div>
       <div class="finding-row">
         <div class="finding-cell"><div class="finding-cell-label">In any flood zone</div><div class="finding-cell-value">1,039 parcels</div><div class="finding-cell-sub">49% of city-owned portfolio</div></div>
-        <div class="finding-cell"><div class="finding-cell-label">Dominant exposed uses</div><div class="finding-cell-value" style="font-size:14px;font-family:'Lato',sans-serif;margin-top:2px;">Vacant land &middot; Parks &middot; NRHA &middot; Municipal</div><div class="finding-cell-sub">Top four categories by parcel count</div></div>
+        <div class="finding-cell"><div class="finding-cell-label">Dominant exposed uses</div><div class="finding-cell-value" style="font-size:14px;font-family:'DM Sans',sans-serif;margin-top:2px;">Vacant land &middot; Parks &middot; NRHA &middot; Municipal</div><div class="finding-cell-sub">Top four categories by parcel count</div></div>
       </div>
       <div class="callout"><strong>Important caveat.</strong> Assessor values for city-owned parcels are largely nominal. Government property is assessed at historical acquisition cost, not at market or replacement cost. The dollar figures here are directional only. Estimating replacement cost requires the fixed asset subledger, which was not available for this build.</div>
     </div>
@@ -1023,14 +812,14 @@ hr.ex-divider{border:none;border-top:1px solid var(--border);margin:24px 0;}
     </div>
     <div class="block-body open">
       <table class="exposure-table">
-        <thead><tr><th>Category</th><th class="num">Projects</th><th>Five-year value</th><th>Share of CIP</th><th>In overlay</th></tr></thead>
+        <thead><tr><th>Category</th><th>Projects</th><th>Five-year value</th><th>Share of CIP</th><th>In overlay</th></tr></thead>
         <tbody>
-          <tr><td>In 100-year SFHA</td><td class="num">18</td><td>$81.5M</td><td class="num">5.7%</td><td><span class="badge badge-yes">Yes</span></td></tr>
-          <tr><td>In 500-year zone</td><td class="num">16</td><td>$55.3M</td><td class="num">3.9%</td><td><span class="badge badge-yes">Yes</span></td></tr>
-          <tr><td>In any flood zone</td><td class="num">33</td><td>$129.6M</td><td class="num">9.1%</td><td><span class="badge badge-yes">Yes</span></td></tr>
-          <tr><td>Citywide &mdash; excluded</td><td class="num">34</td><td>$579.0M</td><td class="num">40.4%</td><td><span class="badge badge-no">No</span></td></tr>
-          <tr><td>CSRM flood protection (citywide)</td><td class="num">2</td><td>$361.5M</td><td class="num">25.2%</td><td><span class="badge badge-no">No &mdash; mitigation</span></td></tr>
-          <tr><td>Unlocated &mdash; excluded</td><td class="num">20</td><td>$193.0M</td><td class="num">13.5%</td><td><span class="badge badge-partial">TBD</span></td></tr>
+          <tr><td>In 100-year SFHA</td><td>18</td><td>$81.5M</td><td>5.7%</td><td><span class="badge badge-yes">Yes</span></td></tr>
+          <tr><td>In 500-year zone</td><td>16</td><td>$55.3M</td><td>3.9%</td><td><span class="badge badge-yes">Yes</span></td></tr>
+          <tr><td>In any flood zone</td><td>33</td><td>$129.6M</td><td>9.1%</td><td><span class="badge badge-yes">Yes</span></td></tr>
+          <tr><td>Citywide &mdash; excluded</td><td>34</td><td>$579.0M</td><td>40.4%</td><td><span class="badge badge-no">No</span></td></tr>
+          <tr><td>CSRM flood protection (citywide)</td><td>2</td><td>$361.5M</td><td>25.2%</td><td><span class="badge badge-no">No &mdash; mitigation</span></td></tr>
+          <tr><td>Unlocated &mdash; excluded</td><td>20</td><td>$193.0M</td><td>13.5%</td><td><span class="badge badge-partial">TBD</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -1103,82 +892,13 @@ hr.ex-divider{border:none;border-top:1px solid var(--border);margin:24px 0;}
 </div>
 
 </main>
-
-
-
-
-
-
-<script>
-function switchTab(id, btn) {
-  document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
-  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
-  document.getElementById("panel-" + id).classList.add("active");
-  btn.classList.add("active");
-  window.scrollTo({ top: 0, behavior: "smooth" });
-}
-function toggleBlock(h) {
-  h.classList.toggle("open");
-  h.nextElementSibling.classList.toggle("open");
-}
-
-const URLS = {
-  '2A': 'https://raw.githubusercontent.com/safr04/cfo-guide-norfolk-data/main/norfolk_2A_parcel_file.csv',
-  '2B': 'https://raw.githubusercontent.com/safr04/cfo-guide-norfolk-data/main/norfolk_2B_city_land.csv',
-  '2C': 'https://raw.githubusercontent.com/safr04/cfo-guide-norfolk-data/main/norfolk_2C_cip.csv',
-};
-
-const FILENAMES = {
-  '2A': 'norfolk_2A_parcel_file.csv',
-  '2B': 'norfolk_2B_city_owned_parcels.csv',
-  '2C': 'norfolk_2C_cip_flood_overlay.csv',
-};
-
-async function downloadFile(key) {
-  const btn = document.getElementById('dl-btn-' + key);
-  const orig = btn.innerHTML;
-  btn.disabled = true;
-  btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;animation:spin 1s linear infinite"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-opacity=".25"/><path d="M21 12a9 9 0 00-9-9"/></svg> Downloading…`;
-  try {
-    const r = await fetch(URLS[key]);
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    const blob = await r.blob();
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url; a.download = FILENAMES[key];
-    document.body.appendChild(a); a.click();
-    document.body.removeChild(a);
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-    btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px"><path d="M20 6L9 17l-5-5"/></svg> Downloaded`;
-    setTimeout(() => { btn.innerHTML = orig; btn.disabled = false; }, 2500);
-  } catch(e) {
-    btn.innerHTML = '⚠ Error — try again';
-    btn.disabled = false;
-    setTimeout(() => { btn.innerHTML = orig; }, 3000);
-  }
-}
-
-function download2A() { downloadFile('2A'); }
-function download2B() { downloadFile('2B'); }
-function download2C() { downloadFile('2C'); }
-</script>
-<style>
-@keyframes spin { to { transform: rotate(360deg); } }
-</style>
-
-<footer style="background:#1a2740;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.08);">
-  <div style="font-family:'Lato Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);">Section 2 — Data Assembly &nbsp;|&nbsp; Norfolk, VA &nbsp;|&nbsp; FY2025</div>
+<footer class="site-footer">
+  <div class="footer-brand">Section 2 — Data Assembly &nbsp;·&nbsp; Norfolk, VA &nbsp;·&nbsp; FY2025</div>
 </footer>
 </div>
 
-<!-- ══════════════════════════════════════════════
-     PAGE 3: METHODOLOGIES
-══════════════════════════════════════════════ -->
+<!-- PAGE 3: METHODOLOGIES -->
 <div id="page-methods" class="page">
-
-
-
-
 <div class="page-hero">
   <div class="hero-eyebrow">Norfolk, VA &middot; FY2025 &middot; Section 3</div>
   <h1 class="hero-heading">Methodologies</h1>
@@ -1242,12 +962,12 @@ function download2C() { downloadFile('2C'); }
           <div class="stat-box"><div class="stat-box-label">Top-decile in flood zones</div><div class="stat-box-value red">55%</div><div class="stat-box-sub">$8.67B of $15.87B top-decile AV</div></div>
         </div>
         <table class="result-table" style="margin-top:16px;">
-          <thead><tr><th>Hazard zone</th><th class="num">Parcels</th><th class="num">Assessed value</th><th class="num">Share of taxable AV</th><th class="num">Annual levy at risk</th><th>Dominant type</th></tr></thead>
+          <thead><tr><th>Hazard zone</th><th>Parcels</th><th class="num">Assessed value</th><th class="num">Share of taxable AV</th><th class="num">Annual levy at risk</th><th>Dominant type</th></tr></thead>
           <tbody>
-            <tr><td>100-year SFHA (AE + A)</td><td class="num">10,206</td><td class="num">$9.13B</td><td class="num">28.2%</td><td class="num">$92M</td><td>Single Family</td></tr>
-            <tr><td>500-year zone</td><td class="num">15,456</td><td class="num">$10.92B</td><td class="num">33.7%</td><td class="num">$110M</td><td>Single Family</td></tr>
-            <tr><td>VE zone (coastal high hazard)</td><td class="num">208</td><td class="num">$2.42B</td><td class="num">7.5%</td><td class="num">$24M</td><td>Commercial</td></tr>
-            <tr><td>Any flood (unduplicated)</td><td class="num">20,539</td><td class="num">$13.70B</td><td class="num">42.3%</td><td class="num">$139M</td><td>Single Family</td></tr>
+            <tr><td>100-year SFHA (AE + A)</td><td>10,206</td><td class="highlight">$9.13B</td><td class="num">28.2%</td><td class="highlight">$92M</td><td>Single Family</td></tr>
+            <tr><td>500-year zone</td><td>15,456</td><td class="num">$10.92B</td><td class="num">33.7%</td><td class="num">$110M</td><td>Single Family</td></tr>
+            <tr><td>VE zone (coastal high hazard)</td><td>208</td><td class="num">$2.42B</td><td class="num">7.5%</td><td class="num">$24M</td><td>Commercial</td></tr>
+            <tr><td>Any flood (unduplicated)</td><td>20,539</td><td class="highlight">$13.70B</td><td class="highlight">42.3%</td><td class="highlight">$139M</td><td>Single Family</td></tr>
           </tbody>
         </table>
         <div class="callout" style="margin-top:12px;"><strong>Concentration finding.</strong> The top decile of taxable parcels by assessed value represents 49% of the citywide taxable base. Of those 6,831 high-value parcels, 3,418 (50%) sit in a flood zone and account for $8.67B — 55% of top-decile value. This is the acute concentration risk: a small number of high-value parcels whose loss would have an outsized fiscal effect.</div>
@@ -1303,8 +1023,8 @@ function download2C() { downloadFile('2C'); }
           <thead><tr><th>Severity</th><th class="num">Parcels affected</th><th class="num">AV reduction</th><th class="num">Permanent annual revenue loss</th></tr></thead>
           <tbody>
             <tr><td>Low (15% of exposed)</td><td class="num">~1,531</td><td class="num">$685M</td><td class="num">$6.9M/yr</td></tr>
-            <tr><td>Moderate (30%)</td><td class="num">~3,062</td><td class="num">$1,369M</td><td class="num">$13.9M/yr</td></tr>
-            <tr><td>Severe (50%)</td><td class="num">~5,103</td><td class="num">$2,282M</td><td class="num">$23.1M/yr</td></tr>
+            <tr><td>Moderate (30%)</td><td class="num">~3,062</td><td class="num">$1,369M</td><td class="highlight">$13.9M/yr</td></tr>
+            <tr><td>Severe (50%)</td><td class="num">~5,103</td><td class="num">$2,282M</td><td class="highlight">$23.1M/yr</td></tr>
           </tbody>
         </table>
       </div>
@@ -1326,8 +1046,8 @@ function download2C() { downloadFile('2C'); }
         <table class="result-table">
           <thead><tr><th>Reference point</th><th class="num">Current value</th><th class="num">Loss as multiple</th></tr></thead>
           <tbody>
-            <tr><td>Unrestricted general fund balance</td><td class="num">~$185M</td><td class="num">0.07x</td></tr>
-            <tr><td>Annual debt service</td><td class="num">$103.7M</td><td class="num">0.13x</td></tr>
+            <tr><td>Unrestricted general fund balance</td><td class="num">~$185M</td><td class="teal">0.07x</td></tr>
+            <tr><td>Annual debt service</td><td class="num">$103.7M</td><td class="teal">0.13x</td></tr>
             <tr><td>Contingency / rainy day reserves</td><td class="num">~$25M</td><td class="num">0.55x</td></tr>
           </tbody>
         </table>
@@ -1455,9 +1175,9 @@ function download2C() { downloadFile('2C'); }
         <table class="result-table">
           <thead><tr><th>Exposure tier</th><th class="num">Projects</th><th class="num">FY25</th><th class="num">FY26</th><th class="num">FY27</th><th class="num">FY28</th><th class="num">FY29</th><th class="num">5-year total</th></tr></thead>
           <tbody>
-            <tr><td><span class="tier-badge tier-0">0 — None</span> (outside any flood zone)</td><td class="num">88</td><td class="num">$216M</td><td class="num">$190M</td><td class="num">$448M</td><td class="num">$225M</td><td class="num">$197M</td><td class="num">$1,302M</td></tr>
+            <tr><td><span class="tier-badge tier-0">0 — None</span> (outside any flood zone)</td><td class="num">88</td><td class="num">$216M</td><td class="num">$190M</td><td class="num">$448M</td><td class="num">$225M</td><td class="num">$197M</td><td class="gold">$1,302M</td></tr>
             <tr><td><span class="tier-badge tier-2">2 — Moderate</span> (500-year zone)</td><td class="num">15</td><td class="num">$25M</td><td class="num">$7M</td><td class="num">$7M</td><td class="num">$8M</td><td class="num">$8M</td><td class="num">$54M</td></tr>
-            <tr><td><span class="tier-badge tier-3">3 — High</span> (100yr SFHA or VE)</td><td class="num">18</td><td class="num">$48M</td><td class="num">$5M</td><td class="num">$2M</td><td class="num">$2M</td><td class="num">$4M</td><td class="num">$76M</td></tr>
+            <tr><td><span class="tier-badge tier-3">3 — High</span> (100yr SFHA or VE)</td><td class="num">18</td><td class="num">$48M</td><td class="num">$5M</td><td class="num">$2M</td><td class="num">$2M</td><td class="num">$4M</td><td class="highlight">$76M</td></tr>
             <tr><td><strong>Total</strong></td><td class="num"><strong>121</strong></td><td class="num"><strong>$289M</strong></td><td class="num"><strong>$202M</strong></td><td class="num"><strong>$457M</strong></td><td class="num"><strong>$235M</strong></td><td class="num"><strong>$209M</strong></td><td class="num"><strong>$1,432M</strong></td></tr>
           </tbody>
         </table>
@@ -1561,10 +1281,10 @@ function download2C() { downloadFile('2C'); }
         <table class="result-table">
           <thead><tr><th>Category</th><th class="num">Projects</th><th class="num">Five-year total</th><th class="num">Share of CIP</th></tr></thead>
           <tbody>
-            <tr><td><span class="tier-badge flag-ma">MA</span> Mitigation or adaptation</td><td class="num">37</td><td class="num">$570.6M</td><td class="num">39.9%</td></tr>
-            <tr><td><span class="tier-badge flag-ef">EF</span> Essential facility</td><td class="num">39</td><td class="num">$697.7M</td><td class="num">48.7%</td></tr>
-            <tr><td><span class="tier-badge flag-maef">MA+EF</span> Both (overlap)</td><td class="num">6</td><td class="num">$92.9M</td><td class="num">6.5%</td></tr>
-            <tr><td>EF projects in tier 2 or 3 (in flood zones)</td><td class="num">14</td><td class="num">$49.7M</td><td class="num">3.5%</td></tr>
+            <tr><td><span class="tier-badge flag-ma">MA</span> Mitigation or adaptation</td><td class="num">37</td><td class="teal">$570.6M</td><td class="num">39.9%</td></tr>
+            <tr><td><span class="tier-badge flag-ef">EF</span> Essential facility</td><td class="num">39</td><td class="teal">$697.7M</td><td class="num">48.7%</td></tr>
+            <tr><td><span class="tier-badge flag-maef">MA+EF</span> Both (overlap)</td><td class="num">6</td><td class="teal">$92.9M</td><td class="num">6.5%</td></tr>
+            <tr><td>EF projects in tier 2 or 3 (in flood zones)</td><td class="num">14</td><td class="highlight">$49.7M</td><td class="num">3.5%</td></tr>
           </tbody>
         </table>
         <div class="callout callout-success" style="margin-top:12px;"><strong>The $350.5M CSRM project</strong> is the single most important mitigation investment in the CIP. It is classified MA and addresses flood hazard citywide. It does not appear in the spatial overlay (coded citywide) but is included in the MA subtotal. The MA+EF overlap of $92.9M — projects simultaneously doing mitigation work at essential facilities — is the strongest single number for credit narrative and grant application purposes.</div>
@@ -1646,8 +1366,8 @@ function download2C() { downloadFile('2C'); }
           <tbody>
             <tr><td><span class="tier-badge tier-0">0 — None</span></td><td class="num">889</td><td class="num">1,035</td><td class="num">$858M</td><td class="num">18.6%</td><td>City of Norfolk</td><td class="num">149 / $439M</td></tr>
             <tr><td><span class="tier-badge tier-2">2 — Moderate</span> (500-yr)</td><td class="num">388</td><td class="num">578</td><td class="num">$609M</td><td class="num">13.2%</td><td>City of Norfolk</td><td class="num">68 / $424M</td></tr>
-            <tr><td><span class="tier-badge tier-3">3 — High</span> (100yr SFHA/VE)</td><td class="num">824</td><td class="num">3,269</td><td class="num">$3,132M</td><td class="num">68.1%</td><td>City + Airport</td><td class="num">208 / $2,251M</td></tr>
-            <tr><td>Any hazard (unduplicated)</td><td class="num">1,212</td><td class="num">3,848</td><td class="num">$3,741M</td><td class="num">81.4%</td><td>Mixed</td><td class="num">276 / $2,675M</td></tr>
+            <tr><td><span class="tier-badge tier-3">3 — High</span> (100yr SFHA/VE)</td><td class="num">824</td><td class="num">3,269</td><td class="highlight">$3,132M</td><td class="highlight">68.1%</td><td>City + Airport</td><td class="num">208 / $2,251M</td></tr>
+            <tr><td>Any hazard (unduplicated)</td><td class="num">1,212</td><td class="num">3,848</td><td class="highlight">$3,741M</td><td class="highlight">81.4%</td><td>Mixed</td><td class="num">276 / $2,675M</td></tr>
           </tbody>
         </table>
         <div class="callout callout-warn" style="margin-top:12px;"><strong>The tier 3 figure ($3.1B) is dominated by the Norfolk Airport Authority.</strong> The airport is a large-acreage, high-value holding in the coastal flood zone. Separating airport authority assets from direct city general fund assets would produce a different and more operationally relevant picture of the city&rsquo;s own exposure. This separation requires the departmental custody working session.</div>
@@ -1788,100 +1508,68 @@ function download2C() { downloadFile('2C'); }
 </div><!-- /ch3 -->
 
 </main>
-
-
-
-<script>
-function showChapter(id, btn) {
-  document.querySelectorAll('.ch-panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.ch-tab').forEach(b => b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  btn.classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-function toggleEx(header) {
-  header.classList.toggle('open');
-  header.nextElementSibling.classList.toggle('open');
-}
-</script>
-
-<footer style="background:#0e1a2b;padding:28px 80px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.08);">
-  <div style="font-family:'Lato Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);">CFO Guide &mdash; Land Hazards &amp; Fiscal Planning &nbsp;|&nbsp; Norfolk Test Case &nbsp;|&nbsp; FY2025</div>
-  <div style="font-size:12px;color:rgba(255,255,255,.3);">All figures are analytical estimates from publicly available data.</div>
+<footer class="site-footer">
+  <div class="footer-brand">CFO Guide — Land Hazards &amp; Fiscal Planning &nbsp;·&nbsp; Norfolk Test Case &nbsp;·&nbsp; FY2025</div>
+  <div class="footer-note">All figures are analytical estimates from publicly available data.</div>
 </footer>
 </div>
 
-<!-- ── SCRIPTS ── -->
 <script id="data-store">
+
+
 
 </script>
 
 <script>
-// ── Page navigation ─────────────────────────────────────────────────────────
-function showPage(id) {
+function showPage(id, btn) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
-  event.target.classList.add('active');
+  btn.classList.add('active');
   window.scrollTo({top: 0, behavior: 'smooth'});
 }
-
-// ── Landing page internal buttons ────────────────────────────────────────────
-function goToData() { 
+function goToData() {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('page-data').classList.add('active');
   document.querySelectorAll('.nav-btn')[1].classList.add('active');
-  window.scrollTo({top:0});
+  window.scrollTo({top: 0});
 }
 function goToMethods() {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('page-methods').classList.add('active');
   document.querySelectorAll('.nav-btn')[2].classList.add('active');
-  window.scrollTo({top:0});
+  window.scrollTo({top: 0});
 }
-
-// ── Data Assembly tab/accordion functions ────────────────────────────────────
 function switchTab(id, btn) {
-  document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
-  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
-  document.getElementById("panel-" + id).classList.add("active");
-  btn.classList.add("active");
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
 }
-function toggleBlock(h) {
-  h.classList.toggle("open");
-  h.nextElementSibling.classList.toggle("open");
-}
-
-// ── Downloads ────────────────────────────────────────────────────────────────
-async function dlFromGitHub(url, filename) {
-  const btn = [...document.querySelectorAll('.download-btn')].find(b => b.onclick && b.onclick.toString().includes(filename.split('_')[1]));
-  try {
-    const r = await fetch(url);
-    const blob = await r.blob();
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = filename;
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
-    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
-  } catch(e) { alert('Download failed: ' + e.message); }
-}
-function download2A(){ dlFromGitHub('https://raw.githubusercontent.com/safr04/cfo-guide-norfolk-data/main/norfolk_2A_parcel_file.csv','norfolk_2A_parcel_file.csv'); }
-function download2B(){ dlFromGitHub('https://raw.githubusercontent.com/safr04/cfo-guide-norfolk-data/main/norfolk_2B_city_land.csv','norfolk_2B_city_owned_parcels.csv'); }
-function download2C(){ dlFromGitHub('https://raw.githubusercontent.com/safr04/cfo-guide-norfolk-data/main/norfolk_2C_cip.csv','norfolk_2C_cip_flood_overlay.csv'); }
-
-// ── Methodology functions ────────────────────────────────────────────────────
+function toggleBlock(h) { h.classList.toggle('open'); h.nextElementSibling.classList.toggle('open'); }
 function showChapter(id, btn) {
   document.querySelectorAll('.ch-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.ch-tab').forEach(b => b.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   btn.classList.add('active');
 }
-function toggleEx(header) {
-  header.classList.toggle('open');
-  header.nextElementSibling.classList.toggle('open');
+function toggleEx(h) { h.classList.toggle('open'); h.nextElementSibling.classList.toggle('open'); }
+
+async function dlFromGitHub(url, filename) {
+  try {
+    const r = await fetch(url);
+    const blob = await r.blob();
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob); a.download = filename;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  } catch(e) { alert('Download failed: ' + e.message); }
 }
+function download2A() { dlFromGitHub('https://raw.githubusercontent.com/safr04/cfo-guide-norfolk-data/main/norfolk_2A_parcel_file.csv', 'norfolk_2A_parcel_file.csv'); }
+function download2B() { dlFromGitHub('https://raw.githubusercontent.com/safr04/cfo-guide-norfolk-data/main/norfolk_2B_city_land.csv', 'norfolk_2B_city_owned_parcels.csv'); }
+function download2C() { dlFromGitHub('https://raw.githubusercontent.com/safr04/cfo-guide-norfolk-data/main/norfolk_2C_cip.csv', 'norfolk_2C_cip_flood_overlay.csv'); }
 </script>
 </body>
 </html>
