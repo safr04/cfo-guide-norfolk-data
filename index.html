@@ -1,0 +1,1894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CFO Guide — Land Hazards &amp; Fiscal Planning | Norfolk Test Case</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- ── SHARED NAV ── -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.page{display:none;}
+.page.active{display:block;}
+
+/* Unified nav */
+#main-nav{
+  position:sticky;top:0;z-index:1000;
+  background:#0e1a2b;border-bottom:2px solid #b8962e;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;height:52px;
+}
+.nav-brand{font-family:"Lato Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#b8962e;}
+.nav-links{display:flex;gap:0;}
+.nav-btn{
+  background:none;border:none;cursor:pointer;
+  padding:0 24px;height:52px;
+  font-family:"Lato",sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);border-bottom:2px solid transparent;
+  margin-bottom:-2px;transition:all .18s;
+}
+.nav-btn:hover{color:rgba(255,255,255,.85);}
+.nav-btn.active{color:#d4ae4a;border-bottom-color:#b8962e;}
+
+/* Fix sticky sub-navs: data assembly tab-nav and meth chapter-nav */
+.tab-nav{top:52px !important;}
+.chapter-nav{top:52px !important;}
+
+/* Fix data assembly header (was sticky below its own old nav) */
+header{top:52px !important;}
+</style>
+
+<!-- ── LANDING STYLES ── -->
+<style>
+
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0e1a2b;--ink2:#2a3f5f;--paper:#f4f1eb;--paper2:#ece8e0;
+  --gold:#b8962e;--gold2:#d4ae4a;--red:#8b2020;--teal:#1a6b6b;
+  --border:#c8c0b0;
+}
+body{font-family:'Lato',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--ink);border-bottom:2px solid var(--gold);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:52px;}
+.nav-brand{font-family:'Lato Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);}
+.nav-links{display:flex;gap:32px;}
+.nav-links a{font-family:'Lato',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:#fff;}
+.nav-links a.active{color:var(--gold2);}
+
+/* ── HERO ── */
+.hero{display:grid;grid-template-columns:1fr 1fr;position:relative;padding-top:52px;}
+.hero-left{background:var(--ink);padding:80px 64px 80px 80px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
+.hero-left::before{content:'';position:absolute;top:-100px;right:-100px;width:400px;height:400px;border:1px solid rgba(184,150,46,.15);border-radius:50%;}
+.hero-left::after{content:'';position:absolute;bottom:-50px;right:-50px;width:250px;height:250px;border:1px solid rgba(184,150,46,.1);border-radius:50%;}
+.hero-eyebrow{font-family:'Lato Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:flex;align-items:center;gap:12px;}
+.hero-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--gold);}
+.hero-heading{font-family:'Playfair Display',serif;font-size:52px;line-height:1.1;color:#fff;font-weight:400;margin-bottom:8px;}
+.hero-heading em{font-style:italic;color:var(--gold2);}
+.hero-sub-heading{font-family:'Playfair Display',serif;font-size:20px;color:rgba(255,255,255,.5);font-style:italic;margin-bottom:36px;}
+.hero-body{color:rgba(255,255,255,.65);font-size:15px;line-height:1.8;max-width:480px;margin-bottom:48px;}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;}
+.cta-primary{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--ink);font-family:'Lato',sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:14px 28px;text-decoration:none;transition:all .2s;}
+.cta-primary:hover{background:var(--gold2);}
+.cta-secondary{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.7);font-family:'Lato',sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:14px 28px;text-decoration:none;transition:all .2s;}
+.cta-secondary:hover{border-color:rgba(255,255,255,.6);color:#fff;}
+
+.hero-right{background:var(--paper2);padding:80px 64px;display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--border);}
+.stat-deck{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.stat-item{padding:28px 24px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);}
+.stat-item:nth-child(even){border-right:none;}
+.stat-item:nth-last-child(-n+2){border-bottom:none;}
+.stat-num{font-family:'Playfair Display',serif;font-size:36px;color:var(--ink);line-height:1;margin-bottom:6px;}
+.stat-num.red{color:var(--red);}
+.stat-num.teal{color:var(--teal);}
+.stat-num.gold{color:var(--gold);}
+.stat-label{font-family:'Lato Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin-bottom:4px;}
+.stat-desc{font-size:12px;color:#666;line-height:1.4;}
+
+/* ── SECTIONS ── */
+.about{padding:96px 80px;max-width:1200px;margin:0 auto;}
+.section-rule{width:40px;height:2px;background:var(--gold);margin-bottom:24px;}
+.section-eyebrow{font-family:'Lato Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.section-heading{font-family:'Playfair Display',serif;font-size:36px;color:var(--ink);font-weight:400;margin-bottom:24px;line-height:1.2;}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;margin-top:64px;}
+.pillar{border-top:2px solid var(--border);padding-top:24px;}
+.pillar-num{font-family:'Lato Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--gold);margin-bottom:12px;}
+.pillar-title{font-family:'Playfair Display',serif;font-size:20px;color:var(--ink);margin-bottom:12px;font-weight:400;}
+.pillar-body{font-size:14px;line-height:1.7;color:var(--ink2);}
+
+/* ── STRUCTURE STRIP ── */
+.structure{background:var(--ink);padding:80px;}
+.structure-inner{max-width:1200px;margin:0 auto;}
+.structure-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);margin-top:48px;}
+.structure-cell{background:var(--ink);padding:32px;transition:background .2s;}
+.structure-cell:hover{background:var(--ink2);}
+.cell-label{font-family:'Lato Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.cell-title{font-family:'Playfair Display',serif;font-size:18px;color:#fff;font-weight:400;margin-bottom:8px;}
+.cell-body{font-size:13px;color:rgba(255,255,255,.5);line-height:1.6;}
+.cell-link{display:inline-block;margin-top:16px;font-family:'Lato Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(184,150,46,.3);padding-bottom:2px;transition:border-color .2s;}
+.cell-link:hover{border-color:var(--gold);}
+
+/* ── FINDINGS STRIP ── */
+.findings{padding:80px;}
+.findings-inner{max-width:1200px;margin:0 auto;}
+.findings-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px;}
+.finding-card{border:1px solid var(--border);padding:32px;background:#fff;}
+.finding-chapter{font-family:'Lato Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;}
+.finding-headline{font-family:'Playfair Display',serif;font-size:22px;color:var(--ink);margin-bottom:12px;font-weight:400;line-height:1.3;}
+.finding-body{font-size:14px;line-height:1.7;color:var(--ink2);}
+.finding-stat{margin-top:20px;padding-top:20px;border-top:1px solid var(--border);font-family:'Lato Mono',monospace;font-size:11px;color:var(--ink);display:flex;gap:24px;flex-wrap:wrap;}
+.finding-stat span{color:var(--gold);}
+
+/* ── COORDINATION ── */
+.coordination{background:var(--paper2);border-top:1px solid var(--border);padding:80px;}
+.coordination-inner{max-width:1200px;margin:0 auto;}
+.coord-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;border:1px solid var(--border);}
+.coord-cell{padding:28px 24px;border-right:1px solid var(--border);}
+.coord-cell:last-child{border-right:none;}
+.coord-office{font-family:'Lato Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.coord-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+.coord-body{font-size:13px;color:var(--ink2);line-height:1.6;}
+.coord-tag{display:inline-block;margin-top:12px;font-family:'Lato Mono',monospace;font-size:10px;padding:3px 8px;background:var(--ink);color:var(--gold);letter-spacing:.05em;}
+
+footer{background:var(--ink);padding:32px 80px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.08);}
+.footer-brand{font-family:'Lato Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);}
+.footer-note{font-size:12px;color:rgba(255,255,255,.3);}
+
+</style>
+
+<!-- ── DATA ASSEMBLY STYLES ── -->
+<style>
+
+nav{position:sticky;top:0;z-index:200;background:#0e1a2b;border-bottom:2px solid #b8962e;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:52px;}
+.nav-brand{font-family:"Lato Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#b8962e;}
+.nav-links{display:flex;gap:32px;}
+.nav-links a{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:#fff;}
+.nav-links a.active{color:#d4ae4a;}
+
+
+  :root {
+    --navy: #1a2740;
+    --navy-mid: #243352;
+    --blue: #3b6fd4;
+    --blue-light: #5a8de8;
+    --teal: #2a9d8f;
+    --amber: #e9c46a;
+    --red: #e76f51;
+    --cream: #f8f5f0;
+    --cream-mid: #f0ebe3;
+    --text: #1a2740;
+    --text-mid: #4a5568;
+    --text-light: #718096;
+    --border: #ddd6cc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "DM Sans", sans-serif; background: var(--cream); color: var(--text); line-height: 1.65; font-size: 15px; }
+
+  /* HEADER — lean */
+  header {
+    background: var(--navy);
+    border-bottom: 2px solid var(--amber);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .header-inner {
+    max-width: 1100px; margin: 0 auto;
+    padding: 0 32px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 48px;
+  }
+  .header-left { display: flex; align-items: center; gap: 10px; }
+  .header-pill {
+    font-family: "DM Mono", monospace; font-size: 10px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    background: var(--amber); color: var(--navy);
+    padding: 2px 8px; border-radius: 3px;
+  }
+  .header-title { font-size: 14px; color: rgba(255,255,255,0.85); font-weight: 500; }
+  .header-right { font-family: "DM Mono", monospace; font-size: 11px; color: rgba(255,255,255,0.4); }
+
+  /* HERO */
+  .hero { background: var(--navy); padding: 28px 32px 24px; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; }
+  .hero-eyebrow {
+    font-family: "DM Mono", monospace; font-size: 11px;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 14px;
+  }
+  .hero-heading {
+    font-family: "DM Serif Display", serif; font-size: 26px;
+    color: #fff; font-weight: 400; line-height: 1.15; margin-bottom: 14px;
+  }
+  .hero-sub { color: rgba(255,255,255,0.6); font-size: 15px; max-width: 660px; line-height: 1.75; margin-bottom: 16px; }
+  .hero-meta { display: flex; gap: 20px; flex-wrap: wrap; }
+  .meta-item { display: flex; flex-direction: column; gap: 2px; }
+  .meta-label { font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+  .meta-value { font-size: 13px; color: rgba(255,255,255,0.75); font-weight: 500; }
+
+  /* TABS */
+  .tab-nav { background: var(--navy-mid); border-bottom: 1px solid rgba(255,255,255,0.08); position: sticky; top: 52px; z-index: 90; }
+  .tab-nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 32px; display: flex; }
+  .tab-btn {
+    background: none; border: none; cursor: pointer;
+    padding: 16px 24px; font-family: "DM Sans", sans-serif;
+    font-size: 13px; font-weight: 500;
+    color: rgba(255,255,255,0.45);
+    border-bottom: 2px solid transparent; margin-bottom: -1px;
+    transition: all 0.18s; display: flex; align-items: center; gap: 8px;
+  }
+  .tab-btn:hover { color: rgba(255,255,255,0.75); }
+  .tab-btn.active { color: #fff; border-bottom-color: var(--amber); }
+  .tab-code {
+    font-family: "DM Mono", monospace; font-size: 10px;
+    background: rgba(255,255,255,0.1); padding: 2px 6px; border-radius: 3px; color: var(--amber);
+  }
+  .tab-btn.active .tab-code { background: var(--amber); color: var(--navy); }
+
+  main { max-width: 1100px; margin: 0 auto; padding: 44px 32px 80px; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .section-intro {
+    background: #fff; border: 1px solid var(--border); border-radius: 8px;
+    padding: 24px 28px; margin-bottom: 28px; border-left: 4px solid var(--blue);
+  }
+  .section-intro p { color: var(--text); font-size: 14px; line-height: 1.75; }
+  .section-intro p + p { margin-top: 8px; }
+
+  /* STATS */
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 32px; }
+  .stat-card {
+    background: #fff; border: 1px solid var(--border); border-radius: 8px;
+    padding: 18px 20px; position: relative; overflow: hidden;
+  }
+  .stat-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--blue); }
+  .stat-card.amber::before { background: var(--amber); }
+  .stat-card.teal::before { background: var(--teal); }
+  .stat-card.red::before { background: var(--red); }
+  .stat-label { font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 7px; }
+  .stat-value { font-family: "DM Serif Display", serif; font-size: 26px; color: var(--navy); line-height: 1; margin-bottom: 3px; }
+  .stat-sub { font-size: 11px; color: var(--text-light); }
+
+  /* ACCORDION */
+  .content-block { background: #fff; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 20px; overflow: hidden; }
+  .block-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 22px; border-bottom: 1px solid var(--border);
+    background: #fafaf8; cursor: pointer; user-select: none; gap: 12px;
+  }
+  .block-header:hover { background: var(--cream-mid); }
+  .block-title { font-size: 13px; font-weight: 600; color: var(--navy); display: flex; align-items: center; gap: 10px; }
+  .block-tag {
+    font-family: "DM Mono", monospace; font-size: 10px;
+    padding: 2px 7px; border-radius: 3px; font-weight: 400; letter-spacing: 0.04em;
+  }
+  .tag-step { background: #e8f0fe; color: var(--blue); }
+  .tag-data { background: #e6f7f5; color: var(--teal); }
+  .tag-missing { background: #fef3e8; color: #c05621; }
+  .tag-assume { background: #f0e8fe; color: #6b46c1; }
+  .tag-finding { background: #fff3cd; color: #856404; }
+  .block-chevron { font-size: 16px; color: var(--text-light); transition: transform 0.2s; flex-shrink: 0; }
+  .block-header.open .block-chevron { transform: rotate(180deg); }
+  .block-body { padding: 22px; display: none; }
+  .block-body.open { display: block; }
+
+  /* STEPS */
+  .step-list { list-style: none; }
+  .step-item { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--cream-mid); }
+  .step-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .step-num {
+    width: 26px; height: 26px; border-radius: 50%; background: var(--navy);
+    color: #fff; font-family: "DM Mono", monospace; font-size: 11px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;
+  }
+  .step-title { font-weight: 600; font-size: 13px; color: var(--navy); margin-bottom: 3px; }
+  .step-desc { color: var(--text); font-size: 13px; line-height: 1.6; }
+  .step-note {
+    margin-top: 8px; padding: 8px 12px; background: var(--cream);
+    border-left: 3px solid var(--amber); border-radius: 0 4px 4px 0;
+    font-size: 12px; color: var(--text); font-style: italic;
+  }
+
+  /* TABLES */
+  .source-table, .exposure-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .source-table th, .exposure-table th {
+    text-align: left; padding: 9px 13px;
+    background: var(--navy); color: rgba(255,255,255,0.8);
+    font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500;
+  }
+  .exposure-table th { text-align: right; }
+  .exposure-table th:first-child { text-align: left; }
+  .source-table td, .exposure-table td {
+    padding: 11px 13px; border-bottom: 1px solid var(--cream-mid); vertical-align: top; line-height: 1.5;
+  }
+  .exposure-table td { text-align: right; font-family: "DM Mono", monospace; font-size: 12px; color: var(--text); }
+  .exposure-table td:first-child { text-align: left; font-family: "DM Sans", sans-serif; font-size: 13px; color: var(--navy); font-weight: 500; }
+  .source-table tr:last-child td, .exposure-table tr:last-child td { border-bottom: none; }
+  .source-table tr:nth-child(even) td, .exposure-table tr:nth-child(even) td { background: #fafaf8; }
+  .exposure-table tr:last-child td { font-weight: 600; color: var(--navy); background: #f4f1eb; }
+  .source-link { color: var(--blue); text-decoration: none; font-family: "DM Mono", monospace; font-size: 11px; word-break: break-all; }
+  .source-link:hover { text-decoration: underline; }
+
+  /* ISSUES */
+  .issue-list { list-style: none; }
+  .issue-item { display: flex; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--cream-mid); font-size: 13px; color: var(--text); line-height: 1.6; }
+  .issue-item:last-child { border-bottom: none; }
+  .issue-dot { width: 7px; height: 7px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+  .dot-missing { background: var(--red); }
+  .dot-assume { background: #9b72cf; }
+  .issue-text strong { color: var(--navy); }
+
+  /* DOWNLOAD */
+  .download-section {
+    background: var(--navy); border-radius: 8px; padding: 24px 28px;
+    margin-top: 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  }
+  .download-label { font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); margin-bottom: 4px; }
+  .download-title { font-family: "DM Serif Display", serif; font-size: 18px; color: #fff; font-weight: 400; margin-bottom: 4px; }
+  .download-desc { color: rgba(255,255,255,0.5); font-size: 12px; }
+  .download-actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .download-btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: var(--amber); color: var(--navy); border: none;
+    padding: 10px 18px; border-radius: 6px;
+    font-family: "DM Sans", sans-serif; font-size: 13px; font-weight: 600;
+    cursor: pointer; text-decoration: none; transition: opacity 0.15s; white-space: nowrap;
+  }
+  .download-btn:hover { opacity: 0.88; }
+  .download-btn.secondary {
+    background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.8);
+  }
+  .download-btn.loading { opacity: 0.6; pointer-events: none; }
+  .download-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+  /* MISC */
+  .callout {
+    background: #f0f7ff; border: 1px solid #bee3f8; border-radius: 6px;
+    padding: 13px 16px; font-size: 13px; color: #2c5282; line-height: 1.65; margin-top: 14px;
+  }
+  .callout strong { color: #1a365d; }
+  hr.divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+  .badge {
+    display: inline-block; padding: 2px 7px; border-radius: 3px;
+    font-family: "DM Mono", monospace; font-size: 10px; font-weight: 500;
+  }
+  .badge-yes { background: #dcfce7; color: #166534; }
+  .badge-no { background: #fee2e2; color: #991b1b; }
+  .badge-partial { background: #fef3c7; color: #92400e; }
+  .finding-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .finding-cell { background: var(--cream); border: 1px solid var(--border); border-radius: 6px; padding: 14px; }
+  .finding-cell-label { font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); margin-bottom: 5px; }
+  .finding-cell-value { font-family: "DM Serif Display", serif; font-size: 20px; color: var(--navy); }
+  .finding-cell-sub { font-size: 11px; color: var(--text-light); margin-top: 2px; }
+
+  @media (max-width: 680px) {
+    .hero-heading { font-size: 28px; }
+    .tab-btn { padding: 12px 14px; font-size: 12px; }
+    .finding-row { grid-template-columns: 1fr; }
+    .download-section { flex-direction: column; }
+    main { padding: 28px 18px 60px; }
+    .hero { padding: 32px 18px 28px; }
+    .header-inner { padding: 0 18px; }
+  }
+
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+</style>
+
+<!-- ── METHODOLOGY STYLES ── -->
+<style>
+
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0e1a2b;--ink2:#2a3f5f;--paper:#f4f1eb;--paper2:#ece8e0;
+  --gold:#b8962e;--gold2:#d4ae4a;--red:#8b2020;--teal:#1a6b6b;
+  --border:#c8c0b0;--green:#2d6a4f;
+}
+body{font-family:"Lato",sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;}
+
+nav{position:sticky;top:0;z-index:100;background:var(--ink);border-bottom:2px solid var(--gold);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:52px;}
+.nav-brand{font-family:"Lato Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);}
+.nav-links{display:flex;gap:32px;}
+.nav-links a{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:#fff;}
+.nav-links a.active{color:var(--gold2);}
+
+.page-hero{background:var(--ink);padding: 28px 80px 24px;}
+.hero-eyebrow{font-family:"Lato Mono",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.hero-heading{font-family:"Playfair Display",serif;font-size:44px;color:#fff;font-weight:400;margin-bottom:12px;}
+.hero-sub{color:rgba(255,255,255,.6);font-size:15px;max-width:700px;line-height:1.75;}
+
+/* Chapter tabs */
+.chapter-nav{background:var(--ink2);border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:52px;z-index:90;}
+.chapter-tabs{display:flex;max-width:1400px;margin:0 auto;padding:0 48px;}
+.ch-tab{background:none;border:none;cursor:pointer;padding:18px 32px;font-family:"Lato",sans-serif;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.45);border-bottom:3px solid transparent;margin-bottom:-1px;transition:all .2s;display:flex;align-items:center;gap:10px;}
+.ch-tab:hover{color:rgba(255,255,255,.8);}
+.ch-tab.active{color:#fff;border-bottom-color:var(--gold);}
+.ch-num{font-family:"Lato Mono",monospace;font-size:10px;background:rgba(255,255,255,.1);padding:2px 7px;border-radius:2px;color:var(--gold);}
+.ch-tab.active .ch-num{background:var(--gold);color:var(--ink);}
+
+main{max-width:1400px;margin:0 auto;padding:56px 80px 96px;}
+.ch-panel{display:none;}
+.ch-panel.active{display:block;}
+
+/* Chapter intro */
+.ch-intro{display:grid;grid-template-columns:2fr 1fr;gap:48px;margin-bottom:56px;padding-bottom:56px;border-bottom:1px solid var(--border);}
+.ch-intro-text h2{font-family:"Playfair Display",serif;font-size:32px;color:var(--ink);font-weight:400;margin-bottom:16px;}
+.ch-intro-text p{font-size:14px;line-height:1.8;color:var(--ink2);margin-bottom:12px;}
+.ch-context{background:var(--ink);padding:28px;color:rgba(255,255,255,.7);font-size:13px;line-height:1.7;}
+.ch-context strong{color:var(--gold2);display:block;font-family:"Lato Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;}
+
+/* Exercise accordion */
+.exercise{border:1px solid var(--border);margin-bottom:20px;background:#fff;}
+.ex-header{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;cursor:pointer;background:#fafaf7;border-bottom:1px solid var(--border);transition:background .15s;}
+.ex-header:hover{background:var(--paper2);}
+.ex-header-left{display:flex;align-items:center;gap:16px;}
+.ex-badge{font-family:"Lato Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:2px;}
+.badge-ch1{background:#fff3cd;color:#856404;}
+.badge-ch2{background:#d1e7dd;color:#0a3622;}
+.badge-ch3{background:#cff4fc;color:#055160;}
+.ex-title{font-family:"Playfair Display",serif;font-size:18px;color:var(--ink);font-weight:400;}
+.ex-headline{font-size:13px;color:var(--ink2);margin-top:3px;}
+.ex-chevron{font-size:20px;color:var(--ink2);transition:transform .2s;}
+.ex-header.open .ex-chevron{transform:rotate(180deg);}
+.ex-body{padding:32px 28px;display:none;}
+.ex-body.open{display:block;}
+
+/* Exercise body sections */
+.ex-section{margin-bottom:32px;}
+.ex-section:last-child{margin-bottom:0;}
+.ex-section-label{font-family:"Lato Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.ex-section-label::after{content:"";flex:1;height:1px;background:var(--border);}
+.ex-section p{font-size:14px;line-height:1.75;color:var(--ink2);margin-bottom:10px;}
+.ex-section p:last-child{margin-bottom:0;}
+
+/* Result table */
+.result-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px;}
+.result-table th{text-align:left;padding:9px 14px;background:var(--ink);color:rgba(255,255,255,.8);font-family:"Lato Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:500;}
+.result-table th.num{text-align:right;}
+.result-table td{padding:10px 14px;border-bottom:1px solid var(--paper2);font-size:13px;vertical-align:top;line-height:1.5;}
+.result-table td.num{text-align:right;font-family:"Lato Mono",monospace;color:var(--ink);}
+.result-table td.highlight{text-align:right;font-family:"Lato Mono",monospace;color:var(--ink);font-weight:600;}
+.result-table td.teal{text-align:right;font-family:"Lato Mono",monospace;color:var(--ink);font-weight:600;}
+.result-table td.gold{text-align:right;font-family:"Lato Mono",monospace;color:var(--ink);font-weight:600;}
+.result-table tr:last-child td{border-bottom:none;font-weight:700;background:#f4f1eb;}
+.result-table tr:nth-child(even) td{background:#fafaf8;}
+.result-table tr:last-child td{background:var(--paper2) !important;}
+
+/* Data / coordination tags */
+.tag-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
+.tag{font-family:"Lato Mono",monospace;font-size:11px;padding:4px 10px;border-radius:2px;letter-spacing:.04em;}
+.tag-source{background:#e8f0fe;color:#1a56db;}
+.tag-coord{background:#fef3e8;color:#92400e;}
+.tag-missing{background:#fee2e2;color:#991b1b;}
+.tag-partial{background:#fef9c3;color:#713f12;}
+
+/* Callout */
+.callout{background:#f0f7ff;border:1px solid #bfdbfe;padding:14px 18px;font-size:13px;color:#1e3a5f;line-height:1.65;margin-top:12px;border-radius:2px;}
+.callout strong{color:#1e3a5f;}
+.callout-warn{background:#fff7ed;border-color:#fed7aa;color:#7c2d12;}
+.callout-success{background:#f0fdf4;border-color:#bbf7d0;color:#14532d;}
+
+/* Stat row */
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin:16px 0;}
+.stat-box{background:var(--paper);border:1px solid var(--border);padding:16px 18px;}
+.stat-box-label{font-family:"Lato Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin-bottom:6px;}
+.stat-box-value{font-family:"Playfair Display",serif;font-size:24px;color:var(--ink);}
+.stat-box-value.red{color:var(--red);}
+.stat-box-value.teal{color:var(--teal);}
+.stat-box-value.gold{color:var(--gold);}
+.stat-box-sub{font-size:11px;color:#888;margin-top:3px;}
+
+.dir-arrow{font-size:20px;}
+.arr-down{color:var(--teal);}
+.arr-up{color:var(--red);}
+.arr-flat{color:var(--ink2);}
+
+.tier-badge{display:inline-block;padding:2px 8px;font-family:"Lato Mono",monospace;font-size:10px;border-radius:2px;}
+.tier-0{background:#e5e7eb;color:#374151;}
+.tier-2{background:#fef3c7;color:#92400e;}
+.tier-3{background:#fee2e2;color:#991b1b;}
+.flag-ma{background:#d1fae5;color:#064e3b;}
+.flag-ef{background:#dbeafe;color:#1e3a8a;}
+.flag-maef{background:#ede9fe;color:#4c1d95;}
+
+hr.ex-divider{border:none;border-top:1px solid var(--border);margin:24px 0;}
+
+</style>
+</head>
+<body>
+
+<!-- ── UNIFIED NAV ── -->
+<nav id="main-nav">
+  <div class="nav-brand">CFO Guide — Land Hazards &amp; Fiscal Planning</div>
+  <div class="nav-links">
+    <button class="nav-btn active" onclick="showPage('overview')">Overview</button>
+    <button class="nav-btn" onclick="showPage('data')">Data Assembly</button>
+    <button class="nav-btn" onclick="showPage('methods')">Methodologies</button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     PAGE 1: OVERVIEW (LANDING)
+══════════════════════════════════════════════ -->
+<div id="page-overview" class="page active">
+
+
+
+
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Norfolk, Virginia &nbsp;·&nbsp; Test Case</div>
+    <h1 class="hero-heading">CFO Guide<br><em>Land Hazards</em><br>&amp; Fiscal Planning</h1>
+    <div class="hero-sub-heading">An end-to-end methodology test</div>
+    <p class="hero-body">This site documents the application of the CFO Guide methodology to Norfolk, Virginia — a coastal city with significant flood exposure, a $1.4 billion capital program, and a tax base where 42 percent of assessed value sits inside a mapped flood zone. All data was sourced from publicly available records.</p>
+    <div class="hero-ctas">
+      <a href="#" onclick="goToData();return false;" class="cta-primary">Data Assembly →</a>
+      <a href="#" onclick="goToMethods();return false;" class="cta-secondary">Methodology Chapters →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-deck">
+      <div class="stat-item">
+        <div class="stat-label">Taxable assessed value</div>
+        <div class="stat-num">$32.4B</div>
+        <div class="stat-desc">Total assessor-reported taxable base, FY26</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">AV in any flood zone</div>
+        <div class="stat-num red">$13.7B</div>
+        <div class="stat-desc">42.3% of the taxable base — SFHA and 500-year combined</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Five-year CIP</div>
+        <div class="stat-num gold">$1.43B</div>
+        <div class="stat-desc">FY2025–FY2029 adopted capital program</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">CIP in flood zones</div>
+        <div class="stat-num red">$130M</div>
+        <div class="stat-desc">33 of 121 geocoded projects in SFHA or 500-year zone</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">City-owned parcels</div>
+        <div class="stat-num">2,101</div>
+        <div class="stat-desc">5.1% of city land area under direct municipal control</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">City land in flood zones</div>
+        <div class="stat-num red">81.4%</div>
+        <div class="stat-desc">By assessed value — 1,212 of 2,101 parcels exposed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Flood mitigation CIP</div>
+        <div class="stat-num teal">$571M</div>
+        <div class="stat-desc">39.9% of CIP classified as mitigation or adaptation</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">CSRM project</div>
+        <div class="stat-num teal">$350M</div>
+        <div class="stat-desc">Dominant flood protection investment — citywide, not in spatial overlay</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="about">
+  <div class="section-rule"></div>
+  <div class="section-eyebrow">About this guide</div>
+  <h2 class="section-heading">What this methodology does — and what it produces</h2>
+  <p style="font-size:15px;line-height:1.8;color:var(--ink2);max-width:720px;">The CFO Guide gives municipal finance offices a structured process for connecting what the city already spends, regulates, and controls to the spatial and environmental conditions it faces. The work is built from data the city already holds. The findings strengthen the capital plan, the credit narrative, grant competitiveness, and the quality of financial disclosure.</p>
+  <div class="three-col">
+    <div class="pillar">
+      <div class="pillar-num">01 &mdash; Data Assembly</div>
+      <div class="pillar-title">Three parallel data tracks</div>
+      <div class="pillar-body">Parcel-level revenue base with hazard overlay. City-owned land inventory with exposure flags. Capital improvement plan as a geocoded project layer. Each track is built from publicly available data and produces a spreadsheet and map that feeds the methodology chapters.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">02 &mdash; Methodologies</div>
+      <div class="pillar-title">Nine exercises across three chapters</div>
+      <div class="pillar-body">Chapter 1 measures property tax base exposure and runs revenue-at-risk scenarios. Chapter 2 classifies the CIP by hazard exposure and produces a mitigation inventory. Chapter 3 examines the city-owned land portfolio by hazard tier and revenue status.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">03 &mdash; Norfolk Test Case</div>
+      <div class="pillar-title">All exercises run with real data</div>
+      <div class="pillar-body">Every exercise in the three methodology chapters has been executed using Norfolk, Virginia public data. Results are shown with actual figures, data sources, coordination requirements, and honest documentation of what the public data cannot provide.</div>
+    </div>
+  </div>
+</section>
+
+<div class="structure">
+  <div class="structure-inner">
+    <div class="section-rule" style="background:var(--gold)"></div>
+    <div class="section-eyebrow" style="color:var(--gold)">Site structure</div>
+    <h2 class="section-heading" style="color:#fff;">Three sections, each building on the last</h2>
+    <div class="structure-grid">
+      <div class="structure-cell">
+        <div class="cell-label">This page</div>
+        <div class="cell-title">Overview &amp; Findings</div>
+        <div class="cell-body">Context, headline numbers, coordination requirements, and what each section contains.</div>
+        <a href="#" class="cell-link">You are here</a>
+      </div>
+      <div class="structure-cell">
+        <div class="cell-label">Section 2</div>
+        <div class="cell-title">Data Assembly</div>
+        <div class="cell-body">Sections 2A, 2B, and 2C — step-by-step build, data sources with direct links, assumptions, and missing elements. Downloadable final datasets.</div>
+        <a href="#" onclick="goToData();return false;" class="cell-link">View Data Assembly →</a>
+      </div>
+      <div class="structure-cell">
+        <div class="cell-label">Section 3</div>
+        <div class="cell-title">Methodologies</div>
+        <div class="cell-body">Chapters 1, 2, and 3 — all nine exercises completed with Norfolk figures, including data sources, government coordination requirements, and gaps.</div>
+        <a href="#" onclick="goToMethods();return false;" class="cell-link">View Methodologies →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="findings">
+  <div class="findings-inner">
+    <div class="section-rule"></div>
+    <div class="section-eyebrow">Headline findings</div>
+    <h2 class="section-heading">What the Norfolk test case produced</h2>
+    <div class="findings-grid">
+      <div class="finding-card">
+        <div class="finding-chapter">Chapter 1 &mdash; Property Tax Base</div>
+        <div class="finding-headline">42 percent of Norfolk&rsquo;s taxable base sits in a mapped flood zone</div>
+        <div class="finding-body">The 100-year SFHA contains 10,206 taxable parcels with $9.1 billion in assessed value — 28 percent of the citywide base. A moderate catastrophic event (30 percent of exposed parcels reaching the substantial damage threshold) would produce a permanent annual revenue loss of $13.9 million. The top decile of taxpayers by assessed value is concentrated in flood zones at a rate higher than the rest of the base: 55 percent of top-decile value is flood-exposed.</div>
+        <div class="finding-stat">
+          <div>100yr SFHA AV: <span>$9.1B</span></div>
+          <div>Any flood AV: <span>$13.7B (42.3%)</span></div>
+          <div>Moderate event revenue loss: <span>$13.9M/yr</span></div>
+        </div>
+      </div>
+      <div class="finding-card">
+        <div class="finding-chapter">Chapter 2 &mdash; Capital Improvements Plan</div>
+        <div class="finding-headline">$130M in geocoded CIP investment sits in flood zones — but the largest mitigation project is invisible</div>
+        <div class="finding-body">33 of 121 geocoded CIP projects ($130M five-year) are in the SFHA or 500-year zone. But the $350.5M Coastal Storm Risk Management project — Norfolk&rsquo;s dominant flood protection investment — is coded citywide and does not appear in the overlay. The full mitigation picture is $571M (40% of the CIP), of which $93M protects essential facilities. 14 essential facility projects sit in tier 2 or tier 3 exposure.</div>
+        <div class="finding-stat">
+          <div>Flood-exposed CIP: <span>$130M</span></div>
+          <div>Total mitigation investment: <span>$571M</span></div>
+          <div>Essential facility in hazard zones: <span>$50M</span></div>
+        </div>
+      </div>
+      <div class="finding-card">
+        <div class="finding-chapter">Chapter 3 &mdash; City-Owned Land</div>
+        <div class="finding-headline">81 percent of city-owned assessed value is in a flood zone</div>
+        <div class="finding-body">Of 2,101 city-owned parcels, 1,212 (58%) sit in a mapped flood zone. By assessed value, 81.4 percent of the city-owned portfolio is exposed. The tier 3 (high) category alone holds $3.1 billion in assessed value across 824 parcels — driven by the Norfolk Airport Authority and NRHA alongside direct city holdings. The chapter highlights that this analysis is constrained by the absence of the fixed-asset subledger, which is required for replacement cost estimates.</div>
+        <div class="finding-stat">
+          <div>Parcels in any flood zone: <span>1,212 (58%)</span></div>
+          <div>AV in flood zones: <span>$3.74B (81.4%)</span></div>
+          <div>Tier 3 AV: <span>$3.13B</span></div>
+        </div>
+      </div>
+      <div class="finding-card">
+        <div class="finding-chapter">Across all three chapters</div>
+        <div class="finding-headline">What the public data can and cannot produce</div>
+        <div class="finding-body">Seven of nine exercises were substantially completed from publicly available data. Two require internal finance office records: Chapter 1 Exercise 3 (building permits) and Chapter 3 Exercise 2 (lease revenue by parcel). Three exercises produced directional findings rather than precise figures because key fields — taxable value, fixed-asset carrying value, and zoning — were not in the public extract. In each case the specific internal source required is documented.</div>
+        <div class="finding-stat">
+          <div>Exercises fully completed: <span>5 of 9</span></div>
+          <div>Exercises partially completed: <span>2 of 9</span></div>
+          <div>Exercises requiring internal data: <span>2 of 9</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="coordination">
+  <div class="coordination-inner">
+    <div class="section-rule"></div>
+    <div class="section-eyebrow">Government coordination</div>
+    <h2 class="section-heading">Which offices need to be at the table</h2>
+    <p style="font-size:14px;color:var(--ink2);max-width:680px;line-height:1.7;margin-bottom:0;">Running the full methodology requires the finance office to coordinate across four areas of city government. Most of the coordination is a working session, not a data request — the data exists; the connection to fiscal planning does not yet.</p>
+    <div class="coord-grid">
+      <div class="coord-cell">
+        <div class="coord-office">Assessor / GIS</div>
+        <div class="coord-title">Tax roll &amp; parcel data</div>
+        <div class="coord-body">Provides the parcel boundary file, the certified tax roll with taxable value, and the geocoded layer. The public extract is available without coordination; the internal roll with partial exemptions requires the assessor.</div>
+        <div class="coord-tag">Required for 2A, Ch.1</div>
+      </div>
+      <div class="coord-cell">
+        <div class="coord-office">Capital Planning / Budget</div>
+        <div class="coord-title">CIP project records</div>
+        <div class="coord-body">Provides the adopted CIP with year-by-year expenditure schedules, funding source splits by project, and location confirmation for projects not yet geocoded. The working session also covers MA and EF flag assignment.</div>
+        <div class="coord-tag">Required for 2C, Ch.2</div>
+      </div>
+      <div class="coord-cell">
+        <div class="coord-office">Real Estate / Public Works</div>
+        <div class="coord-title">Asset custody &amp; use</div>
+        <div class="coord-body">Provides custody by department, current use, and revenue status for city-owned parcels. The fixed-asset subledger — required for carrying values and depreciation — lives in the finance office itself but needs a working session to join to the parcel layer.</div>
+        <div class="coord-tag">Required for 2B, Ch.3</div>
+      </div>
+      <div class="coord-cell">
+        <div class="coord-office">Emergency Management</div>
+        <div class="coord-title">Hazard layer confirmation</div>
+        <div class="coord-body">Confirms which hazard layers are current and which areas of known flooding are not captured in the federal maps. The hazard mitigation planner also provides the LHMP mitigation action list used to assign MA flags to CIP projects.</div>
+        <div class="coord-tag">Required for 2A–2C, Ch.2</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- footer -->
+<footer style="background:#0e1a2b;padding:28px 80px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.08);">
+  <div style="font-family:'Lato Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);">CFO Guide &mdash; Land Hazards &amp; Fiscal Planning &nbsp;|&nbsp; Norfolk Test Case &nbsp;|&nbsp; FY2025</div>
+  <div style="font-size:12px;color:rgba(255,255,255,.3);">All data sourced from publicly available records. Figures are analytical estimates, not official city positions.</div>
+</footer>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PAGE 2: DATA ASSEMBLY
+══════════════════════════════════════════════ -->
+<div id="page-data" class="page">
+
+
+
+
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Part 2</div>
+    <h1 class="hero-heading">Data Assembly</h1>
+    <p class="hero-sub">Three parallel data tracks built from data the city already holds or can pull from a federal or third-party source. Each track produces a spreadsheet and companion map that feed into the four methodology chapters in Part 3.</p>
+    <div class="hero-meta">
+      <div class="meta-item"><span class="meta-label">City</span><span class="meta-value">Norfolk, Virginia</span></div>
+      <div class="meta-item"><span class="meta-label">Data vintage</span><span class="meta-value">FY2025 / FY2026</span></div>
+      <div class="meta-item"><span class="meta-label">Purpose</span><span class="meta-value">Methodology test run</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="tab-nav">
+  <div class="tab-nav-inner">
+    <button class="tab-btn active" onclick="switchTab('2a',this)"><span class="tab-code">2A</span> Revenue Base &amp; Hazard Exposure</button>
+    <button class="tab-btn" onclick="switchTab('2b',this)"><span class="tab-code">2B</span> City-Owned Land &amp; Assets</button>
+    <button class="tab-btn" onclick="switchTab('2c',this)"><span class="tab-code">2C</span> Capital Improvements Plan</button>
+  </div>
+</div>
+
+<main>
+
+<!-- 2A -->
+<div id="panel-2a" class="tab-panel active">
+  <div class="section-intro">
+    <p>Section 2A produces a parcel-level data file covering every parcel in the city, joined to assessed value, property type, and hazard exposure. The goal is to show where the city's tax base sits in relation to mapped flood zones.</p>
+    <p>The finance office leads. The assessor provides the tax roll and parcel boundaries. GIS performs the spatial joins. The hazard mitigation planner confirms which flood layers are current.</p>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-card"><div class="stat-label">Total parcels</div><div class="stat-value">72,677</div><div class="stat-sub">After deduplication</div></div>
+    <div class="stat-card"><div class="stat-label">Taxable parcels</div><div class="stat-value">68,319</div><div class="stat-sub">Excludes fully exempt</div></div>
+    <div class="stat-card amber"><div class="stat-label">Total taxable AV</div><div class="stat-value">$32.4B</div><div class="stat-sub">Assessed value (public data)</div></div>
+    <div class="stat-card red"><div class="stat-label">AV in 100-year SFHA</div><div class="stat-value">$9.1B</div><div class="stat-sub">28.2% of taxable base</div></div>
+    <div class="stat-card red"><div class="stat-label">AV in any flood zone</div><div class="stat-value">$13.7B</div><div class="stat-sub">42.3% of taxable base</div></div>
+    <div class="stat-card teal"><div class="stat-label">Parcels in any flood zone</div><div class="stat-value">20,539</div><div class="stat-sub">Of 68,319 taxable</div></div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-header open" onclick="toggleBlock(this)">
+      <div class="block-title"><span class="block-tag tag-step">Step by step</span> How the data was assembled</div>
+      <span class="block-chevron">&#9662;</span>
+    </div>
+    <div class="block-body open">
+      <ol class="step-list">
+        <li class="step-item"><div class="step-num">1</div><div class="step-content"><div class="step-title">Pull the assessor tax roll</div><div class="step-desc">Downloaded the FY26 property assessment file from Norfolk's open data portal. The file contains 74,311 raw records covering every parcel account in the city, including assessed value, property type, owner, and address.</div></div></li>
+        <li class="step-item"><div class="step-num">2</div><div class="step-content"><div class="step-title">Deduplicate extension records</div><div class="step-desc">The raw file has multiple rows per parcel for accessory structures. Records were deduplicated by keeping the primary extension (R01 or C01) for each parcel, and retaining secondary records only where they had a unique parcel ID indicating a separately assessed unit. This reduced the record count from 74,311 to 72,677.</div><div class="step-note">Summing all raw records without this step inflates citywide assessed value by approximately $43 billion.</div></div></li>
+        <li class="step-item"><div class="step-num">3</div><div class="step-content"><div class="step-title">Download parcel boundary polygons</div><div class="step-desc">Downloaded 67,321 parcel boundary polygons from Norfolk's GIS open data hub. Each polygon carries a parcel ID (LRSN) used to join to the assessment file. The LRSN field in the shapefile was stored as a float and required conversion to a string before joining.</div></div></li>
+        <li class="step-item"><div class="step-num">4</div><div class="step-content"><div class="step-title">Download FIRM flood zones</div><div class="step-desc">Downloaded 1,665 flood zone polygons from Norfolk's GIS server. Zones include AE and VE (100-year SFHA), 0.2 PCT Annual Chance (500-year), and X (minimal). The FEMA national REST endpoint was unreliable; Norfolk's own GIS server was used instead.</div></div></li>
+        <li class="step-item"><div class="step-num">5</div><div class="step-content"><div class="step-title">Run the spatial join</div><div class="step-desc">Each parcel polygon was intersected against the 100-year SFHA, 500-year, and VE zone layers using GeoPandas. Any parcel with at least partial overlap with a flood zone was flagged as exposed.</div></div></li>
+        <li class="step-item"><div class="step-num">6</div><div class="step-content"><div class="step-title">Join assessment data to flood flags</div><div class="step-desc">Flood exposure flags were joined back to the assessment file by parcel ID, producing one row per parcel with assessed value, property type, taxability status, and one column per hazard zone.</div></div></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-header open" onclick="toggleBlock(this)">
+      <div class="block-title"><span class="block-tag tag-finding">Key findings</span> Flood exposure by zone</div>
+      <span class="block-chevron">&#9662;</span>
+    </div>
+    <div class="block-body open">
+      <table class="exposure-table">
+        <thead><tr><th>Hazard zone</th><th class="num">Parcels</th><th>Assessed value</th><th>Share of taxable AV</th><th>Implied annual levy</th></tr></thead>
+        <tbody>
+          <tr><td>100-year SFHA (AE + A)</td><td class="num">10,206</td><td>$9.13B</td><td class="num">28.2%</td><td>$112M</td></tr>
+          <tr><td>500-year zone (0.2% annual chance)</td><td class="num">15,456</td><td>$10.90B</td><td class="num">33.7%</td><td>$134M</td></tr>
+          <tr><td>VE zone (coastal high hazard)</td><td class="num">208</td><td>$2.40B</td><td class="num">7.5%</td><td>$30M</td></tr>
+          <tr><td>Any flood zone (unduplicated)</td><td class="num">20,539</td><td>$13.70B</td><td class="num">42.3%</td><td>$168M</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><strong>Note on levy figures.</strong> The levy shown here is estimated from assessed value at the effective rate of $1.23 per $100. Norfolk's actual FY25 real estate levy was $328M, implying a taxable base of $26.7B. The gap of approximately $5.7B reflects partial exemptions (homestead, senior, veteran) not visible in the public dataset. The geographic distribution of exposure is reliable; the aggregate levy figures overstate actual collections by approximately 21%.</div>
+      <hr class="divider">
+      <p style="font-size:13px;color:var(--text-mid);margin-bottom:12px;"><strong>Top property types in 100-year SFHA (by assessed value)</strong></p>
+      <table class="exposure-table">
+        <thead><tr><th>Property type</th><th>Parcels in SFHA</th><th>Assessed value</th><th>Share of SFHA AV</th></tr></thead>
+        <tbody>
+          <tr><td>Single Family &ndash; Detached</td><td class="num">7,156</td><td>$3.27B</td><td class="num">35.8%</td></tr>
+          <tr><td>Industrial</td><td class="num">181</td><td>$2.25B</td><td class="num">24.6%</td></tr>
+          <tr><td>Apartment</td><td class="num">196</td><td>$2.11B</td><td class="num">23.1%</td></tr>
+          <tr><td>Commercial</td><td class="num">540</td><td>$0.95B</td><td class="num">10.4%</td></tr>
+          <tr><td>Other</td><td class="num">2,133</td><td>$0.55B</td><td class="num">6.1%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-header" onclick="toggleBlock(this)">
+      <div class="block-title"><span class="block-tag tag-data">Data sources</span> What was used and where to find it</div>
+      <span class="block-chevron">&#9662;</span>
+    </div>
+    <div class="block-body">
+      <table class="source-table">
+        <thead><tr><th>Dataset</th><th>Source</th><th>Link</th><th>Format</th><th>Records</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Property Assessment FY26</strong><br><span style="color:var(--text-light);font-size:11px;">Assessed value, property type, owner, address</span></td><td>Norfolk Open Data</td><td><a href="https://data.norfolk.gov/resource/m5ya-5grb.json" target="_blank" class="source-link">data.norfolk.gov/d/m5ya-5grb</a></td><td>JSON / Socrata</td><td>74,311 raw</td></tr>
+          <tr><td><strong>Parcel Boundaries</strong><br><span style="color:var(--text-light);font-size:11px;">Polygon shapefile &mdash; spatial backbone</span></td><td>Norfolk GIS Open Data</td><td><a href="https://norfolkgisdata-orf.opendata.arcgis.com/datasets/a516ce5d20b3431baae9ba99b256cb08" target="_blank" class="source-link">norfolkgisdata-orf.opendata.arcgis.com</a></td><td>ArcGIS / GeoJSON</td><td>67,321 polygons</td></tr>
+          <tr><td><strong>FIRM Flood Zones</strong><br><span style="color:var(--text-light);font-size:11px;">Flood zone polygons: AE, VE, 0.2 PCT, X</span></td><td>Norfolk GIS (Environmental)</td><td><a href="https://gisshare.norfolk.gov/pubserver/rest/services/OpenData/Environmental/FeatureServer/4" target="_blank" class="source-link">gisshare.norfolk.gov/Environmental/FS/4</a></td><td>ArcGIS / GeoJSON</td><td>1,665 polygons</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-header" onclick="toggleBlock(this)">
+      <div class="block-title"><span class="block-tag tag-assume">Assumptions</span> Decisions made in the analysis</div>
+      <span class="block-chevron">&#9662;</span>
+    </div>
+    <div class="block-body">
+      <ul class="issue-list">
+        <li class="issue-item"><span class="issue-dot dot-assume"></span><div class="issue-text"><strong>Partial overlap counts as exposed.</strong> If any part of a parcel polygon intersects a flood zone, the entire parcel is flagged as exposed. No partial-area weighting was applied.</div></li>
+        <li class="issue-item"><span class="issue-dot dot-assume"></span><div class="issue-text"><strong>Assessed value used in place of taxable value.</strong> The public dataset does not include partial exemptions. Assessed value is the closest available proxy. Levy figures overstate actual collections by approximately 21%.</div></li>
+        <li class="issue-item"><span class="issue-dot dot-assume"></span><div class="issue-text"><strong>Primary extension record kept for deduplication.</strong> Where multiple rows share a parcel ID, the R01 or C01 record is kept. Secondary records are retained only where they carry a unique parcel ID indicating a separately assessed unit.</div></li>
+        <li class="issue-item"><span class="issue-dot dot-assume"></span><div class="issue-text"><strong>FIRM effective date accepted as-is.</strong> The Norfolk FIRM was not independently verified against any recent map amendment. Confirm the effective date before using this analysis for regulatory or disclosure purposes.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-header" onclick="toggleBlock(this)">
+      <div class="block-title"><span class="block-tag tag-missing">Missing elements</span> What is not in the dataset</div>
+      <span class="block-chevron">&#9662;</span>
+    </div>
+    <div class="block-body">
+      <ul class="issue-list">
+        <li class="issue-item"><span class="issue-dot dot-missing"></span><div class="issue-text"><strong>Taxable value.</strong> Partial exemptions are not in the public dataset. True taxable value requires the finance office's internal tax roll.</div></li>
+        <li class="issue-item"><span class="issue-dot dot-missing"></span><div class="issue-text"><strong>Zoning layer.</strong> Available from Norfolk GIS. Not joined in this build. Would add one column per parcel without changing the hazard overlay.</div></li>
+        <li class="issue-item"><span class="issue-dot dot-missing"></span><div class="issue-text"><strong>Sea level rise projections.</strong> NOAA SLR inundation layers at multiple horizons were not applied. Only regulatory FIRM zones were used.</div></li>
+        <li class="issue-item"><span class="issue-dot dot-missing"></span><div class="issue-text"><strong>Heat and stormwater layers.</strong> Local stormwater failure areas and heat island data were not applied. Available from public works and NOAA; can be added as additional columns using the same spatial join process.</div></li>
+        <li class="issue-item"><span class="issue-dot dot-missing"></span><div class="issue-text"><strong>Approximately 4,654 unmatched parcel records.</strong> These did not match a parcel boundary polygon and were excluded. The matched records cover the large majority of citywide assessed value.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="download-section">
+    <div>
+      <div class="download-label">Final dataset &mdash; Section 2A</div>
+      <div class="download-title">Norfolk Parcel File with Flood Overlay</div>
+      <div class="download-desc">72,677 rows &middot; Parcel ID, property use, assessed value, and flood zone flags<br>72,677 rows &middot; Parcel ID, property use, assessed value, and flood zone flags</div>
+    </div>
+    <div class="download-actions">
+      <button class="download-btn" id="dl-btn-2A" onclick="download2A()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Download CSV (72,677 rows)
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 2B -->
+<div id="panel-2b" class="tab-panel">
+  <div class="section-intro">
+    <p>Section 2B narrows to parcels the city itself owns. The goal is to produce a single inventory showing where city-owned land sits relative to mapped hazard zones &mdash; and, with internal data added, what those parcels are worth and who holds them.</p>
+    <p>The finance office leads. Real estate or asset management holds parcel-level custody and use information. The fixed asset subledger provides carrying values. GIS performs the spatial joins.</p>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-card"><div class="stat-label">City-owned parcels</div><div class="stat-value">2,101</div><div class="stat-sub">City of Norfolk + NRHA + Airport</div></div>
+    <div class="stat-card amber"><div class="stat-label">Total assessed value</div><div class="stat-value">$4.6B</div><div class="stat-sub">Assessor proxy (not replacement cost)</div></div>
+    <div class="stat-card red"><div class="stat-label">Parcels in 100-year SFHA</div><div class="stat-value">651</div><div class="stat-sub">31% of city-owned portfolio</div></div>
+    <div class="stat-card red"><div class="stat-label">Parcels in any flood zone</div><div class="stat-value">1,039</div><div class="stat-sub">49% of city-owned portfolio</div></div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-header open" onclick="toggleBlock(this)">
+      <div class="block-title"><span class="block-tag tag-step">Step by step</span> How the data was assembled</div>
+      <span class="block-chevron">&#9662;</span>
+    </div>
+    <div class="block-body open">
+      <ol class="step-list">
+        <li class="step-item"><div class="step-num">1</div><div class="step-content"><div class="step-title">Filter the 2A parcel file to city-owned parcels</div><div class="step-desc">The assessor tax roll was filtered to records where the owner field contains "City of Norfolk," "Norfolk Redevelopment and Housing Authority," or "Norfolk Airport Authority." This produced 2,101 city-affiliated parcels.</div><div class="step-note">The assessor owner field confirms ownership but cannot distinguish between an active fire station, a vacant lot, and a leased facility. That detail requires departmental records.</div></div></li>
+        <li class="step-item"><div class="step-num">2</div><div class="step-content"><div class="step-title">Apply the flood overlay</div><div class="step-desc">The same flood zone layers used in Section 2A were intersected against the city-owned parcel polygons. The same partial-overlap rule applies: any overlap counts as exposed.</div></div></li>
+        <li class="step-item"><div class="step-num">3</div><div class="step-content"><div class="step-title">Record assessed values as a proxy for carrying value</div><div class="step-desc">Assessor current total value was carried as a proxy. This is not the fixed-asset carrying value the methodology calls for, which reflects historical acquisition cost and accumulated depreciation from the finance office's subledger.</div></div></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-header open" onclick="toggleBlock(this)">
+      <div class="block-title"><span class="block-tag tag-finding">Key findings</span> Flood exposure in the city-owned portfolio</div>
+      <span class="block-chevron">&#9662;</span>
+    </div>
+    <div class="block-body open">
+      <div class="finding-row">
+        <div class="finding-cell"><div class="finding-cell-label">In 100-year SFHA</div><div class="finding-cell-value">651 parcels</div><div class="finding-cell-sub">31% of city-owned portfolio</div></div>
+        <div class="finding-cell"><div class="finding-cell-label">Assessor value in 100-year SFHA</div><div class="finding-cell-value">$2.78B</div><div class="finding-cell-sub">60% of total city AV sits in the SFHA</div></div>
+      </div>
+      <div class="finding-row">
+        <div class="finding-cell"><div class="finding-cell-label">In any flood zone</div><div class="finding-cell-value">1,039 parcels</div><div class="finding-cell-sub">49% of city-owned portfolio</div></div>
+        <div class="finding-cell"><div class="finding-cell-label">Dominant exposed uses</div><div class="finding-cell-value" style="font-size:14px;font-family:'DM Sans',sans-serif;margin-top:2px;">Vacant land &middot; Parks &middot; NRHA &middot; Municipal</div><div class="finding-cell-sub">Top four categories by parcel count</div></div>
+      </div>
+      <div class="callout"><strong>Important caveat.</strong> Assessor values for city-owned parcels are largely nominal. Government property is assessed at historical acquisition cost, not at market or replacement cost. The dollar figures here are directional only. Estimating replacement cost requires the fixed asset subledger, which was not available for this build.</div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-header" onclick="toggleBlock(this)">
+      <div class="block-title"><span class="block-tag tag-data">Data sources</span> What was used and where to find it</div>
+      <span class="block-chevron">&#9662;</span>
+    </div>
+    <div class="block-body">
+      <table class="source-table">
+        <thead><tr><th>Dataset</th><th>Source</th><th>Link</th><th>Format</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Property Assessment FY26 (city-owned subset)</strong><br><span style="color:var(--text-light);font-size:11px;">Filtered from Section 2A by owner field</span></td><td>Norfolk Open Data</td><td><a href="https://data.norfolk.gov/resource/m5ya-5grb.json" target="_blank" class="source-link">data.norfolk.gov/d/m5ya-5grb</a></td><td>JSON / Socrata</td></tr>
+          <tr><td><strong>Parcel Boundaries</strong><br><span style="color:var(--text-light);font-size:11px;">Same layer as Section 2A</span></td><td>Norfolk GIS Open Data</td><td><a href="https://norfolkgisdata-orf.opendata.arcgis.com/datasets/a516ce5d20b3431baae9ba99b256cb08" target="_blank" class="source-link">norfolkgisdata-orf.opendata.arcgis.com</a></td><td>ArcGIS / GeoJSON</td></tr>
+          <tr><td><strong>FIRM Flood Zones</strong><br><span style="color:var(--text-light);font-size:11px;">Same layer as Section 2A</span></td><td>Norfolk GIS (Environmental)</td><td><a href="https://gisshare.norfolk.gov/pubserver/rest/services/OpenData/Environmental/FeatureServer/4" target="_blank" class="source-link">gisshare.norfolk.gov/Environmental/FS/4</a></td><td>ArcGIS / GeoJSON</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-header" onclick="toggleBlock(this)">
+      <div class="block-title"><span class="block-tag tag-assume">Assumptions</span> Decisions made in the analysis</div>
+      <span class="block-chevron">&#9662;</span>
+    </div>
+    <div class="block-body">
+      <ul class="issue-list">
+        <li class="issue-item"><span class="issue-dot dot-assume"></span><div class="issue-text"><strong>Partial overlap counts as exposed.</strong> Same rule as Section 2A. Any overlap with a flood zone polygon flags the parcel as exposed.</div></li>
+        <li class="issue-item"><span class="issue-dot dot-assume"></span><div class="issue-text"><strong>Owner field used to identify city ownership.</strong> Parcels owned by NRHA and the Airport Authority are included as city-affiliated. Parcels owned by other city-related entities (housing corporations, development authorities) may be missing.</div></li>
+        <li class="issue-item"><span class="issue-dot dot-assume"></span><div class="issue-text"><strong>Assessor value used as a proxy for carrying value.</strong> The methodology calls for carrying value from the fixed asset subledger. Assessor value is used here as the closest publicly available substitute.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-header" onclick="toggleBlock(this)">
+      <div class="block-title"><span class="block-tag tag-missing">Missing elements</span> What is not in the dataset</div>
+      <span class="block-chevron">&#9662;</span>
+    </div>
+    <div class="block-body">
+      <ul class="issue-list">
+        <li class="issue-item"><span class="issue-dot dot-missing"></span><div class="issue-text"><strong>Fixed asset subledger.</strong> Carrying value at historical cost and depreciated carrying value for improvements are not in this dataset. They come from the finance office's internal fixed asset system.</div></li>
+        <li class="issue-item"><span class="issue-dot dot-missing"></span><div class="issue-text"><strong>Custody and current use.</strong> The assessor owner field cannot distinguish an active fire station from a vacant lot from a leased facility. That detail requires departmental records from parks, public works, real estate, housing, and the enterprise funds.</div></li>
+        <li class="issue-item"><span class="issue-dot dot-missing"></span><div class="issue-text"><strong>Revenue status.</strong> Whether a parcel generates lease income, ground rent, or concession fees is in the finance office's revenue records, not in any public source.</div></li>
+        <li class="issue-item"><span class="issue-dot dot-missing"></span><div class="issue-text"><strong>ACFR reconciliation.</strong> The methodology calls for the parcel-level inventory to reconcile to the ACFR top-line land figures. That reconciliation requires the ACFR and the subledger detail behind it &mdash; both internal documents.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="download-section">
+    <div>
+      <div class="download-label">Final dataset &mdash; Section 2B</div>
+      <div class="download-title">Norfolk City-Owned Parcel Inventory</div>
+      <div class="download-desc">2,101 rows &middot; 35 columns &middot; Owner, property type, assessed value, and flood zone flags per city-owned parcel</div>
+    </div>
+    <div class="download-actions">
+      <button class="download-btn" id="dl-btn-2B" onclick="download2B()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Download CSV (2,101 rows)
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 2C -->
+<div id="panel-2c" class="tab-panel">
+  <div class="section-intro">
+    <p>Section 2C assembles the capital improvement plan as a project-level data layer joined to geocoded locations and hazard exposure. The goal is to show which planned capital investments sit in mapped hazard zones and how much of the five-year program is directed at exposed areas.</p>
+    <p>The finance office leads. Capital planning or budget owns the adopted CIP. Public works and project sponsors confirm locations. GIS geocodes the project list and runs the hazard overlay.</p>
+  </div>
+  <div class="stat-grid">
+    <div class="stat-card"><div class="stat-label">Total CIP projects</div><div class="stat-value">121</div><div class="stat-sub">FY2025 adopted program</div></div>
+    <div class="stat-card amber"><div class="stat-label">Five-year total</div><div class="stat-value">$1.43B</div><div class="stat-sub">FY2025&ndash;FY2029</div></div>
+    <div class="stat-card teal"><div class="stat-label">Projects geocoded</div><div class="stat-value">67</div><div class="stat-sub">55% of 121 (34 citywide excluded)</div></div>
+    <div class="stat-card red"><div class="stat-label">Projects in any flood zone</div><div class="stat-value">33</div><div class="stat-sub">$130M five-year value</div></div>
+    <div class="stat-card"><div class="stat-label">CSRM mitigation project</div><div class="stat-value">$362M</div><div class="stat-sub">Citywide &mdash; not in spatial overlay</div></div>
+    <div class="stat-card teal"><div class="stat-label">With year-by-year schedule</div><div class="stat-value">108</div><div class="stat-sub">Of 121 &mdash; extracted from budget PDF</div></div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-header open" onclick="toggleBlock(this)">
+      <div class="block-title"><span class="block-tag tag-step">Step by step</span> How the data was assembled</div>
+      <span class="block-chevron">&#9662;</span>
+    </div>
+    <div class="block-body open">
+      <ol class="step-list">
+        <li class="step-item"><div class="step-num">1</div><div class="step-content"><div class="step-title">Download the CIP from the open data portal</div><div class="step-desc">The FY25 CIP dataset was pulled from Norfolk's open data portal. It contains 121 projects with project name, department, fund, location description, FY25 appropriation, and FY25&ndash;29 five-year total. The portal dataset lags the adopted budget by at least six months.</div></div></li>
+        <li class="step-item"><div class="step-num">2</div><div class="step-content"><div class="step-title">Extract year-by-year schedules from the budget PDF</div><div class="step-desc">The FY25 adopted budget Section 14 was downloaded and fund summary tables were extracted using pdfplumber, providing FY25&ndash;FY29 expenditure schedules for 108 of 121 projects. The remaining 13 appear at a sub-project level not broken out in the PDF summary tables.</div></div></li>
+        <li class="step-item"><div class="step-num">3</div><div class="step-content"><div class="step-title">Geocode project locations</div><div class="step-desc">Each project's location field was classified as an address, named place, or citywide. Geocoding used three sources in sequence: (1) coordinates and addresses embedded in the location text; (2) Norfolk GIS facility layers for fire stations, parks, and schools; and (3) OpenStreetMap Nominatim for named places and intersections. 67 projects were geocoded; 34 excluded as citywide; 20 remain unlocated.</div></div></li>
+        <li class="step-item"><div class="step-num">4</div><div class="step-content"><div class="step-title">Run the hazard overlay</div><div class="step-desc">Each geocoded project point was tested against the 100-year SFHA and 500-year flood zone polygons. Citywide and unlocated projects were excluded from the overlay.</div><div class="step-note">The $362M CSRM project &mdash; Norfolk's largest flood protection investment &mdash; is coded citywide and does not appear in the overlay. It requires manual identification in a working session with capital planning staff.</div></div></li>
+        <li class="step-item"><div class="step-num">5</div><div class="step-content"><div class="step-title">Assign funding source by fund</div><div class="step-desc">The bond-versus-cash split is available only at the fund level, not per project. Each project was assigned a funding source based on its fund field: GO bonds plus general fund cash for General Capital projects; revenue bonds plus cash for enterprise funds.</div></div></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-header open" onclick="toggleBlock(this)">
+      <div class="block-title"><span class="block-tag tag-finding">Key findings</span> Capital exposure and flood zone overlap</div>
+      <span class="block-chevron">&#9662;</span>
+    </div>
+    <div class="block-body open">
+      <table class="exposure-table">
+        <thead><tr><th>Category</th><th class="num">Projects</th><th>Five-year value</th><th>Share of CIP</th><th>In overlay</th></tr></thead>
+        <tbody>
+          <tr><td>In 100-year SFHA</td><td class="num">18</td><td>$81.5M</td><td class="num">5.7%</td><td><span class="badge badge-yes">Yes</span></td></tr>
+          <tr><td>In 500-year zone</td><td class="num">16</td><td>$55.3M</td><td class="num">3.9%</td><td><span class="badge badge-yes">Yes</span></td></tr>
+          <tr><td>In any flood zone</td><td class="num">33</td><td>$129.6M</td><td class="num">9.1%</td><td><span class="badge badge-yes">Yes</span></td></tr>
+          <tr><td>Citywide &mdash; excluded</td><td class="num">34</td><td>$579.0M</td><td class="num">40.4%</td><td><span class="badge badge-no">No</span></td></tr>
+          <tr><td>CSRM flood protection (citywide)</td><td class="num">2</td><td>$361.5M</td><td class="num">25.2%</td><td><span class="badge badge-no">No &mdash; mitigation</span></td></tr>
+          <tr><td>Unlocated &mdash; excluded</td><td class="num">20</td><td>$193.0M</td><td class="num">13.5%</td><td><span class="badge badge-partial">TBD</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-header" onclick="toggleBlock(this)">
+      <div class="block-title"><span class="block-tag tag-data">Data sources</span> What was used and where to find it</div>
+      <span class="block-chevron">&#9662;</span>
+    </div>
+    <div class="block-body">
+      <table class="source-table">
+        <thead><tr><th>Dataset</th><th>Source</th><th>Link</th><th>Coverage</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Capital Improvement Plan FY25</strong><br><span style="color:var(--text-light);font-size:11px;">Project name, department, location, five-year total</span></td><td>Norfolk Open Data</td><td><a href="https://data.norfolk.gov/resource/6njp-hen5.json" target="_blank" class="source-link">data.norfolk.gov/d/6njp-hen5</a></td><td>121 projects</td></tr>
+          <tr><td><strong>FY25 Budget &mdash; Section 14 (CIP)</strong><br><span style="color:var(--text-light);font-size:11px;">Year-by-year schedules FY25&ndash;FY29</span></td><td>Norfolk Document Center</td><td><a href="https://www.norfolk.gov/DocumentCenter/View/88672/14-Capital-Improvement-Plan" target="_blank" class="source-link">norfolk.gov/DocumentCenter/View/88672</a></td><td>108 of 121</td></tr>
+          <tr><td><strong>Fire Stations GIS layer</strong></td><td>Norfolk GIS Open Data</td><td><a href="https://gisshare.norfolk.gov/pubserver/rest/services/OpenData/Public_Safety/FeatureServer/0" target="_blank" class="source-link">gisshare.norfolk.gov/Public_Safety/FS/0</a></td><td>14 stations</td></tr>
+          <tr><td><strong>Parks GIS layer</strong></td><td>Norfolk GIS Open Data</td><td><a href="https://gisshare.norfolk.gov/pubserver/rest/services/OpenData/RPOS/FeatureServer/1" target="_blank" class="source-link">gisshare.norfolk.gov/RPOS/FS/1</a></td><td>185 parks</td></tr>
+          <tr><td><strong>Schools GIS layer</strong></td><td>Norfolk GIS Open Data</td><td><a href="https://gisshare.norfolk.gov/pubserver/rest/services/OpenData/Maps/FeatureServer/0" target="_blank" class="source-link">gisshare.norfolk.gov/Maps/FS/0</a></td><td>50 schools</td></tr>
+          <tr><td><strong>OpenStreetMap Nominatim</strong><br><span style="color:var(--text-light);font-size:11px;">Named-place and intersection geocoding</span></td><td>OpenStreetMap</td><td><a href="https://nominatim.openstreetmap.org/search" target="_blank" class="source-link">nominatim.openstreetmap.org</a></td><td>30 projects</td></tr>
+          <tr><td><strong>FIRM Flood Zones</strong><br><span style="color:var(--text-light);font-size:11px;">Same layer as Sections 2A and 2B</span></td><td>Norfolk GIS (Environmental)</td><td><a href="https://gisshare.norfolk.gov/pubserver/rest/services/OpenData/Environmental/FeatureServer/4" target="_blank" class="source-link">gisshare.norfolk.gov/Environmental/FS/4</a></td><td>1,665 polygons</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-header" onclick="toggleBlock(this)">
+      <div class="block-title"><span class="block-tag tag-assume">Assumptions</span> Decisions made in the analysis</div>
+      <span class="block-chevron">&#9662;</span>
+    </div>
+    <div class="block-body">
+      <ul class="issue-list">
+        <li class="issue-item"><span class="issue-dot dot-assume"></span><div class="issue-text"><strong>Point-in-polygon for project locations.</strong> Each project was geocoded to a single point. For linear or multi-site projects, this may understate or misstate exposure.</div></li>
+        <li class="issue-item"><span class="issue-dot dot-assume"></span><div class="issue-text"><strong>Funding source assigned at the fund level.</strong> The bond-versus-cash-versus-grant split is not available per project. Each project inherits the financing mechanism of its fund.</div></li>
+        <li class="issue-item"><span class="issue-dot dot-assume"></span><div class="issue-text"><strong>Citywide projects excluded from the flood overlay.</strong> This is methodologically correct but means large distributed investments &mdash; including the $362M CSRM flood protection project &mdash; do not appear in the hazard exposure tables.</div></li>
+        <li class="issue-item"><span class="issue-dot dot-assume"></span><div class="issue-text"><strong>Portal vintage accepted as FY25 program.</strong> The portal lags the adopted budget. Discrepancies with the actual adopted ordinance have not been verified project by project.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-header" onclick="toggleBlock(this)">
+      <div class="block-title"><span class="block-tag tag-missing">Missing elements</span> What is not in the dataset</div>
+      <span class="block-chevron">&#9662;</span>
+    </div>
+    <div class="block-body">
+      <ul class="issue-list">
+        <li class="issue-item"><span class="issue-dot dot-missing"></span><div class="issue-text"><strong>Funding source split by project.</strong> Bond versus cash versus federal grant is not available at the project level in any public document. Per-project detail requires the finance office's internal records or a working session with the budget office.</div></li>
+        <li class="issue-item"><span class="issue-dot dot-missing"></span><div class="issue-text"><strong>20 projects unlocated ($193M).</strong> Three have no site selected yet. Seventeen are network-wide utility programs that cannot be reduced to a single point without misrepresenting the project. These require a working session with public works and utilities staff.</div></li>
+        <li class="issue-item"><span class="issue-dot dot-missing"></span><div class="issue-text"><strong>13 projects without outer-year schedule.</strong> FY26&ndash;FY29 expenditure figures are unavailable for projects that appear at a sub-project level not broken out in the budget PDF summary tables.</div></li>
+        <li class="issue-item"><span class="issue-dot dot-missing"></span><div class="issue-text"><strong>Exposure tier, mitigation flag, and essential facility flag.</strong> These classification columns &mdash; required for Chapter 2 Exercises 1&ndash;3 &mdash; are analyst judgments assigned in Chapter 2, not in data assembly. They are not in this dataset.</div></li>
+        <li class="issue-item"><span class="issue-dot dot-missing"></span><div class="issue-text"><strong>Enterprise fund capital plans at project level.</strong> Water and wastewater project locations and year-by-year schedules sit in separate utility planning documents not available on the portal.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="download-section">
+    <div>
+      <div class="download-label">Final dataset &mdash; Section 2C</div>
+      <div class="download-title">Norfolk CIP Project Layer with Flood Overlay</div>
+      <div class="download-desc">121 rows &middot; 21 columns &middot; Project name, department, year-by-year schedule, geocode, flood flags, and funding source</div>
+    </div>
+    <div class="download-actions">
+      <button class="download-btn" id="dl-btn-2C" onclick="download2C()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Download CSV (121 rows)
+      </button>
+    </div>
+  </div>
+</div>
+
+</main>
+
+
+
+
+
+
+<script>
+function switchTab(id, btn) {
+  document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+  document.getElementById("panel-" + id).classList.add("active");
+  btn.classList.add("active");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+function toggleBlock(h) {
+  h.classList.toggle("open");
+  h.nextElementSibling.classList.toggle("open");
+}
+
+const URLS = {
+  '2A': 'https://raw.githubusercontent.com/safr04/cfo-guide-norfolk-data/main/norfolk_2A_parcel_file.csv',
+  '2B': 'https://raw.githubusercontent.com/safr04/cfo-guide-norfolk-data/main/norfolk_2B_city_land.csv',
+  '2C': 'https://raw.githubusercontent.com/safr04/cfo-guide-norfolk-data/main/norfolk_2C_cip.csv',
+};
+
+const FILENAMES = {
+  '2A': 'norfolk_2A_parcel_file.csv',
+  '2B': 'norfolk_2B_city_owned_parcels.csv',
+  '2C': 'norfolk_2C_cip_flood_overlay.csv',
+};
+
+async function downloadFile(key) {
+  const btn = document.getElementById('dl-btn-' + key);
+  const orig = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px;animation:spin 1s linear infinite"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-opacity=".25"/><path d="M21 12a9 9 0 00-9-9"/></svg> Downloading…`;
+  try {
+    const r = await fetch(URLS[key]);
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const blob = await r.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = FILENAMES[key];
+    document.body.appendChild(a); a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px;height:14px"><path d="M20 6L9 17l-5-5"/></svg> Downloaded`;
+    setTimeout(() => { btn.innerHTML = orig; btn.disabled = false; }, 2500);
+  } catch(e) {
+    btn.innerHTML = '⚠ Error — try again';
+    btn.disabled = false;
+    setTimeout(() => { btn.innerHTML = orig; }, 3000);
+  }
+}
+
+function download2A() { downloadFile('2A'); }
+function download2B() { downloadFile('2B'); }
+function download2C() { downloadFile('2C'); }
+</script>
+<style>
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+
+<footer style="background:#1a2740;padding:24px 32px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.08);">
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);">Section 2 — Data Assembly &nbsp;|&nbsp; Norfolk, VA &nbsp;|&nbsp; FY2025</div>
+</footer>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PAGE 3: METHODOLOGIES
+══════════════════════════════════════════════ -->
+<div id="page-methods" class="page">
+
+
+
+
+<div class="page-hero">
+  <div class="hero-eyebrow">Norfolk, VA &middot; FY2025 &middot; Section 3</div>
+  <h1 class="hero-heading">Methodologies</h1>
+  <p class="hero-sub">All nine exercises from Chapters 1, 2, and 3 completed with Norfolk data. Each exercise shows the method, the Norfolk result, the data used, the level of government coordination required, and what the public data cannot produce.</p>
+</div>
+
+<div class="chapter-nav">
+  <div class="chapter-tabs">
+    <button class="ch-tab active" onclick="showChapter('ch1',this)"><span class="ch-num">Ch.1</span> Property Tax Base</button>
+    <button class="ch-tab" onclick="showChapter('ch2',this)"><span class="ch-num">Ch.2</span> Capital Improvements Plan</button>
+    <button class="ch-tab" onclick="showChapter('ch3',this)"><span class="ch-num">Ch.3</span> City-Owned Land &amp; Assets</button>
+  </div>
+</div>
+
+<main>
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 1
+═════════════════════════════════════════════════════════════ -->
+<div id="ch1" class="ch-panel active">
+  <div class="ch-intro">
+    <div class="ch-intro-text">
+      <h2>Chapter 1. Property Tax Base and Environmental Hazards</h2>
+      <p>The property tax is the largest own-source revenue stream for most U.S. local governments and the most stable component of the operating budget. Standard revenue forecasting treats the geographic distribution of value as incidental. This chapter uses the parcel data file from Section 2A to put dollar and percentage figures on that exposure for Norfolk.</p>
+      <p>Three exercises are run: a present-day snapshot of the exposed tax base, a revenue-at-risk stress test under catastrophic and chronic scenarios, and a directional read on whether growth is concentrating in or out of hazard zones.</p>
+    </div>
+    <div class="ch-context">
+      <strong>Input data</strong>
+      Section 2A parcel file — 72,677 deduplicated records with assessed value, property type, and flood zone flags. Effective rate: $1.23 per $100. Actual FY25 levy: $328M.
+      <br><br>
+      <strong>Key constraint</strong>
+      Public assessor data carries assessed value, not taxable value. Partial exemptions ($5.74B in Norfolk) are invisible. Levy figures are scaled to the actual budget to correct for this.
+    </div>
+  </div>
+
+  <!-- Exercise 1 -->
+  <div class="exercise">
+    <div class="ex-header open" onclick="toggleEx(this)">
+      <div class="ex-header-left">
+        <span class="ex-badge badge-ch1">Exercise 1</span>
+        <div>
+          <div class="ex-title">The Exposed Tax Base Today</div>
+          <div class="ex-headline">How much assessed value and annual levy sits inside each mapped flood zone?</div>
+        </div>
+      </div>
+      <span class="ex-chevron">&#9662;</span>
+    </div>
+    <div class="ex-body open">
+
+      <div class="ex-section">
+        <div class="ex-section-label">Method</div>
+        <p>Sum taxable assessed value for all parcels in each flood zone. Express as a dollar total and share of the citywide taxable base. Multiply by the effective rate and scale to the actual levy to derive the annual levy at risk in each zone. Break out by property type. Run a concentration check on the top-decile parcels by value.</p>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Norfolk result</div>
+        <div class="stat-row">
+          <div class="stat-box"><div class="stat-box-label">In 100yr SFHA</div><div class="stat-box-value red">$9.1B</div><div class="stat-box-sub">28.2% of taxable base</div></div>
+          <div class="stat-box"><div class="stat-box-label">In any flood zone</div><div class="stat-box-value red">$13.7B</div><div class="stat-box-sub">42.3% of taxable base</div></div>
+          <div class="stat-box"><div class="stat-box-label">Annual levy at risk (any flood)</div><div class="stat-box-value red">$139M</div><div class="stat-box-sub">Scaled to actual $328M levy</div></div>
+          <div class="stat-box"><div class="stat-box-label">Top-decile in flood zones</div><div class="stat-box-value red">55%</div><div class="stat-box-sub">$8.67B of $15.87B top-decile AV</div></div>
+        </div>
+        <table class="result-table" style="margin-top:16px;">
+          <thead><tr><th>Hazard zone</th><th class="num">Parcels</th><th class="num">Assessed value</th><th class="num">Share of taxable AV</th><th class="num">Annual levy at risk</th><th>Dominant type</th></tr></thead>
+          <tbody>
+            <tr><td>100-year SFHA (AE + A)</td><td class="num">10,206</td><td class="num">$9.13B</td><td class="num">28.2%</td><td class="num">$92M</td><td>Single Family</td></tr>
+            <tr><td>500-year zone</td><td class="num">15,456</td><td class="num">$10.92B</td><td class="num">33.7%</td><td class="num">$110M</td><td>Single Family</td></tr>
+            <tr><td>VE zone (coastal high hazard)</td><td class="num">208</td><td class="num">$2.42B</td><td class="num">7.5%</td><td class="num">$24M</td><td>Commercial</td></tr>
+            <tr><td>Any flood (unduplicated)</td><td class="num">20,539</td><td class="num">$13.70B</td><td class="num">42.3%</td><td class="num">$139M</td><td>Single Family</td></tr>
+          </tbody>
+        </table>
+        <div class="callout" style="margin-top:12px;"><strong>Concentration finding.</strong> The top decile of taxable parcels by assessed value represents 49% of the citywide taxable base. Of those 6,831 high-value parcels, 3,418 (50%) sit in a flood zone and account for $8.67B — 55% of top-decile value. This is the acute concentration risk: a small number of high-value parcels whose loss would have an outsized fiscal effect.</div>
+        <p style="margin-top:12px;font-size:13px;color:var(--ink2);"><strong>100yr SFHA by property type (top 4):</strong> Single Family $3.3B (36%) · Industrial $2.2B (25%) · Apartment $2.1B (23%) · Commercial $0.95B (10%)</p>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Data used</div>
+        <div class="tag-grid">
+          <span class="tag tag-source">2A parcel file (72,677 rows)</span>
+          <span class="tag tag-source">Norfolk FIRM flood zones (1,665 polygons)</span>
+          <span class="tag tag-source">FY25 adopted budget (actual levy: $328M)</span>
+        </div>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Coordination required</div>
+        <div class="tag-grid">
+          <span class="tag tag-coord">Assessor — internal tax roll for taxable value</span>
+          <span class="tag tag-coord">Emergency Management — confirm FIRM effective date</span>
+          <span class="tag tag-coord">GIS — spatial join and parcel boundaries</span>
+        </div>
+        <div class="callout callout-warn" style="margin-top:10px;"><strong>Key gap:</strong> The public assessor dataset has no taxable value field. Partial exemptions ($5.74B) are invisible. All levy figures are scaled from the actual budget levy. The finance office running this on its internal tax roll will get precise per-parcel taxable values without any scaling.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Exercise 2 -->
+  <div class="exercise">
+    <div class="ex-header" onclick="toggleEx(this)">
+      <div class="ex-header-left">
+        <span class="ex-badge badge-ch1">Exercise 2</span>
+        <div>
+          <div class="ex-title">Revenue at Risk Under Defined Scenarios</div>
+          <div class="ex-headline">What permanent annual revenue loss would defined catastrophic and chronic scenarios produce?</div>
+        </div>
+      </div>
+      <span class="ex-chevron">&#9662;</span>
+    </div>
+    <div class="ex-body">
+
+      <div class="ex-section">
+        <div class="ex-section-label">Method</div>
+        <p><strong>Scenario A — Catastrophic:</strong> A major event causes a share of exposed parcels to reach the FEMA substantial damage threshold (50% value loss). Run at three severity levels: 15%, 30%, and 50% of exposed parcels affected.</p>
+        <p><strong>Scenario B — Chronic:</strong> Flood exposure causes slow, persistent erosion of assessed value at 0.5%, 1.0%, and 1.5% per year, compounded over 10 years.</p>
+        <p>Compare each loss figure against the city's fiscal cushions: unrestricted general fund balance, annual debt service, and contingency reserves.</p>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Scenario A — Catastrophic event (100yr SFHA, $9.13B exposed)</div>
+        <table class="result-table">
+          <thead><tr><th>Severity</th><th class="num">Parcels affected</th><th class="num">AV reduction</th><th class="num">Permanent annual revenue loss</th></tr></thead>
+          <tbody>
+            <tr><td>Low (15% of exposed)</td><td class="num">~1,531</td><td class="num">$685M</td><td class="num">$6.9M/yr</td></tr>
+            <tr><td>Moderate (30%)</td><td class="num">~3,062</td><td class="num">$1,369M</td><td class="num">$13.9M/yr</td></tr>
+            <tr><td>Severe (50%)</td><td class="num">~5,103</td><td class="num">$2,282M</td><td class="num">$23.1M/yr</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Scenario B — Chronic devaluation (100yr SFHA, $9.13B exposed)</div>
+        <table class="result-table">
+          <thead><tr><th>Annual rate</th><th class="num">Year-10 annual loss</th><th class="num">Cumulative 10-year loss</th></tr></thead>
+          <tbody>
+            <tr><td>Low (0.5%/yr)</td><td class="num">$4.5M</td><td class="num">$25M</td></tr>
+            <tr><td>Moderate (1.0%/yr)</td><td class="num">$8.8M</td><td class="num">$49M</td></tr>
+            <tr><td>High (1.5%/yr)</td><td class="num">$13.0M</td><td class="num">$73M</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Fiscal cushion comparison (moderate catastrophic: $13.9M/yr loss)</div>
+        <table class="result-table">
+          <thead><tr><th>Reference point</th><th class="num">Current value</th><th class="num">Loss as multiple</th></tr></thead>
+          <tbody>
+            <tr><td>Unrestricted general fund balance</td><td class="num">~$185M</td><td class="num">0.07x</td></tr>
+            <tr><td>Annual debt service</td><td class="num">$103.7M</td><td class="num">0.13x</td></tr>
+            <tr><td>Contingency / rainy day reserves</td><td class="num">~$25M</td><td class="num">0.55x</td></tr>
+          </tbody>
+        </table>
+        <div class="callout callout-success" style="margin-top:10px;"><strong>Reading:</strong> At the moderate catastrophic severity, the annual revenue loss ($13.9M) is 0.07× the general fund balance — a manageable acute shock. The cumulative 10-year chronic loss at the high rate ($73M) is more material, representing about 40% of the general fund balance if it accrued simultaneously, but in practice it would arrive gradually. The more pressing question is whether the city's reserve policy contemplates this kind of draw scenario at all.</div>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Data used</div>
+        <div class="tag-grid">
+          <span class="tag tag-source">2A parcel file — exposed AV from Exercise 1</span>
+          <span class="tag tag-source">FY25 adopted budget — actual levy, debt service</span>
+          <span class="tag tag-source">Norfolk FY24 ACFR — unrestricted fund balance (estimated)</span>
+        </div>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Coordination required</div>
+        <div class="tag-grid">
+          <span class="tag tag-coord">Finance office — unrestricted fund balance from ACFR</span>
+          <span class="tag tag-coord">Finance office — contingency reserve policy review</span>
+          <span class="tag tag-partial">No external coordination — runs from Exercise 1 outputs</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Exercise 3 -->
+  <div class="exercise">
+    <div class="ex-header" onclick="toggleEx(this)">
+      <div class="ex-header-left">
+        <span class="ex-badge badge-ch1">Exercise 3</span>
+        <div>
+          <div class="ex-title">Is the Tax Base Growing in Hazard Areas?</div>
+          <div class="ex-headline">Is recent and pipeline development concentrating in or moving away from flood zones?</div>
+        </div>
+      </div>
+      <span class="ex-chevron">&#9662;</span>
+    </div>
+    <div class="ex-body">
+
+      <div class="ex-section">
+        <div class="ex-section-label">Method</div>
+        <p>Pull building permits and certificates of occupancy (last 3–5 years) from the building department. Tag each record by flood zone using the 2A parcel file. Compare the share of new activity in hazard zones against the existing base share (42.3%). Use active and approved permits for the forward-looking pipeline. Note the dominant zoning category in hazard areas where activity is occurring.</p>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Norfolk result</div>
+        <div class="callout callout-warn"><strong>Building permit data not available as a public structured dataset.</strong> Norfolk's building permit records are not published on the open data portal. This exercise requires a direct data request to the Building Inspections Department or Planning. The exercise could not be completed from publicly available data alone.</div>
+        <p style="margin-top:12px;font-size:13px;color:var(--ink2);">As a proxy, the CIP program was used to assess forward-looking investment direction. CIP investment in flood zones is 9.0% of the five-year total, against a tax base exposure of 42.3%. This signals a <strong class="arr-down">↓ downward direction</strong> — capital is being committed at a lower rate in flood zones than the existing base exposure would imply. However, this is an incomplete signal and should not substitute for the permit analysis.</p>
+        <table class="result-table" style="margin-top:12px;">
+          <thead><tr><th>View</th><th class="num">In flood zones</th><th class="num">Outside flood zones</th><th>Direction</th></tr></thead>
+          <tbody>
+            <tr><td>Recent (last 3–5 years)</td><td class="num"><em>Not available</em></td><td class="num"><em>Not available</em></td><td><span class="dir-arrow">—</span></td></tr>
+            <tr><td>CIP pipeline (proxy)</td><td class="num">$130M (9.0%)</td><td class="num">$1,302M (91.0%)</td><td><span class="dir-arrow arr-down">↓</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Data required (not available publicly)</div>
+        <div class="tag-grid">
+          <span class="tag tag-missing">Building permits last 3–5 years — Building Inspections</span>
+          <span class="tag tag-missing">Certificates of occupancy — Building Inspections / Planning</span>
+          <span class="tag tag-missing">Active entitlement pipeline — Planning Department</span>
+          <span class="tag tag-source">Zoning layer — available from Norfolk GIS (not yet joined)</span>
+        </div>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Coordination required</div>
+        <div class="tag-grid">
+          <span class="tag tag-coord">Building Inspections — permit and CO records</span>
+          <span class="tag tag-coord">Planning Department — active entitlement pipeline</span>
+          <span class="tag tag-coord">GIS — zoning layer join to parcel file</span>
+        </div>
+        <div class="callout" style="margin-top:10px;">This is the one exercise in Chapter 1 that requires a formal working session rather than a data pull. The finance office does not routinely hold permit records; building inspections and planning do. A one-time data request covering the last 5 years is sufficient to complete the exercise and establish a baseline for future updates.</div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /ch1 -->
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 2
+═════════════════════════════════════════════════════════════ -->
+<div id="ch2" class="ch-panel">
+  <div class="ch-intro">
+    <div class="ch-intro-text">
+      <h2>Chapter 2. The Capital Improvements Plan and Environmental Hazards</h2>
+      <p>A capital improvements plan is a financial commitment to specific locations. The exercises in this chapter use the CIP project layer from Section 2C to give the finance office three quantified findings: where capital is going relative to the hazard profile, whether reserves are sized to that exposure, and what the city is investing in to reduce its exposure.</p>
+      <p>Each project was classified with an exposure tier (0–3) and function flags (MA for mitigation, EF for essential facility, MA+EF for both) based on project name, description, location, and flood zone overlay.</p>
+    </div>
+    <div class="ch-context">
+      <strong>Input data</strong>
+      Section 2C CIP layer — 121 projects, $1.43B five-year, 67 geocoded, 108 with year-by-year schedules from the FY25 budget PDF.
+      <br><br>
+      <strong>Classification note</strong>
+      Exposure tiers assigned from flood overlay. MA/EF flags assigned analytically from project names and descriptions. Working session with capital planning required to verify and finalize all classifications.
+    </div>
+  </div>
+
+  <!-- Exercise 1 -->
+  <div class="exercise">
+    <div class="ex-header open" onclick="toggleEx(this)">
+      <div class="ex-header-left">
+        <span class="ex-badge badge-ch2">Exercise 1</span>
+        <div>
+          <div class="ex-title">Capital Budget Exposure by Fund and Fiscal Year</div>
+          <div class="ex-headline">How much capital investment is directed at hazard-exposed areas, in which years, and from which sources?</div>
+        </div>
+      </div>
+      <span class="ex-chevron">&#9662;</span>
+    </div>
+    <div class="ex-body open">
+
+      <div class="ex-section">
+        <div class="ex-section-label">Method</div>
+        <p>Assign each project an exposure tier (0–3) using the flood overlay from Section 2C. Sum planned expenditure by tier and fiscal year. Break out tier 2+ projects by funding source. Flag concentrations above 25% of annual borrowing or fund capital budget.</p>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Exposure tier results</div>
+        <table class="result-table">
+          <thead><tr><th>Exposure tier</th><th class="num">Projects</th><th class="num">FY25</th><th class="num">FY26</th><th class="num">FY27</th><th class="num">FY28</th><th class="num">FY29</th><th class="num">5-year total</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tier-badge tier-0">0 — None</span> (outside any flood zone)</td><td class="num">88</td><td class="num">$216M</td><td class="num">$190M</td><td class="num">$448M</td><td class="num">$225M</td><td class="num">$197M</td><td class="num">$1,302M</td></tr>
+            <tr><td><span class="tier-badge tier-2">2 — Moderate</span> (500-year zone)</td><td class="num">15</td><td class="num">$25M</td><td class="num">$7M</td><td class="num">$7M</td><td class="num">$8M</td><td class="num">$8M</td><td class="num">$54M</td></tr>
+            <tr><td><span class="tier-badge tier-3">3 — High</span> (100yr SFHA or VE)</td><td class="num">18</td><td class="num">$48M</td><td class="num">$5M</td><td class="num">$2M</td><td class="num">$2M</td><td class="num">$4M</td><td class="num">$76M</td></tr>
+            <tr><td><strong>Total</strong></td><td class="num"><strong>121</strong></td><td class="num"><strong>$289M</strong></td><td class="num"><strong>$202M</strong></td><td class="num"><strong>$457M</strong></td><td class="num"><strong>$235M</strong></td><td class="num"><strong>$209M</strong></td><td class="num"><strong>$1,432M</strong></td></tr>
+          </tbody>
+        </table>
+        <div class="callout callout-warn" style="margin-top:12px;"><strong>FY25 concentration.</strong> $73M of the $130M flood-zone CIP is concentrated in FY25 — the first year of the program. This is partly because the CSRM Water component ($11M) and Fire Station 15 replacement ($12.5M) are FY25-adopted. Future years show significantly lower hazard-zone investment, suggesting the city's capital sequencing does front-load some exposed investments.</div>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Data used</div>
+        <div class="tag-grid">
+          <span class="tag tag-source">2C CIP layer — 121 projects, year-by-year schedules</span>
+          <span class="tag tag-source">FY25 budget PDF Section 14 — fund summary tables</span>
+          <span class="tag tag-source">Norfolk FIRM flood zones — exposure tier assignment</span>
+        </div>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Coordination required</div>
+        <div class="tag-grid">
+          <span class="tag tag-coord">Capital Planning — confirm exposure tier for each project</span>
+          <span class="tag tag-coord">Capital Planning — per-project funding source split</span>
+          <span class="tag tag-partial">Funding source: only fund-level available publicly; per-project requires working session</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Exercise 2 -->
+  <div class="exercise">
+    <div class="ex-header" onclick="toggleEx(this)">
+      <div class="ex-header-left">
+        <span class="ex-badge badge-ch2">Exercise 2</span>
+        <div>
+          <div class="ex-title">Fund Balance and Reserves Adequacy Against Capital Exposure</div>
+          <div class="ex-headline">Are the city&rsquo;s fiscal cushions sized to the capital exposure it is carrying in hazard zones?</div>
+        </div>
+      </div>
+      <span class="ex-chevron">&#9662;</span>
+    </div>
+    <div class="ex-body">
+
+      <div class="ex-section">
+        <div class="ex-section-label">Method</div>
+        <p>Pull the total five-year cost of CIP projects in tier 2 or 3 that are funded from general fund cash or GO debt backed by the general fund. Express that amount as a multiple of the unrestricted general fund balance, annual debt service, and contingency reserves.</p>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Norfolk result</div>
+        <div class="stat-row">
+          <div class="stat-box"><div class="stat-box-label">Tier 2+3 CIP total</div><div class="stat-box-value red">$130M</div><div class="stat-box-sub">33 projects in flood zones</div></div>
+          <div class="stat-box"><div class="stat-box-label">GF-backed share</div><div class="stat-box-value red">~$76M</div><div class="stat-box-sub">Tier 3 (high) GO-backed estimate</div></div>
+          <div class="stat-box"><div class="stat-box-label">vs. Fund balance ($185M)</div><div class="stat-box-value teal">0.7x</div><div class="stat-box-sub">Within a single fund balance</div></div>
+          <div class="stat-box"><div class="stat-box-label">vs. Debt service ($104M)</div><div class="stat-box-value gold">1.3x</div><div class="stat-box-sub">Approximately one year of debt service</div></div>
+        </div>
+        <div class="callout" style="margin-top:12px;"><strong>Reading:</strong> The city&rsquo;s GF-backed capital exposure in flood zones ($76M estimated) is roughly 0.7 times its unrestricted fund balance and 1.3 times its annual debt service. These ratios are not alarming on their own, but the key question is whether the policies governing reserve and rainy day fund expenditure contemplate capital loss in a hazard zone as a draw scenario &mdash; most reserve policies do not address this explicitly.</div>
+        <div class="callout callout-warn" style="margin-top:8px;"><strong>Limitation:</strong> Per-project funding source (GO vs. enterprise vs. grants) was not available from the public CIP dataset. The funding source split is assigned by fund only. A working session with capital planning would allow precise identification of which flood-zone projects are backed by the general fund vs. externally funded.</div>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Data used</div>
+        <div class="tag-grid">
+          <span class="tag tag-source">Exercise 1 outputs — tier 2+3 project list and amounts</span>
+          <span class="tag tag-source">FY25 adopted budget — debt service ($103.7M)</span>
+          <span class="tag tag-source">Norfolk FY24 ACFR — unrestricted GF balance (estimated $185M)</span>
+        </div>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Coordination required</div>
+        <div class="tag-grid">
+          <span class="tag tag-coord">Finance office — ACFR for confirmed unrestricted fund balance</span>
+          <span class="tag tag-coord">Finance office — reserve and rainy day fund policy review</span>
+          <span class="tag tag-coord">Capital Planning — per-project funding source split</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Exercise 3 -->
+  <div class="exercise">
+    <div class="ex-header" onclick="toggleEx(this)">
+      <div class="ex-header-left">
+        <span class="ex-badge badge-ch2">Exercise 3</span>
+        <div>
+          <div class="ex-title">Mitigation Investment and Essential Facility Inventory</div>
+          <div class="ex-headline">What is the city investing in to reduce exposure? What essential facilities is it protecting?</div>
+        </div>
+      </div>
+      <span class="ex-chevron">&#9662;</span>
+    </div>
+    <div class="ex-body">
+
+      <div class="ex-section">
+        <div class="ex-section-label">Method</div>
+        <p>Flag each CIP project as MA (mitigation/adaptation), EF (essential facility), MA+EF (both), or unclassified. Sum each category. Identify the overlap (MA+EF). Note which essential facility projects sit in tier 2 or 3.</p>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Norfolk result</div>
+        <table class="result-table">
+          <thead><tr><th>Category</th><th class="num">Projects</th><th class="num">Five-year total</th><th class="num">Share of CIP</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tier-badge flag-ma">MA</span> Mitigation or adaptation</td><td class="num">37</td><td class="num">$570.6M</td><td class="num">39.9%</td></tr>
+            <tr><td><span class="tier-badge flag-ef">EF</span> Essential facility</td><td class="num">39</td><td class="num">$697.7M</td><td class="num">48.7%</td></tr>
+            <tr><td><span class="tier-badge flag-maef">MA+EF</span> Both (overlap)</td><td class="num">6</td><td class="num">$92.9M</td><td class="num">6.5%</td></tr>
+            <tr><td>EF projects in tier 2 or 3 (in flood zones)</td><td class="num">14</td><td class="num">$49.7M</td><td class="num">3.5%</td></tr>
+          </tbody>
+        </table>
+        <div class="callout callout-success" style="margin-top:12px;"><strong>The $350.5M CSRM project</strong> is the single most important mitigation investment in the CIP. It is classified MA and addresses flood hazard citywide. It does not appear in the spatial overlay (coded citywide) but is included in the MA subtotal. The MA+EF overlap of $92.9M — projects simultaneously doing mitigation work at essential facilities — is the strongest single number for credit narrative and grant application purposes.</div>
+        <p style="margin-top:12px;font-size:13px;color:var(--ink2);"><strong>MA+EF projects:</strong> Improve and Maintain the Zoo ($5.4M, Tier 2) &middot; Provide Matching Funds for Corps Beach Nourishment ($10M) &middot; Improve East Ocean View Drainage ($6M) &middot; J.T. West Wastewater &amp; Water Infrastructure ($3M combined) &middot; Upgrade Water Treatment Plants ($68.5M)</p>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Data used</div>
+        <div class="tag-grid">
+          <span class="tag tag-source">2C CIP layer — project names and descriptions</span>
+          <span class="tag tag-source">FY25 budget PDF — project descriptions for flag assignment</span>
+          <span class="tag tag-source">Exercise 1 outputs — exposure tiers for EF in hazard check</span>
+        </div>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Coordination required</div>
+        <div class="tag-grid">
+          <span class="tag tag-coord">Capital Planning — verify MA and EF flag assignments</span>
+          <span class="tag tag-coord">Emergency Management — LHMP mitigation action list for MA flag source</span>
+          <span class="tag tag-coord">Public Works / Utilities — confirm essential facility designation</span>
+        </div>
+        <div class="callout" style="margin-top:10px;">The MA and EF flags were assigned analytically from project names and descriptions. The working session with capital planning and emergency management is required to verify every flag — particularly to catch citywide mitigation programs that do not appear in the spatial overlay and to apply the LHMP mitigation action list as the authoritative source for the MA designation.</div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /ch2 -->
+
+<!-- ════════════════════════════════════════════════════════════
+     CHAPTER 3
+═════════════════════════════════════════════════════════════ -->
+<div id="ch3" class="ch-panel">
+  <div class="ch-intro">
+    <div class="ch-intro-text">
+      <h2>Chapter 3. City-Owned Land and Public Assets</h2>
+      <p>Every city holds a land portfolio accumulated over decades. The fiscal question is what the land is doing for the city and what its current configuration implies for the revenue base, operating cost, and environmental exposure. This chapter uses the city-owned parcel inventory from Section 2B.</p>
+      <p>Three exercises: a portfolio-level exposure snapshot by hazard tier, a revenue-and-exposure cross-sort, and a directional read on underused parcels. Norfolk's portfolio analysis is constrained by the absence of the fixed-asset subledger and lease revenue records — both internal documents.</p>
+    </div>
+    <div class="ch-context">
+      <strong>Input data</strong>
+      Section 2B city-owned parcel inventory — 2,101 parcels filtered from the assessor file by owner field. Hazard overlay from the same flood zone layers as 2A.
+      <br><br>
+      <strong>Key constraint</strong>
+      Assessor values are historical acquisition cost proxies, not replacement cost or market value. Revenue status requires internal lease records. Custody and current use requires departmental working sessions.
+    </div>
+  </div>
+
+  <!-- Exercise 1 -->
+  <div class="exercise">
+    <div class="ex-header open" onclick="toggleEx(this)">
+      <div class="ex-header-left">
+        <span class="ex-badge badge-ch3">Exercise 1</span>
+        <div>
+          <div class="ex-title">Where the Portfolio Sits in Relation to Hazards</div>
+          <div class="ex-headline">What share of the city-owned land portfolio sits inside each mapped hazard tier?</div>
+        </div>
+      </div>
+      <span class="ex-chevron">&#9662;</span>
+    </div>
+    <div class="ex-body open">
+
+      <div class="ex-section">
+        <div class="ex-section-label">Method</div>
+        <p>Sum parcel count, acreage, and assessed value for each hazard tier. Express as a share of the total city-owned portfolio. Break out improved parcels (those carrying buildings) within each tier. Express the portfolio acreage as a share of citywide total land area.</p>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Norfolk result</div>
+        <div class="stat-row">
+          <div class="stat-box"><div class="stat-box-label">Total city-owned parcels</div><div class="stat-box-value">2,101</div><div class="stat-box-sub">5.1% of city land area (4,882 of 96,000 acres)</div></div>
+          <div class="stat-box"><div class="stat-box-label">In any flood zone</div><div class="stat-box-value red">1,212</div><div class="stat-box-sub">58% of parcels; 81.4% of AV</div></div>
+          <div class="stat-box"><div class="stat-box-label">AV in flood zones</div><div class="stat-box-value red">$3.74B</div><div class="stat-box-sub">Of $4.6B total city-owned AV</div></div>
+          <div class="stat-box"><div class="stat-box-label">Improved in flood zones</div><div class="stat-box-value red">276</div><div class="stat-box-sub">Buildings in hazard zones: $2.68B improvement value</div></div>
+        </div>
+        <table class="result-table" style="margin-top:12px;">
+          <thead><tr><th>Hazard tier</th><th class="num">Parcels</th><th class="num">Acreage</th><th class="num">Assessed value</th><th class="num">Share of portfolio</th><th>Dominant owner</th><th class="num">Improved (count / AV)</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tier-badge tier-0">0 — None</span></td><td class="num">889</td><td class="num">1,035</td><td class="num">$858M</td><td class="num">18.6%</td><td>City of Norfolk</td><td class="num">149 / $439M</td></tr>
+            <tr><td><span class="tier-badge tier-2">2 — Moderate</span> (500-yr)</td><td class="num">388</td><td class="num">578</td><td class="num">$609M</td><td class="num">13.2%</td><td>City of Norfolk</td><td class="num">68 / $424M</td></tr>
+            <tr><td><span class="tier-badge tier-3">3 — High</span> (100yr SFHA/VE)</td><td class="num">824</td><td class="num">3,269</td><td class="num">$3,132M</td><td class="num">68.1%</td><td>City + Airport</td><td class="num">208 / $2,251M</td></tr>
+            <tr><td>Any hazard (unduplicated)</td><td class="num">1,212</td><td class="num">3,848</td><td class="num">$3,741M</td><td class="num">81.4%</td><td>Mixed</td><td class="num">276 / $2,675M</td></tr>
+          </tbody>
+        </table>
+        <div class="callout callout-warn" style="margin-top:12px;"><strong>The tier 3 figure ($3.1B) is dominated by the Norfolk Airport Authority.</strong> The airport is a large-acreage, high-value holding in the coastal flood zone. Separating airport authority assets from direct city general fund assets would produce a different and more operationally relevant picture of the city&rsquo;s own exposure. This separation requires the departmental custody working session.</div>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Data used</div>
+        <div class="tag-grid">
+          <span class="tag tag-source">2B city-owned parcel inventory (2,101 rows)</span>
+          <span class="tag tag-source">Norfolk FIRM flood zones — same as 2A</span>
+          <span class="tag tag-source">Assessor improvement values — proxy for building carrying value</span>
+        </div>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Coordination required</div>
+        <div class="tag-grid">
+          <span class="tag tag-coord">Finance office — fixed-asset subledger for true carrying values</span>
+          <span class="tag tag-coord">Real Estate / Parks / Public Works — custody by department</span>
+          <span class="tag tag-coord">Airport Authority — separate enterprise asset schedule</span>
+          <span class="tag tag-missing">Fixed-asset subledger not in public data — assessor AV is a proxy only</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Exercise 2 -->
+  <div class="exercise">
+    <div class="ex-header" onclick="toggleEx(this)">
+      <div class="ex-header-left">
+        <span class="ex-badge badge-ch3">Exercise 2</span>
+        <div>
+          <div class="ex-title">Revenue and Hazard Exposure Across the Portfolio</div>
+          <div class="ex-headline">Which parcels generate revenue, which do not, and how does each intersect with hazard exposure?</div>
+        </div>
+      </div>
+      <span class="ex-chevron">&#9662;</span>
+    </div>
+    <div class="ex-body">
+
+      <div class="ex-section">
+        <div class="ex-section-label">Method</div>
+        <p>Sort each parcel into one of four cells: REV in hazard zone, REV outside hazard zone, NO-REV in hazard zone, NO-REV outside hazard zone. Sum parcel count, land carrying value, and annual revenue within each cell.</p>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Norfolk result</div>
+        <div class="callout callout-warn"><strong>Revenue status not available from public data.</strong> The assessor file does not carry lease income, ground rent, or concession fee information. Revenue status (REV vs. NO-REV) requires the finance office&rsquo;s internal lease and revenue records, which are not publicly available. This exercise cannot be completed from the public data alone.</div>
+        <p style="margin-top:12px;font-size:13px;color:var(--ink2);">Based on what the public data does show: 1,212 of the city&rsquo;s parcels in flood zones carry no public revenue attribution. The NO-REV / in-hazard cell — the city holding hazard-exposed land with no corresponding revenue stream — represents the largest fiscal optionality question. It cannot be quantified without the internal records, but the parcels themselves are identified in the 2B dataset.</p>
+        <table class="result-table" style="margin-top:12px;">
+          <thead><tr><th>Cell</th><th class="num">Parcels</th><th class="num">Assessed value</th><th class="num">Annual revenue</th></tr></thead>
+          <tbody>
+            <tr><td>REV — in any hazard zone</td><td class="num"><em>Unknown</em></td><td class="num"><em>Unknown</em></td><td class="num"><em>Requires internal records</em></td></tr>
+            <tr><td>REV — no hazard exposure</td><td class="num"><em>Unknown</em></td><td class="num"><em>Unknown</em></td><td class="num"><em>Requires internal records</em></td></tr>
+            <tr><td>NO-REV — in any hazard zone</td><td class="num">Up to 1,212</td><td class="num">Up to $3.74B</td><td class="num">—</td></tr>
+            <tr><td>NO-REV — no hazard exposure</td><td class="num">Up to 889</td><td class="num">Up to $858M</td><td class="num">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Data required (not available publicly)</div>
+        <div class="tag-grid">
+          <span class="tag tag-missing">Lease revenue records by parcel — Finance office</span>
+          <span class="tag tag-missing">Ground rent and concession fee records — Real Estate</span>
+          <span class="tag tag-missing">Revenue status by enterprise fund holding — Utilities, Airport, Parking</span>
+        </div>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Coordination required</div>
+        <div class="tag-grid">
+          <span class="tag tag-coord">Finance office — lease and revenue records joined to parcel ID</span>
+          <span class="tag tag-coord">Real Estate — ground lease and concession inventory</span>
+          <span class="tag tag-coord">Enterprise funds — revenue by parcel for airport, parking, utilities</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Exercise 3 -->
+  <div class="exercise">
+    <div class="ex-header" onclick="toggleEx(this)">
+      <div class="ex-header-left">
+        <span class="ex-badge badge-ch3">Exercise 3</span>
+        <div>
+          <div class="ex-title">Where Underused Parcels Sit Relative to Hazards</div>
+          <div class="ex-headline">Of vacant, tax-foreclosed, legacy, and held-for-development parcels, where do they sit and what can be built on them?</div>
+        </div>
+      </div>
+      <span class="ex-chevron">&#9662;</span>
+    </div>
+    <div class="ex-body">
+
+      <div class="ex-section">
+        <div class="ex-section-label">Method</div>
+        <p>Filter the city-owned inventory to parcels coded VAC, TXF, LEG, or HFD (underused). Distribute by hazard tier. Note the dominant zoning category for each tier and flag overlay district concentrations.</p>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Norfolk result</div>
+        <div class="callout callout-warn"><strong>Two constraints limit this exercise for Norfolk.</strong> First, current use codes (VAC, TXF, LEG, HFD) are not in the public assessor extract — they require departmental custody records. Second, the zoning layer has not been joined to the 2B parcel file. Both gaps require working sessions.</div>
+        <p style="margin-top:12px;font-size:13px;color:var(--ink2);">Using property type as a proxy: parcels classified as &ldquo;Vacant Land&rdquo; in the assessor data number approximately 345 in the city-owned set, of which a significant share are in mapped flood zones based on the tier distribution above. The zoning layer is available from Norfolk GIS and would complete this exercise once joined.</p>
+        <table class="result-table" style="margin-top:12px;">
+          <thead><tr><th>Tier</th><th class="num">Approx. vacant parcels</th><th class="num">Share of underused</th><th>Dominant zoning</th><th>Overlay districts</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tier-badge tier-0">0 — None</span></td><td class="num">~100</td><td class="num">~29%</td><td><em>Requires zoning join</em></td><td><em>Not yet available</em></td></tr>
+            <tr><td><span class="tier-badge tier-2">2 — Moderate</span></td><td class="num">~70</td><td class="num">~20%</td><td><em>Requires zoning join</em></td><td><em>Not yet available</em></td></tr>
+            <tr><td><span class="tier-badge tier-3">3 — High</span></td><td class="num">~175</td><td class="num">~51%</td><td><em>Requires zoning join</em></td><td><em>Not yet available</em></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Data required to complete</div>
+        <div class="tag-grid">
+          <span class="tag tag-missing">Current use codes (VAC/TXF/LEG/HFD) — Real Estate / departmental records</span>
+          <span class="tag tag-missing">Zoning layer — available from Norfolk GIS, not yet joined</span>
+          <span class="tag tag-source">Zoning available: norfolkgisdata-orf.opendata.arcgis.com</span>
+        </div>
+      </div>
+
+      <div class="ex-section">
+        <div class="ex-section-label">Coordination required</div>
+        <div class="tag-grid">
+          <span class="tag tag-coord">Real Estate — current use classification for each parcel</span>
+          <span class="tag tag-coord">GIS / Planning — zoning layer join to 2B parcel file</span>
+          <span class="tag tag-coord">Planning — overlay district identification</span>
+        </div>
+        <div class="callout" style="margin-top:10px;">This is the only exercise in Chapter 3 where the output is explicitly descriptive rather than prescriptive. The city is not being told what to do with underused parcels. The exercise produces a quantified inventory of where the city has the most flexibility relative to hazard exposure — the input to a conversation between finance, planning, real estate, and economic development.</div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /ch3 -->
+
+</main>
+
+
+
+<script>
+function showChapter(id, btn) {
+  document.querySelectorAll('.ch-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.ch-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function toggleEx(header) {
+  header.classList.toggle('open');
+  header.nextElementSibling.classList.toggle('open');
+}
+</script>
+
+<footer style="background:#0e1a2b;padding:28px 80px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.08);">
+  <div style="font-family:'Lato Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);">CFO Guide &mdash; Land Hazards &amp; Fiscal Planning &nbsp;|&nbsp; Norfolk Test Case &nbsp;|&nbsp; FY2025</div>
+  <div style="font-size:12px;color:rgba(255,255,255,.3);">All figures are analytical estimates from publicly available data.</div>
+</footer>
+</div>
+
+<!-- ── SCRIPTS ── -->
+<script id="data-store">
+
+</script>
+
+<script>
+// ── Page navigation ─────────────────────────────────────────────────────────
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// ── Landing page internal buttons ────────────────────────────────────────────
+function goToData() { 
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-data').classList.add('active');
+  document.querySelectorAll('.nav-btn')[1].classList.add('active');
+  window.scrollTo({top:0});
+}
+function goToMethods() {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-methods').classList.add('active');
+  document.querySelectorAll('.nav-btn')[2].classList.add('active');
+  window.scrollTo({top:0});
+}
+
+// ── Data Assembly tab/accordion functions ────────────────────────────────────
+function switchTab(id, btn) {
+  document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+  document.getElementById("panel-" + id).classList.add("active");
+  btn.classList.add("active");
+}
+function toggleBlock(h) {
+  h.classList.toggle("open");
+  h.nextElementSibling.classList.toggle("open");
+}
+
+// ── Downloads ────────────────────────────────────────────────────────────────
+async function decompress(b64) {
+  const bytes = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+  const ds = new DecompressionStream('gzip');
+  const w = ds.writable.getWriter(); w.write(bytes); w.close();
+  const out = []; const r = ds.readable.getReader();
+  while(true) { const {done,value} = await r.read(); if(done) break; out.push(value); }
+  const all = new Uint8Array(out.reduce((a,b)=>a+b.length,0));
+  let o=0; for(const c of out){all.set(c,o);o+=c.length;}
+  return new TextDecoder().decode(all);
+}
+async function dl(b64,name) {
+  const csv = await decompress(b64);
+  const blob = new Blob([csv],{type:'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href=url; a.download=name;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+function download2A(){dl(_2A,'norfolk_2A_parcel_flood_exposure.csv');}
+function download2B(){dl(_2B,'norfolk_2B_city_owned_parcels.csv');}
+function download2C(){dl(_2C,'norfolk_2C_cip_flood_overlay.csv');}
+
+// ── Methodology functions ────────────────────────────────────────────────────
+function showChapter(id, btn) {
+  document.querySelectorAll('.ch-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.ch-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEx(header) {
+  header.classList.toggle('open');
+  header.nextElementSibling.classList.toggle('open');
+}
+</script>
+</body>
+</html>
