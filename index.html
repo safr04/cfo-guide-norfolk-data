@@ -305,6 +305,28 @@ hr.ex-divider { border: none; border-top: 1px solid #c8c0b0; margin: 24px 0; }
   .nav-brand { display: none; }
   main { padding: 28px 24px 60px; }
 }
+
+/* ── DATA ASSEMBLY HERO (compact banner) ── */
+.da-hero { background: #0e1a2b; padding: 24px 32px 20px; }
+.da-hero-inner { max-width: 1100px; margin: 0 auto; }
+.da-hero .hero-eyebrow { font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: #b8962e; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.da-hero .hero-eyebrow::before { display: none; }
+.da-hero .hero-heading { font-family: 'Playfair Display', serif; font-size: 28px; color: #fff; font-weight: 400; margin-bottom: 8px; }
+.da-hero .hero-sub { font-family: 'Lato', sans-serif; color: rgba(255,255,255,.6); font-size: 14px; max-width: 700px; line-height: 1.65; margin-bottom: 14px; }
+.da-hero .hero-meta { display: flex; gap: 24px; flex-wrap: wrap; }
+.da-hero .meta-label { font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 2px; }
+.da-hero .meta-value { font-family: 'Lato', sans-serif; font-size: 13px; color: rgba(255,255,255,.75); font-weight: 500; }
+
+/* ── METHODOLOGY HERO (compact banner) ── */
+.meth-hero { background: #0e1a2b; padding: 24px 80px 20px; }
+.meth-hero .hero-eyebrow { font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: #b8962e; margin-bottom: 10px; }
+.meth-hero h1 { font-family: 'Playfair Display', serif; font-size: 28px; color: #fff; font-weight: 400; margin-bottom: 8px; }
+.meth-hero p { font-family: 'Lato', sans-serif; color: rgba(255,255,255,.6); font-size: 14px; max-width: 700px; line-height: 1.65; }
+
+/* Fix tab-nav sticky top */
+.tab-nav { top: 52px !important; }
+.chapter-nav { top: 52px !important; }
+
 </style>
 </head>
 <body>
@@ -521,8 +543,8 @@ hr.ex-divider { border: none; border-top: 1px solid #c8c0b0; margin: 24px 0; }
 
 <!-- PAGE 2: DATA ASSEMBLY -->
 <div id="page-data" class="page">
-<div class="hero">
-  <div class="hero-inner">
+<div class="da-hero">
+  <div class="da-hero-inner">
     <div class="hero-eyebrow">Part 2</div>
     <h1 class="hero-heading">Data Assembly</h1>
     <p class="hero-sub">Three parallel data tracks built from data the city already holds or can pull from a federal or third-party source. Each track produces a spreadsheet and companion map that feed into the four methodology chapters in Part 3.</p>
@@ -532,6 +554,7 @@ hr.ex-divider { border: none; border-top: 1px solid #c8c0b0; margin: 24px 0; }
       <div class="meta-item"><span class="meta-label">Purpose</span><span class="meta-value">Methodology test run</span></div>
     </div>
   </div>
+</div>
 </div>
 
 <div class="tab-nav">
@@ -899,7 +922,7 @@ hr.ex-divider { border: none; border-top: 1px solid #c8c0b0; margin: 24px 0; }
 
 <!-- PAGE 3: METHODOLOGIES -->
 <div id="page-methods" class="page">
-<div class="page-hero">
+<div class="meth-hero">
   <div class="hero-eyebrow">Norfolk, VA &middot; FY2025 &middot; Section 3</div>
   <h1 class="hero-heading">Methodologies</h1>
   <p class="hero-sub">All nine exercises from Chapters 1, 2, and 3 completed with Norfolk data. Each exercise shows the method, the Norfolk result, the data used, the level of government coordination required, and what the public data cannot produce.</p>
