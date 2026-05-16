@@ -368,6 +368,24 @@ hr.ex-divider { border: none; border-top: 1px solid #c8c0b0; margin: 24px 0; }
 /* Prevent landing .hero grid from applying to da-hero */
 .da-hero { display: block !important; grid-template-columns: none !important; }
 
+
+/* ── DATA ASSEMBLY BANNER ── */
+.da-hero { background: #0e1a2b; padding: 20px 32px 16px; }
+.da-inner { max-width: 1100px; margin: 0 auto; }
+.da-eyebrow { font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #b8962e; margin-bottom: 6px; }
+.da-heading { font-family: 'Playfair Display', serif; font-size: 26px; color: #fff; font-weight: 400; margin-bottom: 6px; }
+.da-sub { font-family: 'Lato', sans-serif; font-size: 13px; color: rgba(255,255,255,.6); max-width: 700px; line-height: 1.6; margin-bottom: 12px; }
+.da-meta { display: flex; gap: 24px; flex-wrap: wrap; }
+.da-meta-item { display: flex; gap: 6px; align-items: baseline; }
+.da-meta-label { font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.35); }
+.da-meta-value { font-family: 'Lato', sans-serif; font-size: 12px; color: rgba(255,255,255,.65); font-weight: 500; }
+
+/* ── METHODOLOGY BANNER ── */
+.meth-hero { background: #0e1a2b; padding: 20px 80px 16px; }
+.meth-eyebrow { font-family: 'Lato Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #b8962e; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+.meth-heading { font-family: 'Playfair Display', serif; font-size: 26px; color: #fff; font-weight: 400; margin-bottom: 6px; }
+.meth-sub { font-family: 'Lato', sans-serif; font-size: 13px; color: rgba(255,255,255,.6); max-width: 700px; line-height: 1.6; }
+
 </style>
 </head>
 <body>
@@ -586,13 +604,13 @@ hr.ex-divider { border: none; border-top: 1px solid #c8c0b0; margin: 24px 0; }
 <div id="page-data" class="page">
 <div class="da-hero">
   <div class="da-hero-inner">
-    <div class="hero-eyebrow">Part 2</div>
-    <h1 class="hero-heading">Data Assembly</h1>
-    <p class="hero-sub">Three parallel data tracks built from data the city already holds or can pull from a federal or third-party source. Each track produces a spreadsheet and companion map that feed into the four methodology chapters in Part 3.</p>
-    <div class="hero-meta">
-      <div class="meta-item"><span class="meta-label">City</span><span class="meta-value">Norfolk, Virginia</span></div>
-      <div class="meta-item"><span class="meta-label">Data vintage</span><span class="meta-value">FY2025 / FY2026</span></div>
-      <div class="meta-item"><span class="meta-label">Purpose</span><span class="meta-value">Methodology test run</span></div>
+    <div class="da-eyebrow">Part 2</div>
+    <h1 class="da-heading">Data Assembly</h1>
+    <p class="da-sub">Three parallel data tracks built from data the city already holds or can pull from a federal or third-party source. Each track produces a spreadsheet and companion map that feed into the four methodology chapters in Part 3.</p>
+    <div class="da-meta">
+      <div class="da-meta-item"><span class="da-meta-label">City</span><span class="da-meta-value">Norfolk, Virginia</span></div>
+      <div class="da-meta-item"><span class="da-meta-label">Data vintage</span><span class="da-meta-value">FY2025 / FY2026</span></div>
+      <div class="da-meta-item"><span class="da-meta-label">Purpose</span><span class="da-meta-value">Methodology test run</span></div>
     </div>
   </div>
 </div>
@@ -964,9 +982,9 @@ hr.ex-divider { border: none; border-top: 1px solid #c8c0b0; margin: 24px 0; }
 <!-- PAGE 3: METHODOLOGIES -->
 <div id="page-methods" class="page">
 <div class="meth-hero">
-  <div class="hero-eyebrow">Norfolk, VA &middot; FY2025 &middot; Section 3</div>
-  <h1 class="hero-heading">Methodologies</h1>
-  <p class="hero-sub">All nine exercises from Chapters 1, 2, and 3 completed with Norfolk data. Each exercise shows the method, the Norfolk result, the data used, the level of government coordination required, and what the public data cannot produce.</p>
+  <div class="meth-eyebrow">Norfolk, VA &middot; FY2025 &middot; Section 3</div>
+  <h1 class="meth-heading">Methodologies</h1>
+  <p class="meth-sub">All nine exercises from Chapters 1, 2, and 3 completed with Norfolk data. Each exercise shows the method, the Norfolk result, the data used, the level of government coordination required, and what the public data cannot produce.</p>
 </div>
 
 <div class="chapter-nav">
