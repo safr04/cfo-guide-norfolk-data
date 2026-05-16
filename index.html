@@ -1856,27 +1856,21 @@ function toggleBlock(h) {
 }
 
 // ── Downloads ────────────────────────────────────────────────────────────────
-async function decompress(b64) {
-  const bytes = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
-  const ds = new DecompressionStream('gzip');
-  const w = ds.writable.getWriter(); w.write(bytes); w.close();
-  const out = []; const r = ds.readable.getReader();
-  while(true) { const {done,value} = await r.read(); if(done) break; out.push(value); }
-  const all = new Uint8Array(out.reduce((a,b)=>a+b.length,0));
-  let o=0; for(const c of out){all.set(c,o);o+=c.length;}
-  return new TextDecoder().decode(all);
+async function dlFromGitHub(url, filename) {
+  const btn = [...document.querySelectorAll('.download-btn')].find(b => b.onclick && b.onclick.toString().includes(filename.split('_')[1]));
+  try {
+    const r = await fetch(url);
+    const blob = await r.blob();
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  } catch(e) { alert('Download failed: ' + e.message); }
 }
-async function dl(b64,name) {
-  const csv = await decompress(b64);
-  const blob = new Blob([csv],{type:'text/csv;charset=utf-8;'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a'); a.href=url; a.download=name;
-  document.body.appendChild(a); a.click(); document.body.removeChild(a);
-  setTimeout(()=>URL.revokeObjectURL(url),1000);
-}
-function download2A(){dl(_2A,'norfolk_2A_parcel_flood_exposure.csv');}
-function download2B(){dl(_2B,'norfolk_2B_city_owned_parcels.csv');}
-function download2C(){dl(_2C,'norfolk_2C_cip_flood_overlay.csv');}
+function download2A(){ dlFromGitHub('https://raw.githubusercontent.com/safr04/cfo-guide-norfolk-data/main/norfolk_2A_parcel_file.csv','norfolk_2A_parcel_file.csv'); }
+function download2B(){ dlFromGitHub('https://raw.githubusercontent.com/safr04/cfo-guide-norfolk-data/main/norfolk_2B_city_land.csv','norfolk_2B_city_owned_parcels.csv'); }
+function download2C(){ dlFromGitHub('https://raw.githubusercontent.com/safr04/cfo-guide-norfolk-data/main/norfolk_2C_cip.csv','norfolk_2C_cip_flood_overlay.csv'); }
 
 // ── Methodology functions ────────────────────────────────────────────────────
 function showChapter(id, btn) {
